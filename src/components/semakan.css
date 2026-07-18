@@ -1,0 +1,157 @@
+.semakan {
+  max-width: 640px;
+  margin-inline: auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid oklch(0.9 0.01 265);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  scroll-margin-top: 90px;
+}
+
+.semakan__head {
+  background: var(--navy-900);
+  color: var(--on-navy);
+  padding: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+.semakan__title {
+  color: var(--on-navy);
+  font-size: var(--text-xl);
+}
+
+.semakan__support {
+  margin-top: 0.6rem;
+  color: var(--on-navy-soft);
+  font-size: 0.95rem;
+}
+
+.semakan__time {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-300);
+}
+
+.semakan__progress {
+  padding: 1rem clamp(1.5rem, 4vw, 2.2rem) 0;
+}
+
+.semakan__progresslabel {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.semakan__progresslabel strong {
+  color: var(--navy-900);
+}
+
+.semakan__bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--navy-100);
+  overflow: hidden;
+}
+
+.semakan__fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--gold-500);
+  transition: width var(--dur) var(--ease-out);
+}
+
+.semakan__body {
+  padding: clamp(1.25rem, 4vw, 2.2rem);
+}
+
+.semakan__fieldset {
+  border: none;
+}
+
+.semakan__question {
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--navy-900);
+  margin-bottom: 0.9rem;
+}
+
+.semakan__note {
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+
+.semakan__hint {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+
+.semakan__consent {
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid oklch(0.92 0.01 265);
+}
+
+.semakan__consent h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  margin-bottom: 0.7rem;
+}
+
+.semakan__consentrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.45rem 0;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.semakan__consentrow input {
+  margin-top: 0.25rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--navy-900);
+  flex-shrink: 0;
+}
+
+.semakan__privacylink {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy-700);
+}
+
+.semakan__errorbar {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  background: var(--red-100);
+  color: var(--red-600);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.semakan__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+}
+
+.semakan__next {
+  margin-left: auto;
+}
+
+@media (max-width: 480px) {
+  .semakan__nav {
+    flex-direction: column-reverse;
+  }
+
+  .semakan__nav .btn {
+    width: 100%;
+  }
+}

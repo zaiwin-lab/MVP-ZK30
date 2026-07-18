@@ -1,0 +1,106 @@
+.pathhero {
+  background:
+    radial-gradient(70rem 30rem at 90% -10%, oklch(0.32 0.08 265 / 0.8), transparent 60%),
+    var(--navy-900);
+  color: var(--on-navy);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.pathhero__level {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-300);
+}
+
+.pathhero__name {
+  margin-top: 0.8rem;
+  font-size: var(--text-3xl);
+  color: var(--on-navy);
+  max-width: 22ch;
+}
+
+.pathhero__official {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--on-navy-soft);
+}
+
+.pathhero__noss {
+  font-weight: 600;
+}
+
+.pathhero__msg {
+  margin-top: 1.4rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--gold-300);
+  max-width: 48ch;
+  line-height: 1.55;
+}
+
+.pathhero__ctas {
+  margin-top: 2rem;
+}
+
+.pathdetail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.pathdetail__for {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pathdetail__for li {
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: var(--navy-50);
+  color: var(--navy-900);
+}
+
+.pathdetail__steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.pathdetail__steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 500;
+}
+
+.pathdetail__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--navy-900);
+  color: var(--gold-300);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pathdetail__compliance {
+  margin-top: 1.6rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  background: var(--ivory);
+  border: 1px solid oklch(0.9 0.02 85);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}

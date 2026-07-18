@@ -1,0 +1,156 @@
+/* Floating tools choreography (spec Q):
+   Digital Officer bottom-left · WhatsApp bottom-right · sticky CTA
+   bottom-center (mobile only). Mutually exclusive safe areas. */
+
+.float {
+  position: fixed;
+  bottom: max(1.1rem, env(safe-area-inset-bottom));
+  z-index: var(--z-float);
+}
+
+.float--left {
+  left: 1.1rem;
+}
+
+.float--right {
+  right: 1.1rem;
+}
+
+.floatbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-2);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.floatbtn:hover {
+  transform: translateY(-3px);
+}
+
+.floatbtn--wa {
+  background: #23a455;
+  color: #fff;
+}
+
+.floatbtn--officer {
+  background: var(--white);
+  color: var(--navy-900);
+  border: 1.5px solid oklch(0.88 0.01 265);
+}
+
+/* Digital Officer panel */
+.officer {
+  position: absolute;
+  bottom: 64px;
+  left: 0;
+  width: min(340px, calc(100vw - 2.2rem));
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  border: 1px solid oklch(0.92 0.01 265);
+  overflow: hidden;
+}
+
+.officer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--navy-900);
+  color: var(--on-navy);
+  padding: 0.7rem 1rem;
+}
+
+.officer__close {
+  color: var(--on-navy);
+  font-size: 1rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+}
+
+.officer__close:hover {
+  background: oklch(1 0 0 / 0.12);
+}
+
+.officer__body {
+  padding: 0.9rem 1rem 1.1rem;
+  max-height: min(55vh, 430px);
+  overflow-y: auto;
+}
+
+.officer__intro {
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.officer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.officer__q {
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.8rem;
+  border-radius: 9px;
+  border: 1px solid oklch(0.88 0.01 265);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-900);
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+.officer__q:hover,
+.officer__q--open {
+  background: var(--navy-50);
+  border-color: var(--navy-700);
+}
+
+.officer__a {
+  font-size: 0.86rem;
+  padding: 0.55rem 0.8rem 0.25rem;
+  color: var(--ink);
+}
+
+.officer__note {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.8rem;
+}
+
+.officer__wa {
+  margin-top: 0.7rem;
+  width: 100%;
+}
+
+/* Sticky mobile CTA (spec O) */
+.stickycta {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .stickycta {
+    display: block;
+    position: fixed;
+    bottom: max(1.1rem, env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-sticky);
+    /* Center strip between the two floating bubbles: 52px + gap each side */
+    width: calc(100vw - 2 * (1.1rem + 52px + 0.75rem));
+    max-width: 300px;
+  }
+
+  .stickycta__btn {
+    width: 100%;
+    min-height: 52px;
+    font-size: 1rem;
+    padding-inline: 0.5rem;
+    box-shadow: var(--shadow-2);
+  }
+}

@@ -1,0 +1,510 @@
+import type { Dict } from './index'
+
+/**
+ * Jaku Iban
+ * ─────────────────────────────────────────────────────────────
+ * MARKED FOR HUMAN VERIFICATION (spec section N).
+ * Best-effort Iban translations are provided for navigation,
+ * headlines and interface labels. Official, legal and compliance
+ * wording is deliberately KEPT IN BAHASA MALAYSIA until a
+ * verified Iban translation is approved — inventing unreliable
+ * official translations is prohibited by the build specification.
+ * Every string below is editable.
+ * ─────────────────────────────────────────────────────────────
+ */
+export const iban: Dict = {
+  meta: {
+    verificationNotice:
+      'Salin jaku Iban benung nganti pengesah. Sekeda isi agi dipandangka dalam Bahasa Malaysia.',
+  },
+  nav: {
+    home: 'Lambar Keterubah',
+    pathways: 'Dua Jalai',
+    journey: 'Pejalai Nuan',
+    coach: 'Coach Roszie & Team',
+    faq: 'Tanya Suah Ditanya',
+    participantLogin: 'Log Masuk Peserta',
+    cta: 'Pansik Penau Aku',
+    menu: 'Menu',
+    close: 'Tutup',
+  },
+  hero: {
+    eyebrow: 'Program Khas Ke Sida Bedagang & Tuai Gerempung',
+    headline1: 'Udah Bertaun-taun Ngumpul Penemu Enggau Pengalaman?',
+    headline2: 'Diatu Maya Nuan Bulih Diploma.',
+    support:
+      'Jalai khas ke sida ke bedagang sereta tuai NGO, koperasi enggau gerempung bukai ti deka mai pengalaman sida ngagai tikas kelulusan ti tinggi agi, enda ninggalka pengawa, dagang tauka tanggungpengawa diatu.',
+    ctaPrimary: 'Pansik Penau Aku',
+    ctaSecondary: 'Peda Dua Jalai Diploma',
+    ctaMicrocopy: 'Pemansik keterubah nitihka pengalaman, latar enggau penyedia nuan.',
+    trust:
+      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+  },
+  experience: {
+    title: 'Pengalaman Nuan Patut Mansang Jauh Agi',
+    intro:
+      'Mayuh sida bedagang enggau tuai gerempung udah bertaun-taun ngaga asil ti amat. Ti nadai semina kelulusan ti ngiktiraf iya.',
+    items: [
+      'Bertaun-taun bisi pengalaman, tang kelulusan agi ba tikas SPM.',
+      'Nirika dagang ari pengalaman ti amat.',
+      'Udah nyadi tuai gerempung, jawatankuasa tauka projek.',
+      'Deka ngemansangka pengarap diri.',
+      'Deka penuduk profesional ti manah agi.',
+      'Deka kelulusan tinggi agi enda ninggalka tanggungpengawa diatu.',
+    ],
+  },
+  pathways: {
+    title: 'Pilih Jalai Nuan',
+    intro: 'Dua jalai Diploma. Siti ke sida bedagang, siti ke tuai gerempung.',
+    card1: {
+      name: 'Diploma Kemahiran Keusahawanan',
+      levelNote: 'Tuju ofisial: Diploma Kemahiran Malaysia — Tahap 4',
+      for: ['Empu dagang', 'Sida bedagang', 'Pengurus dagang'],
+      forTitle: 'Ngena ke:',
+      message:
+        'Nuan udah bertaun-taun nirika dagang. Diatu tau maya ngeringka pengalaman nya enggau kelulusan ti tinggi agi.',
+      cta: 'Peda Jalai Keusahawanan',
+    },
+    card2: {
+      name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
+      levelNote: 'Tuju ofisial: Diploma Lanjutan Kemahiran Malaysia — Tahap 5',
+      for: [
+        'Tuai NGO',
+        'Tuai koperasi',
+        'Tuai persatuan',
+        'Perunding',
+        'Pentadbir gerempung',
+        'Eksekutif kanan',
+      ],
+      forTitle: 'Ngena ke:',
+      message:
+        'Nuan udah nyadi tuai ke orang, projek enggau gerempung. Diatu mai pengalaman nuan ngagai tikas ti tinggi agi.',
+      cta: 'Peda Jalai Kepimpinan',
+    },
+  },
+  outcomes: {
+    title: 'Nama Ulih Berubah Ke Nuan?',
+    note: 'Genap pejalai enda sebaka. Asil bepanggai ba latar, komitmen enggau chara penilai.',
+    items: [
+      { title: 'Pengarap profesional', body: 'Ulih ngeringka pengarap diri ba pengawa nuan.' },
+      { title: 'Kredibiliti', body: 'Ulih nyukung kredibiliti nuan ba mata pelanggan enggau kaban.' },
+      { title: 'Penuduk diri', body: 'Nulung ngemanahka penuduk profesional nuan.' },
+      { title: 'Penuduk tuai', body: 'Ulih ngeringka penuduk nuan dalam gerempung.' },
+      { title: 'Jalai kelulusan', body: 'Nyediaka jalai pemansang kelulusan ti formal.' },
+      { title: 'Peluang ila', body: 'Muka peluang baru ke pagila nuan.' },
+      { title: 'Pengaga ati', body: 'Pengaga ati diri empu enggau ruang bilik.' },
+    ],
+  },
+  coach: {
+    title: 'You Bring the Experience. We Guide the Journey.',
+    subtitle: 'Coach Roszie & Team SPM2Diploma',
+    roles: ['Operating Partner', 'Lead Trainer', 'Penemuai peserta'],
+    teamNote: 'Team SPM2Diploma di baruh KOBIS Berhad',
+    trust:
+      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trustMs:
+      'Nuan enda ibuh bejalai kediri. Coach Roszie enggau Team SPM2Diploma di baruh KOBIS Berhad deka nulung, meri ajar sereta bejalai enggau nuan ari pemansik keterubah datai ke nuan sedia napi chara penilai.',
+    photoPlaceholder: 'Gambar ofisial Coach Roszie',
+    videoPlaceholder: 'Video pengenal (deka diudah)',
+  },
+  suitability: {
+    title: 'Kati Pejalai Tu Ngena Ke Nuan?',
+    statement:
+      '[BM — nganti terjemahan Iban disahka] Program ini bukan jalan pintas mendapatkan Diploma. Ia merupakan perjalanan dibimbing yang memerlukan pengalaman sebenar, komitmen dan proses penilaian.',
+    items: [
+      'Bisi pengalaman amat ti bekaul',
+      'Serius deka bulih kelulusan tinggi agi',
+      'Sedia nyendiaka bukti pengalaman',
+      'Ulih komited ngagai ajar enggau penilai',
+      'Sabar enggau chara ti betul',
+      'Sedia ari sukut wang',
+      'Deka diberi ajar, ukai jalai pintas',
+    ],
+  },
+  journey: {
+    title: 'Pejalai Nuan Enggau Kami',
+    intro: 'Lapan pengelangkah ti terang, diberi ajar ari pun datai ke ujung.',
+    steps: [
+      { title: 'Pansik Penau', body: 'Padahka pengalaman enggau latar nuan.' },
+      { title: 'Team Mansik Profil Nuan', body: 'Coach Roszie enggau team nilai jalai ti ngena.' },
+      { title: 'Berandau Pasal Jalai Ti Ngena', body: 'Randau kediri pasal jalai nuan.' },
+      { title: 'Tembuka Pendaftar', body: 'Tembuka pendaftar program ti ofisial.' },
+      { title: 'Enggau Latih & Ajar', body: 'Latih enggau ajar enggau team.' },
+      { title: 'Sediaka Portfolio & Bukti', body: 'Gaga portfolio enggau iring ajar.' },
+      { title: 'Sedia Ke Penilai', body: 'Penyedia ti manah napi penilai.' },
+      { title: 'Tembuka Chara Penilai', body: 'Nengah chara penilai ti udah ditetapka.' },
+    ],
+  },
+  credibility: {
+    title: 'Kredibiliti Program',
+    intro:
+      'Program tu bepelasarka sistem Kelulusan Kemahiran Malaysia. Belajar mayuh agi pasal struktur ofisial di belakang jalai tu.',
+    items: [
+      {
+        q: 'Nama Sistem Persijilan Kemahiran Malaysia?',
+        a: '[BM — nganti terjemahan Iban disahka] Sistem Persijilan Kemahiran Malaysia diuruskan oleh Jabatan Pembangunan Kemahiran (JPK). Ia mengiktiraf kompetensi berasaskan standard pekerjaan kebangsaan.',
+      },
+      {
+        q: 'Nama NOSS?',
+        a: '[BM — nganti terjemahan Iban disahka] NOSS (National Occupational Skills Standard) ialah standard kemahiran pekerjaan kebangsaan yang menjadi asas kepada setiap kelayakan kemahiran di Malaysia.',
+      },
+      {
+        q: 'Nama DKM Tahap 4?',
+        a: '[BM — nganti terjemahan Iban disahka] Diploma Kemahiran Malaysia (DKM) Tahap 4 ialah kelayakan kemahiran peringkat diploma dalam sistem Kelayakan Kemahiran Malaysia.',
+      },
+      {
+        q: 'Nama DLKM Tahap 5?',
+        a: '[BM — nganti terjemahan Iban disahka] Diploma Lanjutan Kemahiran Malaysia (DLKM) Tahap 5 ialah kelayakan kemahiran lanjutan, satu tahap lebih tinggi daripada DKM.',
+      },
+      {
+        q: 'Baka ni chara penilai dipejalaika?',
+        a: '[BM — nganti terjemahan Iban disahka] Penilaian berasaskan kompetensi, termasuk portfolio dan bukti pengalaman sebenar, mengikut proses yang ditetapkan oleh keperluan rasmi program.',
+      },
+    ],
+    disclaimer:
+      '[BM] Maklumat rasmi program, nama kelayakan dan rujukan NOSS adalah tertakluk kepada pengesahan akhir.',
+  },
+  faq: {
+    title: 'Tanya Suah Ditanya',
+    items: [
+      {
+        q: 'Aku semina bisi SPM. Kati aku ulih minta?',
+        a: '[BM — nganti terjemahan Iban disahka] Pemegang SPM yang mempunyai pengalaman berkaitan dialu-alukan untuk menjalani semakan profil. Kelayakan akhir tertakluk kepada latar belakang, pengalaman, bukti kompetensi dan keperluan rasmi program.',
+      },
+      {
+        q: 'Kati pengalaman diperlu?',
+        a: 'Au. Program tu digaga khas ke sida ti bisi pengalaman amat dalam dagang tauka pengawa nyadi tuai gerempung. Pengalaman nuan nya pelasar pejalai tu.',
+      },
+      {
+        q: 'Kati aku ulih terus bekereja tauka bedagang?',
+        a: 'Au. Jalai tu digaga ke sida ti agi bekereja, bedagang tauka megai tanggungpengawa gerempung.',
+      },
+      {
+        q: 'Berapa lama chara tu?',
+        a: '[BM — nganti terjemahan Iban disahka] Program merangkumi latihan, bimbingan portfolio dan persediaan penilaian. Tempoh sebenar tertakluk kepada kesiapsiagaan peserta, keperluan portfolio dan jadual penilaian.',
+      },
+      {
+        q: 'Kati kelulusan tu diiktiraf?',
+        a: '[BM — nganti terjemahan Iban disahka] Program ini berlandaskan sistem Kelayakan Kemahiran Malaysia di bawah JPK. Maklumat rasmi kelayakan akan disahkan dan dikongsikan semasa sesi penerangan. [Untuk pengesahan rasmi]',
+      },
+      {
+        q: 'Nama DKM enggau DLKM?',
+        a: '[BM — nganti terjemahan Iban disahka] DKM ialah Diploma Kemahiran Malaysia (Tahap 4) dan DLKM ialah Diploma Lanjutan Kemahiran Malaysia (Tahap 5) dalam sistem Kelayakan Kemahiran Malaysia.',
+      },
+      {
+        q: 'Nama NOSS?',
+        a: '[BM — nganti terjemahan Iban disahka] NOSS (National Occupational Skills Standard) ialah standard kemahiran pekerjaan kebangsaan yang menjadi asas kelayakan kemahiran di Malaysia.',
+      },
+      {
+        q: 'Kati aku tetap bulih Diploma?',
+        a: '[BM — nganti terjemahan Iban disahka] Tidak. Penyertaan program tidak menjamin pensijilan secara automatik. Peserta perlu melengkapkan keperluan program dan disahkan kompeten melalui proses penilaian yang ditetapkan.',
+      },
+      {
+        q: 'Kati portfolio diperlu?',
+        a: 'Au. Portfolio enggau bukti pengalaman nya bagi ti beguna dalam chara penilai. Team deka meri ajar sepanjai penyedia.',
+      },
+      {
+        q: 'Nama bukti ti engka diperlu?',
+        a: '[BM — nganti terjemahan Iban disahka] Antaranya: pendaftaran perniagaan atau organisasi, profil syarikat, laporan projek, minit mesyuarat, rekod kewangan atau operasi, bahan pemasaran, rekod kakitangan, gambar, video dan sijil berkaitan.',
+      },
+      {
+        q: 'Berapa yuran program?',
+        a: '[BM — nganti terjemahan Iban disahka] Struktur yuran akan diterangkan semasa sesi susulan bersama Team SPM2Diploma selepas semakan profil anda. [Maklumat yuran rasmi akan dikemas kini]',
+      },
+      {
+        q: 'Kati bayar ulih digaga betingkat?',
+        a: '[BM — nganti terjemahan Iban disahka] Maklumat mengenai struktur bayaran akan dikongsikan semasa sesi penerangan. [Untuk pengesahan rasmi]',
+      },
+      {
+        q: 'Kati aku ulih ngiga penaja?',
+        a: 'Ulih. Nuan ulih madahka diri benung ngiga penaja dalam borang pansik penau. Team deka berandau enggau nuan pasal pilih ti bisi.',
+      },
+      {
+        q: 'Sapa deka meri aku ajar?',
+        a: 'Coach Roszie enggau Team SPM2Diploma di baruh KOBIS Berhad deka nulung, meri ajar sereta bejalai enggau nuan ari pemansik keterubah datai ke nuan sedia napi chara penilai.',
+      },
+    ],
+  },
+  finalCta: {
+    headline1: 'Pengalaman Nuan Udah Mai Nuan Datai Ditu.',
+    headline2: 'Diatu Mai Iya Ngagai Tikas Ti Tinggi Agi.',
+    cta: 'Pansik Penau Aku',
+    trust:
+      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+  },
+  form: {
+    title: 'Pansik Penau SPM2Diploma',
+    support:
+      'Padahka mimit pasal pengalaman nuan. Coach Roszie enggau Team SPM2Diploma deka mansik penerang nuan lalu nulung milih jalai ti ngena.',
+    stepLabel: 'Pengelangkah',
+    of: 'ari',
+    next: 'Pengelangkah Siti Agi',
+    back: 'Pulai',
+    submit: 'Anjung Pansik Penau',
+    submitting: 'Benung nganjung…',
+    estTime: 'Anggar maya: 5–8 minit',
+    steps: {
+      pathway: {
+        title: 'Pilih Jalai Nuan',
+        options: {
+          keusahawanan: 'Diploma Kemahiran Keusahawanan',
+          kepimpinan: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
+          unsure: 'Aku apin tentu',
+        },
+      },
+      personal: {
+        title: 'Penerang Diri',
+        fullName: 'Nama penuh',
+        ageRange: 'Umur',
+        ageOptions: ['25–34', '35–44', '45–54', '55 ke atas'],
+        location: 'Endur diau (nengeri / menua)',
+        phone: 'Nombor WhatsApp',
+        email: 'E-mel',
+        qualification: 'Kelulusan pemadu tinggi',
+        qualificationOptions: ['SPM', 'STPM / STAM', 'Sijil', 'Diploma', 'Bukai'],
+      },
+      experience: {
+        titleBusiness: 'Pengalaman Dagang Nuan',
+        titleLeadership: 'Pengalaman Nyadi Tuai',
+        titleUnsure: 'Pengalaman Nuan',
+        unsureNote: 'Padahka pengalaman ti pemadu bekaul — dagang tauka nyadi tuai gerempung.',
+        businessName: 'Nama dagang',
+        industry: 'Industri',
+        yearsBusiness: 'Berapa taun bedagang',
+        currentRole: 'Pengawa diatu',
+        teamSize: 'Pemesai raban',
+        products: 'Produk / servis utama',
+        responsibilities: 'Tanggungpengawa utama',
+        website: 'Laman web / pautan sosial dagang (enti bisi)',
+        orgName: 'Nama gerempung',
+        orgType: 'Bansa gerempung',
+        orgTypeOptions: [
+          'NGO',
+          'Koperasi',
+          'Persatuan',
+          'Yayasan',
+          'Gerempung komuniti',
+          'Kompeni / korporat',
+          'Perunding',
+          'Bukai',
+        ],
+        position: 'Penuduk diatu',
+        yearsLeadership: 'Berapa taun nyadi tuai',
+        orgTeamSize: 'Pemesai raban / jawatankuasa / sukarelawan',
+        orgResponsibilities: 'Tanggungpengawa utama',
+        orgWebsite: 'Laman web / pautan sosial gerempung (enti bisi)',
+        yearsOptions: ['1–2 taun', '3–5 taun', '6–10 taun', 'Lebih 10 taun'],
+      },
+      evidence: {
+        title: 'Penyedia Bukti',
+        intro:
+          'Ari ti dibaruh, ni ti engka dikemisi nuan? (Tanda semua ti bekaul — dokumen ENDA ibuh dianjung diatu.)',
+        note: 'Dokumen deka dipinta dudi ila nengah chara sokong peserta ti biasa.',
+        options: [
+          'Pendaftar dagang tauka gerempung',
+          'Profil kompeni / gerempung',
+          'Repot projek',
+          'Minit aum',
+          'Rekod wang tauka operasyen',
+          'Utai pemasaran',
+          'Rekod pengereja pengawa tauka gerempung',
+          'Gambar tauka video',
+          'Sijil ti bekaul',
+          'Bukti sokong bukai',
+        ],
+      },
+      commitment: {
+        title: 'Komitmen Nuan',
+        question:
+          '[BM — nganti terjemahan Iban disahka] Program ini memerlukan komitmen terhadap sesi bimbingan, penyediaan portfolio dan proses penilaian. Adakah anda bersedia memberikan komitmen yang diperlukan?',
+        options: ['Au, aku sedia', 'Aku begunaka penerang mayuh agi', 'Apin sedia diatu'],
+      },
+      financial: {
+        title: 'Penyedia Wang',
+        question:
+          '[BM — nganti terjemahan Iban disahka] Sekiranya profil anda sesuai, adakah anda bersedia membuat pelaburan kewangan untuk mengikuti keseluruhan program?',
+        options: [
+          'Au, aku sedia',
+          'Aku deka meda struktur bayar dulu',
+          'Aku benung ngiga penaja',
+          'Apin sedia ari sukut wang',
+        ],
+      },
+      motivation: {
+        title: 'Kebuah Nuan',
+        question: 'Nama kebuah utama nuan deka bulih Diploma?',
+        options: [
+          'Ningkatka kelulusan',
+          'Ngeringka pengarap',
+          'Pemansang karier',
+          'Kredibiliti dagang',
+          'Nyadi tuai gerempung',
+          'Peluang ila',
+          'Pengaga ati diri enggau ruang bilik',
+          'Bukai',
+        ],
+        otherLabel: 'Padahka mayuh agi (pilih)',
+        otherPlaceholder: 'Padahka kebuah nuan…',
+      },
+    },
+    consent: {
+      title: 'Penyetuju',
+      review: 'Aku setuju penerang ti dianjung dipansik Team SPM2Diploma.',
+      contact: 'Aku setuju dikangau pasal program tu.',
+      storage: 'Aku setuju penerang aku disimpan enggau selamat.',
+      privacy: 'Aku udah macha lalu nerima Notis Privasi.',
+      privacyLink: 'Bacha Notis Privasi',
+    },
+    validation: {
+      required: 'Ruang tu diperlu',
+      selectOne: 'Pilih siti',
+      invalidEmail: 'Isi e-mel ti betul',
+      invalidPhone: 'Isi nombor telefon ti betul',
+      consentRequired: 'Penyetuju diperlu kena neruska',
+      fixErrors: 'Tembuka dulu ruang ti ditanda sebedau neruska.',
+    },
+  },
+  confirmation: {
+    title: 'Terima kasih. Penerang nuan udah diterima.',
+    support:
+      'Coach Roszie enggau Team SPM2Diploma di baruh KOBIS Berhad deka mansik profil nuan lalu ngangau nuan kena nerangka pengelangkah siti agi.',
+    refLabel: 'Rujukan pemohon',
+    pathwayLabel: 'Jalai dipilih',
+    dateLabel: 'Tarikh dianjung',
+    nextTitle: 'Nama nyadi udah tu?',
+    nextSteps: [
+      'Team mansik profil nuan dalam sekeda hari bekereja.',
+      'Nuan deka dikangau nengah WhatsApp tauka telefon.',
+      'Jalai ti ngena deka dirandauka enggau nuan.',
+    ],
+    docsTitle: 'Dokumen ti dikelalu disediaka',
+    docs: [
+      'Salin kad pengenal',
+      'Pendaftar dagang / gerempung (enti bisi)',
+      'Sampel bukti pengalaman (repot, gambar, rekod)',
+    ],
+    whatsappCta: 'Terus ba WhatsApp',
+    whatsappNote: 'Bisi tanya beguna? Kangau terus Team SPM2Diploma.',
+    unsurePathway: 'Apin tentu (deka dirandauka)',
+    backHome: 'Pulai ke Lambar Keterubah',
+  },
+  participant: {
+    loginTitle: 'Log Masuk Peserta',
+    loginSupport: 'Peda status pemohon, pemansang enggau senarai pemeriksa nuan.',
+    email: 'E-mel',
+    password: 'Kata laluan',
+    login: 'Log Masuk',
+    loggingIn: 'Benung log masuk…',
+    loginError: 'E-mel tauka kata laluan salah.',
+    logout: 'Log Keluar',
+    welcome: 'Selamat datai',
+    refLabel: 'Rujukan pemohon',
+    pathwayLabel: 'Jalai nuan',
+    statusLabel: 'Status diatu',
+    progressTitle: 'Pemansang Pejalai Nuan',
+    checklistTitle: 'Senarai Pemeriksa Nuan',
+    nextActionTitle: 'Pengawa Siti Agi',
+    updatesTitle: 'Berita Program',
+    noUpdates: 'Nadai berita baru diatu.',
+    trainingLabel: 'Tarikh latih',
+    trainingTBA: 'Deka dipadahka',
+    contactTitle: 'Kangau Team Nuan',
+    whatsappSupport: 'Sokong WhatsApp',
+    stages: {
+      application_received: 'Pemohon Diterima',
+      profile_review: 'Pemansik Profil',
+      pathway_confirmation: 'Pengesah Jalai',
+      registration: 'Pendaftar',
+      training_guidance: 'Latih & Ajar',
+      portfolio_preparation: 'Penyedia Portfolio',
+      assessment_preparation: 'Penyedia Penilai',
+      completion: 'Tembu',
+    },
+    checklist: {
+      personal_details: 'Penerang diri tembu',
+      pathway_selected: 'Jalai udah dipilih',
+      briefing_completed: 'Sesi penerang program tembu',
+      registration_completed: 'Pendaftar tembu',
+      documents_prepared: 'Dokumen diperlu udah disediaka',
+      training_attended: 'Udah datai ba latih',
+      portfolio_in_progress: 'Portfolio benung digaga',
+      ready_for_assessment: 'Sedia ke penilai',
+    },
+  },
+  footer: {
+    publicTitle: 'SPM2Diploma',
+    publicLinks: {
+      pathways: 'Dua Jalai',
+      journey: 'Pejalai Nuan',
+      coach: 'Coach Roszie & Team',
+      faq: 'Tanya Suah Ditanya',
+      contact: 'Kangau Kami',
+      privacy: 'Notis Privasi',
+      programInfo: 'Penerang Beguna Program',
+    },
+    supportTitle: 'Sokong Peserta',
+    participantLogin: 'Log Masuk Peserta',
+    whatsappSupport: 'Sokong WhatsApp',
+    internalTitle: 'Akses Dalam',
+    teamAccess: 'Team Access',
+    managementAccess: 'Management Access',
+    signature: 'SPM2Diploma is an initiative managed by KOBIS Berhad.',
+    poweredBy: 'Powered and managed by',
+    copyright: '© 2026 KOBIS Berhad. All Rights Reserved.',
+  },
+  floating: {
+    whatsappLabel: 'WhatsApp Team SPM2Diploma',
+    officerTitle: 'Pemantu Digital',
+    officerIntro:
+      'Salam! Aku ulih nulung nyaut tanya pasal Program SPM2Diploma. Pilih tanya dibaruh:',
+    officerNote:
+      'Ke pansik penau enggau penerang ofisial, Team SPM2Diploma deka nulung nuan kediri.',
+    shortcuts: [
+      {
+        q: 'Sapa ngena minta?',
+        a: 'Program tu ngena ke sida bedagang enggau tuai gerempung ti bisi pengalaman amat — baka empu dagang, tuai NGO, koperasi enggau persatuan — ti serius deka bulih kelulusan Diploma.',
+      },
+      {
+        q: 'Nama dua jalai Diploma?',
+        a: 'Jalai 1: Diploma Kemahiran Keusahawanan (tuju DKM Tahap 4) ke sida bedagang. Jalai 2: Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi (tuju DLKM Tahap 5) ke tuai gerempung.',
+      },
+      {
+        q: 'Ulih terus bekereja?',
+        a: 'Au. Jalai tu digaga ke sida ti agi bekereja, bedagang tauka megai tanggungpengawa gerempung.',
+      },
+      {
+        q: 'Baka ni chara pansik?',
+        a: 'Isi borang Pansik Penau (5–8 minit). Team deka mansik profil nuan lalu ngangau nuan kena berandau pasal jalai ti ngena. Penau pengujung bepanggai ba pemansik team.',
+      },
+      {
+        q: 'Sapa deka meri aku ajar?',
+        a: 'Coach Roszie enggau Team SPM2Diploma di baruh KOBIS Berhad deka meri nuan ajar ari pemansik keterubah datai ke penyedia penilai.',
+      },
+    ],
+    askTeam: 'Tanya Team ba WhatsApp',
+  },
+  privacy: {
+    title: 'Notis Privasi',
+    body: [
+      '[BM — nganti terjemahan Iban disahka] Maklumat yang anda hantar melalui borang Semakan Kelayakan digunakan untuk menyemak profil anda, menghubungi anda berkaitan program dan menguruskan penyertaan anda dalam Program SPM2Diploma.',
+      '[BM] Maklumat anda disimpan dengan selamat dan hanya diakses oleh Team SPM2Diploma dan KOBIS Berhad yang diberi kuasa. Maklumat anda tidak akan dijual atau dikongsikan kepada pihak ketiga untuk tujuan pemasaran.',
+      '[BM] Anda boleh menghubungi kami melalui WhatsApp untuk sebarang pertanyaan mengenai maklumat peribadi anda.',
+      '[Notis privasi penuh akan dikemas kini — untuk pengesahan KOBIS Berhad]',
+    ],
+  },
+  programInfo: {
+    title: 'Penerang Beguna Program',
+    body: [
+      '[BM — nganti terjemahan Iban disahka] Pemegang SPM yang mempunyai pengalaman berkaitan dialu-alukan untuk menjalani semakan profil. Kelayakan akhir tertakluk kepada latar belakang, pengalaman, bukti kompetensi dan keperluan rasmi program.',
+      '[BM] Program merangkumi latihan, bimbingan portfolio dan persediaan penilaian. Tempoh sebenar tertakluk kepada kesiapsiagaan peserta, keperluan portfolio dan jadual penilaian.',
+      '[BM] Penyertaan program tidak menjamin pensijilan secara automatik. Peserta perlu melengkapkan keperluan program dan disahkan kompeten melalui proses penilaian yang ditetapkan.',
+      '[BM] Nama rasmi kelayakan dan rujukan NOSS adalah tertakluk kepada pengesahan akhir dan akan dikemas kini dari semasa ke semasa.',
+    ],
+  },
+  common: {
+    loading: 'Benung dibuka…',
+    error: 'Minta ampun, bisi penyalah. Uji baru.',
+    pendingConfirmation: 'Nganti pengesah ofisial',
+    demoNotice: 'Mod demo — data enda disimpan tetap.',
+  },
+}

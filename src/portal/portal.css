@@ -1,0 +1,333 @@
+/* Portal (product register): calm, familiar, dense where useful.
+   One family, fixed rem scale, restrained color. */
+
+.portal {
+  background: var(--navy-50);
+  min-height: 70vh;
+  padding-block: 2.5rem 4rem;
+}
+
+.portal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+}
+
+.portal__head h1 {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.portal__sub {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.portal__demobadge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold-600);
+  border: 1px dashed var(--gold-600);
+  border-radius: 6px;
+  padding: 0.15rem 0.55rem;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+
+.card + .card {
+  margin-top: 1.2rem;
+}
+
+.card h2 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+}
+
+/* Summary strip */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.stat {
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+}
+
+.stat__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.stat__value {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-top: 0.15rem;
+}
+
+.stat--accent .stat__value {
+  color: var(--green-600);
+}
+
+/* Filters row */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.filters input,
+.filters select {
+  min-height: 42px;
+  padding: 0.45rem 0.8rem;
+  border: 1.5px solid oklch(0.85 0.01 265);
+  border-radius: 9px;
+  background: var(--white);
+  font-size: 0.9rem;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: var(--navy-700);
+}
+
+.filters input[type='search'] {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Progress rail (participant) */
+.rail {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.railstep {
+  display: flex;
+  gap: 0.9rem;
+  position: relative;
+  padding-bottom: 1.35rem;
+}
+
+.railstep:last-child {
+  padding-bottom: 0;
+}
+
+.railstep::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  bottom: 0;
+  width: 2px;
+  background: oklch(0.88 0.01 265);
+}
+
+.railstep:last-child::before {
+  display: none;
+}
+
+.railstep--done::before {
+  background: var(--green-600);
+}
+
+.railstep__dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 2px solid oklch(0.85 0.01 265);
+  color: var(--ink-soft);
+  z-index: 1;
+}
+
+.railstep--done .railstep__dot {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  color: #fff;
+}
+
+.railstep--current .railstep__dot {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  color: var(--navy-900);
+}
+
+.railstep__label {
+  padding-top: 0.3rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.railstep--done .railstep__label,
+.railstep--current .railstep__label {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.95rem;
+}
+
+.checklist__box {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 2px solid oklch(0.85 0.01 265);
+  color: transparent;
+}
+
+.checklist__box--on {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  color: #fff;
+}
+
+.checklist .is-done {
+  color: var(--ink-soft);
+}
+
+/* Detail editor (admin) */
+.editor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+
+.editor .field {
+  margin-bottom: 0;
+}
+
+.editor__wide {
+  grid-column: 1 / -1;
+}
+
+.editor__checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.35rem;
+}
+
+.editor__checks label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.editor__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.7rem;
+  justify-content: flex-end;
+  margin-top: 0.4rem;
+}
+
+.rowlink {
+  color: var(--navy-700);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Login */
+.loginbox {
+  max-width: 420px;
+  margin-inline: auto;
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.loginbox h1 {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.loginbox__sub {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0.4rem 0 1.4rem;
+}
+
+.loginbox__demo {
+  margin-top: 1.4rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  background: var(--ivory);
+  border: 1px dashed var(--gold-600);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.loginbox__demo code {
+  background: oklch(0.93 0.02 85);
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.portal__empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--ink-soft);
+}
+
+.finance-neg {
+  color: var(--red-600);
+}
