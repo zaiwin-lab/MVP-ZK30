@@ -155,3 +155,76 @@
     width: 100%;
   }
 }
+
+/* ── Quick check (stage 1: 60 seconds) ──────────────────────────── */
+.quickcheck__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.quickcheck__pill {
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: 1.5px solid oklch(0.82 0.02 265);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--navy-900);
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+  min-height: 48px;
+}
+
+.quickcheck__pill:hover {
+  border-color: var(--navy-700);
+}
+
+.quickcheck__pill--on {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--on-navy);
+}
+
+.quickcheck__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+@media (max-width: 540px) {
+  .quickcheck__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quickcheck__consent {
+  margin-top: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--navy-50);
+  font-size: 0.88rem;
+}
+
+.quickcheck__submit {
+  width: 100%;
+  margin-top: 1.1rem;
+  font-size: var(--text-md);
+}
+
+.quickcheck__promise {
+  margin-top: 0.7rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Stage-2 banner shown above the detailed form */
+.stage2note {
+  max-width: 640px;
+  margin: 0 auto 1.1rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius);
+  background: oklch(0.93 0.05 88);
+  color: oklch(0.35 0.08 78);
+  font-size: 0.9rem;
+  font-weight: 500;
+}

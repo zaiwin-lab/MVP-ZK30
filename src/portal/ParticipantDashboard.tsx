@@ -72,6 +72,15 @@ function Dashboard() {
           </div>
         ) : (
           <>
+            {app.profile_stage === 'preliminary' && (
+              <div className="card" style={{ borderColor: 'var(--gold-600)' }}>
+                <span className="pill pill--gold">{t.quick.statusPartial}</span>
+                <p style={{ marginTop: '0.6rem', fontSize: '0.92rem' }}>{t.quick.continueNote}</p>
+                <a href="/semakan/profil" className="btn btn--gold btn--sm" style={{ marginTop: '0.8rem' }}>
+                  {t.quick.btnContinue}
+                </a>
+              </div>
+            )}
             <div className="stats">
               <div className="stat">
                 <div className="stat__label">{p.refLabel}</div>

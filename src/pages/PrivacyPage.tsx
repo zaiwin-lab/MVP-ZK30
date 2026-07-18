@@ -1,7 +1,9 @@
 import { useI18n } from '../i18n'
+import { usePageMeta } from '../lib/usePageMeta'
 
 export function PrivacyPage() {
   const { t } = useI18n()
+  usePageMeta(t.seo.privacy.title, t.seo.privacy.desc, '/privasi')
   return (
     <section className="section">
       <div className="container container--narrow">

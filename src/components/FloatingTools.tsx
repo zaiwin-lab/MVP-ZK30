@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { whatsappLink } from '../config/programme'
+import { track } from '../lib/analytics'
 import { useI18n } from '../i18n'
 import './floating.css'
 
@@ -85,11 +86,22 @@ export function FloatingTools() {
                 ))}
               </ul>
               <p className="officer__note">{t.floating.officerNote}</p>
+              <Link
+                className="btn btn--gold btn--sm officer__wa"
+                to="/semakan"
+                onClick={() => {
+                  setOfficerOpen(false)
+                  track('hero_cta_clicked', { where: 'digital-officer' })
+                }}
+              >
+                {t.floating.primaryCta}
+              </Link>
               <a
                 className="btn btn--navy btn--sm officer__wa"
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('whatsapp_clicked', { where: 'digital-officer' })}
               >
                 {t.floating.askTeam}
               </a>
@@ -98,7 +110,10 @@ export function FloatingTools() {
         )}
         <button
           className="floatbtn floatbtn--officer"
-          onClick={() => setOfficerOpen((v) => !v)}
+          onClick={() => {
+            setOfficerOpen((v) => !v)
+            if (!officerOpen) track('digital_assistant_opened')
+          }}
           aria-expanded={officerOpen}
           aria-label={t.floating.officerTitle}
         >
@@ -117,6 +132,7 @@ export function FloatingTools() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={t.floating.whatsappLabel}
+          onClick={() => track('whatsapp_clicked', { where: 'bubble' })}
         >
           <WhatsAppIcon />
         </a>

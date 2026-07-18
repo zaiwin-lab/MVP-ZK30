@@ -10,39 +10,58 @@ export const ms = {
   nav: {
     home: 'Utama',
     pathways: 'Dua Laluan',
+    benefits: 'Manfaat',
     journey: 'Perjalanan Anda',
-    coach: 'Coach Roszie & Team',
+    coach: 'Coach & Team',
     faq: 'Soalan Lazim',
     participantLogin: 'Log Masuk Peserta',
-    cta: 'Semak Kelayakan Saya',
+    cta: 'Semak Kelayakan Percuma',
     menu: 'Menu',
     close: 'Tutup',
+  },
+  strip: {
+    text: 'Permohonan Semakan Profil Kini Dibuka — Konsultasi Awal Percuma',
+    cta: 'Semak Sekarang →',
   },
   hero: {
     eyebrow: 'Program Khas Untuk Usahawan & Pemimpin Organisasi',
     headline1: 'Sudah Bertahun-Tahun Membina Pengalaman?',
-    headline2: 'Kini Masa Untuk Memiliki Diploma.',
+    headline2: 'Kini Masa Untuk Membawa Ia Ke Tahap Diploma.',
     support:
-      'Laluan khas untuk usahawan serta pemimpin NGO, koperasi dan organisasi yang mahu membawa pengalaman mereka ke tahap kelayakan yang lebih tinggi—tanpa meninggalkan kerjaya, perniagaan atau tanggungjawab semasa.',
-    ctaPrimary: 'Semak Kelayakan Saya',
-    ctaSecondary: 'Lihat Dua Laluan Diploma',
-    ctaMicrocopy: 'Semakan awal berdasarkan pengalaman, latar belakang dan kesediaan anda.',
+      'Laluan dibimbing untuk usahawan serta pemimpin NGO, koperasi, persatuan dan organisasi yang mahu membawa pengalaman sebenar mereka ke arah kelayakan lebih tinggi—tanpa meninggalkan kerjaya, perniagaan atau tanggungjawab semasa.',
+    badges: ['Berdasarkan pengalaman sebenar', 'Bimbingan portfolio', 'Laluan fleksibel', 'Persediaan penilaian'],
+    ctaPrimary: 'Semak Kelayakan Percuma',
+    ctaSecondary: 'Terokai Dua Laluan',
+    ctaMicrocopy: 'Semakan awal percuma. Tiada komitmen. Hanya mengambil masa sekitar 60 saat.',
+    card: {
+      title: 'Daripada Pengalaman Kepada Laluan Kelayakan',
+      steps: ['Semakan pengalaman', 'Pemilihan laluan', 'Bimbingan portfolio', 'Persediaan penilaian'],
+      cta: 'Mulakan Semakan Awal →',
+    },
     trust:
       'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
   },
   experience: {
-    title: 'Pengalaman Anda Wajar Pergi Lebih Jauh',
+    label: 'PENGALAMAN ANDA WAJAR DIIKTIRAF',
+    title: 'Pengalaman Anda Kukuh. Tetapi Adakah Kelayakan Anda Mencerminkannya?',
     intro:
-      'Ramai usahawan dan pemimpin organisasi telah bertahun-tahun membina hasil sebenar. Yang belum ada hanyalah kelayakan yang mengiktirafnya.',
+      'Ramai usahawan dan pemimpin organisasi telah membina perniagaan, mengurus pasukan, memimpin projek dan menyelesaikan cabaran sebenar selama bertahun-tahun. Namun tanpa kelayakan formal yang sepadan, sebahagian peluang profesional mungkin masih sukar dicapai.',
     items: [
-      'Bertahun-tahun berpengalaman, tetapi kelayakan masih di peringkat SPM.',
-      'Membina perniagaan melalui pengalaman praktikal sebenar.',
-      'Memimpin organisasi, jawatankuasa atau projek.',
-      'Mahu keyakinan diri yang lebih kukuh.',
-      'Mahu kedudukan profesional yang lebih baik.',
-      'Mahu kelayakan lebih tinggi tanpa meninggalkan tanggungjawab semasa.',
+      'Bertahun-tahun membina pengalaman sebenar',
+      'Mempunyai tanggungjawab kerja dan keluarga',
+      'Mahu meningkatkan keyakinan profesional',
+      'Mahu memperkukuh kredibiliti',
+      'Mahu menyusun pengalaman sebagai portfolio',
+      'Mahu meneroka laluan kelayakan yang bersesuaian',
     ],
   },
+  credStrip: [
+    'Program dikendalikan oleh KOBIS Berhad',
+    'Dibimbing oleh Coach Roszie & Team SPM2Diploma',
+    'Laluan berdasarkan pengalaman dan bukti kompetensi',
+    'Proses penilaian diperlukan',
+    'Tidak perlu meninggalkan pekerjaan atau perniagaan',
+  ],
   pathways: {
     title: 'Pilih Laluan Anda',
     intro: 'Dua laluan Diploma. Satu untuk pembina perniagaan, satu untuk pemimpin organisasi.',
@@ -53,7 +72,16 @@ export const ms = {
       forTitle: 'Sesuai untuk:',
       message:
         'Anda telah bertahun-tahun membina perniagaan. Kini mungkin masanya mengukuhkan pengalaman itu dengan kelayakan yang lebih tinggi.',
-      cta: 'Lihat Laluan Keusahawanan',
+      cta: 'Terokai Laluan Keusahawanan',
+      expTitle: 'Bidang pengalaman yang mungkin berkaitan:',
+      expAreas: [
+        'Operasi perniagaan',
+        'Pemasaran dan jualan',
+        'Pengurusan kewangan',
+        'Pengurusan pelanggan',
+        'Penyeliaan pasukan',
+        'Perancangan perniagaan',
+      ],
     },
     card2: {
       name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
@@ -69,8 +97,106 @@ export const ms = {
       forTitle: 'Sesuai untuk:',
       message:
         'Anda telah memimpin orang, projek dan organisasi. Kini bawa pengalaman kepimpinan anda ke tahap lebih tinggi.',
-      cta: 'Lihat Laluan Kepimpinan',
+      cta: 'Terokai Laluan Kepimpinan',
+      expTitle: 'Bidang pengalaman yang mungkin berkaitan:',
+      expAreas: [
+        'Kepimpinan organisasi',
+        'Tadbir urus',
+        'Penyelarasan projek',
+        'Pentadbiran',
+        'Pengurusan pihak berkepentingan',
+        'Kepimpinan pasukan',
+      ],
     },
+    unsure: {
+      question: 'Tidak pasti laluan yang sesuai?',
+      cta: 'Biarkan Team Kami Membantu Menilai Profil Anda',
+    },
+  },
+  receive: {
+    title: 'Apa Yang Anda Akan Terima',
+    intro: 'Perjalanan yang tersusun — anda tahu dengan jelas apa yang disediakan untuk anda.',
+    items: [
+      { title: 'Semakan Profil Awal', body: 'Penilaian awal terhadap pengalaman, latar belakang dan matlamat anda.' },
+      { title: 'Cadangan Laluan Bersesuaian', body: 'Team membantu mengenal pasti laluan yang paling relevan.' },
+      { title: 'Latihan dan Bimbingan', body: 'Sesi panduan yang disusun untuk membantu peserta memahami perjalanan program.' },
+      { title: 'Bimbingan Portfolio', body: 'Bantuan menyusun pengalaman dan bukti berkaitan secara lebih teratur.' },
+      { title: 'Senarai Semak Bukti', body: 'Panduan mengenai dokumen dan bukti yang mungkin diperlukan.' },
+      { title: 'Persediaan Penilaian', body: 'Bimbingan bagi membantu peserta bersedia menghadapi proses penilaian.' },
+      { title: 'Participant Progress Portal', body: 'Checklist dan kemajuan perjalanan peserta dalam satu tempat.' },
+      { title: 'Sokongan Team SPM2Diploma', body: 'Bantuan melalui Coach Roszie, team program dan saluran WhatsApp.' },
+    ],
+  },
+  midCta: {
+    title: 'Tidak Pasti Sama Ada Pengalaman Anda Sesuai?',
+    body: 'Anda tidak perlu membuat keputusan sendiri. Lengkapkan semakan awal percuma dan Team SPM2Diploma akan membantu mengenal pasti laluan yang lebih bersesuaian.',
+    ctaPrimary: 'Semak Kelayakan Dalam 60 Saat',
+    ctaWhatsapp: 'Tanya Melalui WhatsApp',
+  },
+  official: {
+    title: 'Bagaimana Laluan Ini Berfungsi Secara Rasmi',
+    points: [
+      'Pengalaman berkaitan anda disemak terlebih dahulu.',
+      'Peserta mungkin perlu mengemukakan bukti pengalaman.',
+      'Penyediaan portfolio mungkin diperlukan.',
+      'Latihan dan bimbingan mungkin diperlukan.',
+      'Proses penilaian formal terlibat.',
+      'Penyertaan tidak menjamin pensijilan secara automatik.',
+      'Pensijilan bergantung kepada keperluan kompetensi dan penilaian yang ditetapkan.',
+    ],
+    pendingNote:
+      'Maklumat rasmi kelayakan, NOSS dan rakan penilaian sedang melalui proses pengesahan akhir. Maklumat yang disahkan akan diterangkan kepada pemohon semasa sesi semakan profil.',
+  },
+  transform: {
+    title: 'Bayangkan Kedudukan Anda Selepas Melengkapkan Perjalanan Ini',
+    items: [
+      'Pengalaman anda lebih tersusun dan dapat dipersembahkan secara profesional.',
+      'Anda lebih memahami nilai kompetensi yang telah dibina.',
+      'Profil profesional anda menjadi lebih kukuh.',
+      'Anda lebih yakin dalam peranan perniagaan atau kepimpinan.',
+      'Anda mempunyai laluan yang lebih jelas untuk perkembangan masa hadapan.',
+      'Pencapaian anda boleh menjadi sumber kebanggaan peribadi dan keluarga.',
+    ],
+    disclaimer:
+      'Setiap peserta mempunyai perjalanan dan hasil yang berbeza. Kelayakan akhir bergantung kepada pengalaman, bukti kompetensi, komitmen dan proses penilaian.',
+  },
+  urgency: {
+    title: 'Semakan Profil Untuk Pengambilan Akan Datang Kini Dibuka',
+    body: 'Setiap profil perlu disemak terlebih dahulu bagi menentukan kesesuaian laluan dan tahap kesiapsiagaan peserta. Lengkapkan semakan awal supaya team kami boleh membantu anda memahami langkah seterusnya.',
+    cta: 'Mohon Semakan Awal Percuma',
+    responsePromise: 'Team akan menghubungi anda melalui WhatsApp dalam tempoh satu hari bekerja.',
+  },
+  quick: {
+    title: 'Semakan Kelayakan Percuma',
+    subtitle: 'Hanya sekitar 60 saat. Tiada komitmen. Team akan menghubungi anda melalui WhatsApp.',
+    qPathway: 'Laluan manakah yang menarik minat anda?',
+    pathwayOptions: {
+      keusahawanan: 'Keusahawanan',
+      kepimpinan: 'Kepimpinan & Pentadbiran Organisasi',
+      unsure: 'Belum pasti',
+    },
+    qYears: 'Berapa tahun pengalaman berkaitan anda?',
+    yearsOptions: ['Kurang 3 tahun', '3–5 tahun', '6–10 tahun', 'Lebih 10 tahun'],
+    qQualification: 'Kelayakan tertinggi',
+    qualificationOptions: ['SPM', 'STPM / STAM', 'Sijil', 'Diploma', 'Lain-lain'],
+    qName: 'Nama penuh',
+    qPhone: 'Nombor WhatsApp',
+    qLang: 'Bahasa pilihan',
+    langOptions: ['BM', 'EN', '中文', 'Iban'],
+    consent:
+      'Saya bersetuju supaya Team SPM2Diploma menghubungi saya melalui WhatsApp berkaitan semakan awal ini. Maklumat saya akan dikendalikan menurut Notis Privasi.',
+    submit: 'Hantar Untuk Semakan Percuma',
+    submitting: 'Menghantar…',
+    confirmTitle: 'Semakan Awal Anda Telah Diterima',
+    confirmBody:
+      'Team SPM2Diploma akan menyemak profil awal anda dan menghubungi anda melalui WhatsApp dalam tempoh satu hari bekerja.',
+    statusPartial: 'Profil Awal Diterima — Belum Lengkap',
+    statusComplete: 'Profil Lengkap Diterima',
+    btnContinue: 'Teruskan Profil Lengkap',
+    btnLater: 'Sambung Kemudian',
+    btnWhatsapp: 'WhatsApp Team Sekarang',
+    continueNote:
+      'Melengkapkan profil penuh (5–8 minit) membantu team menyemak laluan anda dengan lebih tepat. Anda juga boleh melengkapkannya kemudian.',
   },
   outcomes: {
     title: 'Apa Yang Boleh Berubah Untuk Anda?',
@@ -96,6 +222,11 @@ export const ms = {
       'Anda tidak perlu melalui perjalanan ini seorang diri. Coach Roszie dan Team SPM2Diploma di bawah KOBIS Berhad akan membantu, membimbing dan bergerak bersama anda dari semakan awal sehingga anda bersedia menghadapi proses penilaian.',
     photoPlaceholder: 'Foto rasmi Coach Roszie',
     videoPlaceholder: 'Video pengenalan (akan dikemas kini)',
+    teamCard: {
+      title: 'Team SPM2Diploma di bawah KOBIS Berhad',
+      body: 'Team program yang berdedikasi menyokong komunikasi peserta, kesiapsiagaan dokumen, penyelarasan latihan dan pemantauan kemajuan.',
+    },
+    whatsappCta: 'Hubungi Team di WhatsApp',
   },
   suitability: {
     title: 'Adakah Perjalanan Ini Untuk Anda?',
@@ -199,7 +330,7 @@ export const ms = {
       },
       {
         q: 'Berapakah yuran program?',
-        a: 'Struktur yuran akan diterangkan semasa sesi susulan bersama Team SPM2Diploma selepas semakan profil anda. [Maklumat yuran rasmi akan dikemas kini]',
+        a: 'Yuran bergantung pada laluan dan keperluan peserta. Maklumat lengkap mengenai yuran, jadual dan pilihan bayaran akan diterangkan selepas semakan profil awal. Tiada bayaran diperlukan untuk semakan awal.',
       },
       {
         q: 'Bolehkah bayaran dibuat secara berperingkat?',
@@ -212,6 +343,26 @@ export const ms = {
       {
         q: 'Siapakah yang akan membimbing saya?',
         a: 'Coach Roszie dan Team SPM2Diploma di bawah KOBIS Berhad akan membantu, membimbing dan bergerak bersama anda dari semakan awal sehingga anda bersedia menghadapi proses penilaian.',
+      },
+      {
+        q: 'Adakah kelas dijalankan secara fizikal, online atau hybrid?',
+        a: 'Kaedah latihan dan bimbingan akan diterangkan semasa sesi penerangan mengikut laluan dan kumpulan pengambilan. [Untuk pengesahan rasmi]',
+      },
+      {
+        q: 'Apakah yang berlaku selepas semakan kelayakan?',
+        a: 'Team akan menyemak profil awal anda dan menghubungi anda melalui WhatsApp dalam tempoh satu hari bekerja untuk membincangkan laluan yang sesuai dan langkah seterusnya.',
+      },
+      {
+        q: 'Siapakah badan yang mengeluarkan kelayakan?',
+        a: 'Maklumat rasmi kelayakan, NOSS dan rakan penilaian sedang melalui proses pengesahan akhir. Maklumat yang disahkan akan diterangkan kepada pemohon semasa sesi semakan profil.',
+      },
+      {
+        q: 'Apakah peranan KOBIS Berhad?',
+        a: 'KOBIS Berhad menguruskan strategi program, pemasaran, penyelarasan pemohon, platform digital dan pentadbiran program. Coach Roszie dan team program mengendalikan bimbingan dan sokongan peserta.',
+      },
+      {
+        q: 'Bagaimana data peribadi saya dikendalikan?',
+        a: 'Maklumat anda disimpan dengan selamat, diakses hanya oleh team yang diberi kuasa, dan dikendalikan menurut Notis Privasi. Maklumat anda tidak dijual atau dikongsikan untuk tujuan pemasaran pihak ketiga.',
       },
     ],
   },
@@ -426,8 +577,9 @@ export const ms = {
     publicLinks: {
       pathways: 'Dua Laluan',
       journey: 'Perjalanan Anda',
-      coach: 'Coach Roszie & Team',
+      coach: 'Coach & Team',
       faq: 'Soalan Lazim',
+      semak: 'Semak Kelayakan',
       contact: 'Hubungi Kami',
       privacy: 'Notis Privasi',
       programInfo: 'Maklumat Penting Program',
@@ -451,26 +603,35 @@ export const ms = {
       'Untuk semakan kelayakan dan maklumat rasmi, Team SPM2Diploma akan membantu anda secara peribadi.',
     shortcuts: [
       {
-        q: 'Siapa yang sesuai memohon?',
-        a: 'Program ini sesuai untuk usahawan dan pemimpin organisasi yang mempunyai pengalaman sebenar — seperti pemilik perniagaan, pemimpin NGO, koperasi dan persatuan — yang serius mahu memperoleh kelayakan Diploma.',
+        q: 'Adakah saya layak jika hanya mempunyai SPM?',
+        a: 'Pemegang SPM yang mempunyai pengalaman berkaitan dialu-alukan untuk menjalani semakan profil. Kelayakan akhir tertakluk kepada latar belakang, pengalaman, bukti kompetensi dan keperluan rasmi program.',
       },
       {
-        q: 'Apakah dua laluan Diploma?',
-        a: 'Laluan 1: Diploma Kemahiran Keusahawanan (hala tuju DKM Tahap 4) untuk usahawan. Laluan 2: Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi (hala tuju DLKM Tahap 5) untuk pemimpin organisasi.',
+        q: 'Laluan mana yang sesuai untuk saya?',
+        a: 'Laluan Keusahawanan sesuai untuk pemilik dan pengurus perniagaan. Laluan Kepimpinan sesuai untuk pemimpin NGO, koperasi, persatuan dan pentadbir organisasi. Jika tidak pasti, hantar semakan awal dan team akan membantu menilai profil anda.',
       },
       {
-        q: 'Boleh terus bekerja?',
+        q: 'Berapa lama proses ini?',
+        a: 'Tempoh sebenar tertakluk kepada kesiapsiagaan peserta, keperluan portfolio dan jadual penilaian. Team akan menerangkan anggaran semasa sesi semakan profil.',
+      },
+      {
+        q: 'Apakah bukti pengalaman yang diperlukan?',
+        a: 'Antaranya: pendaftaran perniagaan atau organisasi, profil syarikat, laporan projek, minit mesyuarat, rekod kewangan atau operasi, gambar dan sijil berkaitan. Dokumen tidak perlu dimuat naik semasa semakan awal.',
+      },
+      {
+        q: 'Berapakah yuran program?',
+        a: 'Yuran bergantung pada laluan dan keperluan peserta. Maklumat lengkap akan diterangkan selepas semakan profil awal. Tiada bayaran diperlukan untuk semakan awal.',
+      },
+      {
+        q: 'Bolehkah saya terus bekerja?',
         a: 'Ya. Laluan ini direka untuk mereka yang masih bekerja, menjalankan perniagaan atau memegang tanggungjawab organisasi.',
       },
       {
-        q: 'Bagaimana proses semakan?',
-        a: 'Isi borang Semakan Kelayakan (5–8 minit). Team akan menyemak profil anda dan menghubungi anda untuk membincangkan laluan yang sesuai. Kelayakan akhir tertakluk kepada semakan team.',
-      },
-      {
-        q: 'Siapa yang akan membimbing saya?',
-        a: 'Coach Roszie dan Team SPM2Diploma di bawah KOBIS Berhad akan membimbing anda dari semakan awal sehingga persediaan penilaian.',
+        q: 'Apakah yang berlaku selepas saya menghantar semakan?',
+        a: 'Team akan menyemak profil awal anda dan menghubungi anda melalui WhatsApp dalam tempoh satu hari bekerja untuk menerangkan langkah seterusnya.',
       },
     ],
+    primaryCta: 'Mulakan Semakan Awal Percuma',
     askTeam: 'Tanya Team di WhatsApp',
   },
   privacy: {
@@ -490,6 +651,32 @@ export const ms = {
       'Penyertaan program tidak menjamin pensijilan secara automatik. Peserta perlu melengkapkan keperluan program dan disahkan kompeten melalui proses penilaian yang ditetapkan.',
       'Nama rasmi kelayakan dan rujukan NOSS adalah tertakluk kepada pengesahan akhir dan akan dikemas kini dari semasa ke semasa.',
     ],
+  },
+  seo: {
+    home: {
+      title: 'SPM2Diploma | Laluan Diploma Untuk Usahawan & Pemimpin Organisasi — KOBIS Berhad',
+      desc: 'Laluan dibimbing untuk usahawan dan pemimpin organisasi membawa pengalaman sebenar ke arah kelayakan lebih tinggi. Semakan awal percuma dalam 60 saat.',
+    },
+    pathway1: {
+      title: 'Laluan Keusahawanan | SPM2Diploma',
+      desc: 'Laluan Diploma Kemahiran Keusahawanan untuk pemilik perniagaan, usahawan dan pengurus perniagaan berpengalaman.',
+    },
+    pathway2: {
+      title: 'Laluan Kepimpinan & Pentadbiran Organisasi | SPM2Diploma',
+      desc: 'Laluan Diploma Lanjutan Kepimpinan untuk pemimpin NGO, koperasi, persatuan dan pentadbir organisasi.',
+    },
+    semakan: {
+      title: 'Semak Kelayakan Percuma | SPM2Diploma',
+      desc: 'Semakan awal percuma dalam 60 saat. Team SPM2Diploma akan menghubungi anda melalui WhatsApp dalam tempoh satu hari bekerja.',
+    },
+    login: { title: 'Log Masuk Peserta | SPM2Diploma', desc: 'Akses status permohonan, kemajuan dan senarai semak anda.' },
+    privacy: { title: 'Notis Privasi | SPM2Diploma', desc: 'Bagaimana maklumat peribadi anda dikendalikan oleh SPM2Diploma dan KOBIS Berhad.' },
+    programInfo: { title: 'Maklumat Penting Program | SPM2Diploma', desc: 'Maklumat penting mengenai proses, penilaian dan pensijilan Program SPM2Diploma.' },
+  },
+  notFound: {
+    title: 'Halaman Tidak Dijumpai',
+    body: 'Halaman yang anda cari tidak wujud atau telah dipindahkan.',
+    cta: 'Kembali ke Halaman Utama',
   },
   common: {
     loading: 'Memuatkan…',

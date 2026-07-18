@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { LANGS, useI18n } from '../i18n'
+import { track } from '../lib/analytics'
 import './header.css'
 
 function Wordmark() {
@@ -33,7 +34,10 @@ function LangSwitch() {
         <button
           key={l.code}
           className={`langswitch__btn${lang === l.code ? ' langswitch__btn--on' : ''}`}
-          onClick={() => setLang(l.code)}
+          onClick={() => {
+            setLang(l.code)
+            track('language_changed', { to: l.code })
+          }}
           aria-pressed={lang === l.code}
         >
           {l.label}
@@ -70,6 +74,7 @@ export function Header() {
 
   const sections = [
     { hash: '#laluan', label: t.nav.pathways },
+    { hash: '#manfaat', label: t.nav.benefits },
     { hash: '#perjalanan', label: t.nav.journey },
     { hash: '#coach', label: t.nav.coach },
     { hash: '#faq', label: t.nav.faq },
@@ -93,10 +98,14 @@ export function Header() {
 
         <div className="siteheader__actions">
           <LangSwitch />
-          <Link to="/login" className="siteheader__login">
+          <Link to="/login" className="siteheader__login" onClick={() => track('participant_login_clicked')}>
             {t.nav.participantLogin}
           </Link>
-          <Link to="/semakan" className="btn btn--gold btn--sm siteheader__cta">
+          <Link
+            to="/semakan"
+            className="btn btn--gold btn--sm siteheader__cta"
+            onClick={() => track('hero_cta_clicked', { where: 'header' })}
+          >
             {t.nav.cta}
           </Link>
         </div>

@@ -34,6 +34,10 @@ export interface Application {
   participant_checklist: ChecklistItem[]
   consent: boolean
   consent_timestamp: string
+  /** Preferred contact language from the 60-second preliminary check */
+  preferred_language: string | null
+  /** 'preliminary' = 60-second check only; 'complete' = full profile submitted */
+  profile_stage: 'preliminary' | 'complete'
   /** auth user linked to this application once participant account exists */
   user_id?: string | null
 }
@@ -42,6 +46,17 @@ export type NewApplication = Omit<
   Application,
   'id' | 'created_at' | 'status' | 'assigned_to' | 'next_follow_up' | 'internal_note' | 'participant_progress_stage' | 'participant_checklist' | 'user_id'
 >
+
+/** Minimal lead captured by the 60-second preliminary check (stage 1) */
+export interface QuickLead {
+  pathway: 'keusahawanan' | 'kepimpinan' | 'unsure'
+  years_experience: string
+  highest_qualification: string
+  full_name: string
+  phone: string
+  preferred_language: string
+  lead_source: string | null
+}
 
 export type Role = 'participant' | 'admin' | 'director'
 

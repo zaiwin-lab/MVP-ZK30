@@ -8,39 +8,58 @@ export const en: Dict = {
   nav: {
     home: 'Home',
     pathways: 'Two Pathways',
+    benefits: 'Benefits',
     journey: 'Your Journey',
-    coach: 'Coach Roszie & Team',
+    coach: 'Coach & Team',
     faq: 'FAQ',
     participantLogin: 'Participant Login',
-    cta: 'Check My Eligibility',
+    cta: 'Free Eligibility Check',
     menu: 'Menu',
     close: 'Close',
+  },
+  strip: {
+    text: 'Profile Review Applications Now Open — Free Initial Consultation',
+    cta: 'Check Now →',
   },
   hero: {
     eyebrow: 'A Dedicated Programme for Entrepreneurs & Organisational Leaders',
     headline1: 'Years of Real Experience Behind You?',
-    headline2: 'Now It Is Time to Hold a Diploma.',
+    headline2: 'Now Take It to Diploma Level.',
     support:
-      'A dedicated pathway for entrepreneurs and leaders of NGOs, cooperatives and organisations who want to bring their experience to a higher level of qualification, without leaving their career, business or current responsibilities.',
-    ctaPrimary: 'Check My Eligibility',
-    ctaSecondary: 'View the Two Diploma Pathways',
-    ctaMicrocopy: 'An initial review based on your experience, background and readiness.',
+      'A guided pathway for entrepreneurs and leaders of NGOs, cooperatives, associations and organisations who want to bring their real experience towards a higher qualification, without leaving their career, business or current responsibilities.',
+    badges: ['Based on real experience', 'Portfolio guidance', 'Flexible pathway', 'Assessment preparation'],
+    ctaPrimary: 'Free Eligibility Check',
+    ctaSecondary: 'Explore the Two Pathways',
+    ctaMicrocopy: 'Free initial review. No commitment. Takes about 60 seconds.',
+    card: {
+      title: 'From Experience to a Qualification Pathway',
+      steps: ['Experience review', 'Pathway selection', 'Portfolio guidance', 'Assessment preparation'],
+      cta: 'Start the Initial Check →',
+    },
     trust:
       'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
   },
   experience: {
-    title: 'Your Experience Deserves to Go Further',
+    label: 'YOUR EXPERIENCE DESERVES RECOGNITION',
+    title: 'Your Experience Is Solid. But Does Your Qualification Reflect It?',
     intro:
-      'Many entrepreneurs and organisational leaders have spent years building real results. What is missing is only the qualification that recognises it.',
+      'Many entrepreneurs and organisational leaders have built businesses, managed teams, led projects and solved real challenges for years. Yet without a matching formal qualification, some professional opportunities may remain out of reach.',
     items: [
-      'Years of experience, yet the qualification remains at SPM.',
-      'Built a business through real practical experience.',
-      'Led organisations, committees or projects.',
-      'Want stronger personal confidence.',
-      'Want improved professional standing.',
-      'Want a higher qualification without abandoning present responsibilities.',
+      'Years of real, hands-on experience',
+      'Work and family responsibilities to balance',
+      'Want stronger professional confidence',
+      'Want to reinforce credibility',
+      'Want experience organised into a portfolio',
+      'Want to explore a suitable qualification pathway',
     ],
   },
+  credStrip: [
+    'Programme managed by KOBIS Berhad',
+    'Guided by Coach Roszie & the SPM2Diploma Team',
+    'Pathway based on experience and evidence of competency',
+    'A formal assessment process is required',
+    'No need to leave your job or business',
+  ],
   pathways: {
     title: 'Choose Your Pathway',
     intro: 'Two Diploma pathways. One for business builders, one for organisational leaders.',
@@ -51,7 +70,16 @@ export const en: Dict = {
       forTitle: 'Suitable for:',
       message:
         'You have spent years building your business. Now it may be time to strengthen your experience with a higher qualification.',
-      cta: 'View the Entrepreneurship Pathway',
+      cta: 'Explore the Entrepreneurship Pathway',
+      expTitle: 'Possible relevant experience areas:',
+      expAreas: [
+        'Business operations',
+        'Marketing and sales',
+        'Financial management',
+        'Customer management',
+        'Team supervision',
+        'Business planning',
+      ],
     },
     card2: {
       name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
@@ -67,8 +95,106 @@ export const en: Dict = {
       forTitle: 'Suitable for:',
       message:
         'You have led people, projects and organisations. Now take your leadership experience to a higher level.',
-      cta: 'View the Leadership Pathway',
+      cta: 'Explore the Leadership Pathway',
+      expTitle: 'Possible relevant experience areas:',
+      expAreas: [
+        'Organisational leadership',
+        'Governance',
+        'Project coordination',
+        'Administration',
+        'Stakeholder management',
+        'Team leadership',
+      ],
     },
+    unsure: {
+      question: 'Not sure which pathway fits you?',
+      cta: 'Let Our Team Help Assess Your Profile',
+    },
+  },
+  receive: {
+    title: 'What You Will Receive',
+    intro: 'A structured journey — you know exactly what is provided for you.',
+    items: [
+      { title: 'Initial Profile Review', body: 'An early assessment of your experience, background and goals.' },
+      { title: 'Suitable Pathway Recommendation', body: 'The team helps identify the most relevant pathway.' },
+      { title: 'Training and Guidance', body: 'Structured guidance sessions to help participants understand the programme journey.' },
+      { title: 'Portfolio Guidance', body: 'Help organising your experience and related evidence more systematically.' },
+      { title: 'Evidence Checklist', body: 'Guidance on the documents and evidence that may be required.' },
+      { title: 'Assessment Preparation', body: 'Guidance to help participants prepare for the assessment process.' },
+      { title: 'Participant Progress Portal', body: 'Your checklist and journey progress in one place.' },
+      { title: 'SPM2Diploma Team Support', body: 'Support through Coach Roszie, the programme team and WhatsApp.' },
+    ],
+  },
+  midCta: {
+    title: 'Not Sure Whether Your Experience Fits?',
+    body: 'You do not have to decide alone. Complete the free initial check and the SPM2Diploma Team will help identify the more suitable pathway.',
+    ctaPrimary: 'Check Eligibility in 60 Seconds',
+    ctaWhatsapp: 'Ask via WhatsApp',
+  },
+  official: {
+    title: 'How This Pathway Works Officially',
+    points: [
+      'Your relevant experience is reviewed first.',
+      'Participants may need to produce evidence of experience.',
+      'Portfolio preparation may be required.',
+      'Training and guidance may be required.',
+      'A formal assessment process is involved.',
+      'Participation does not guarantee automatic certification.',
+      'Certification depends on meeting the applicable competency and assessment requirements.',
+    ],
+    pendingNote:
+      'Official qualification information, NOSS references and assessment partners are undergoing final confirmation. Confirmed information will be explained to applicants during the profile review session.',
+  },
+  transform: {
+    title: 'Imagine Where You Stand After Completing This Journey',
+    items: [
+      'Your experience is better organised and professionally presentable.',
+      'You better understand the value of the competencies you have built.',
+      'Your professional profile becomes stronger.',
+      'You are more confident in your business or leadership role.',
+      'You have a clearer route for future development.',
+      'Your achievement can be a source of personal and family pride.',
+    ],
+    disclaimer:
+      'Every participant has a different journey and outcome. Final qualification depends on experience, evidence of competency, commitment and the assessment process.',
+  },
+  urgency: {
+    title: 'Profile Reviews for the Upcoming Intake Are Now Open',
+    body: 'Every profile must be reviewed first to determine pathway suitability and participant readiness. Complete the initial check so our team can help you understand the next step.',
+    cta: 'Request a Free Initial Review',
+    responsePromise: 'The team will contact you via WhatsApp within one working day.',
+  },
+  quick: {
+    title: 'Free Eligibility Check',
+    subtitle: 'About 60 seconds. No commitment. The team will contact you via WhatsApp.',
+    qPathway: 'Which pathway interests you?',
+    pathwayOptions: {
+      keusahawanan: 'Entrepreneurship',
+      kepimpinan: 'Leadership & Organisational Administration',
+      unsure: 'Not sure yet',
+    },
+    qYears: 'How many years of relevant experience do you have?',
+    yearsOptions: ['Less than 3 years', '3–5 years', '6–10 years', 'More than 10 years'],
+    qQualification: 'Highest qualification',
+    qualificationOptions: ['SPM', 'STPM / STAM', 'Certificate', 'Diploma', 'Other'],
+    qName: 'Full name',
+    qPhone: 'WhatsApp number',
+    qLang: 'Preferred language',
+    langOptions: ['BM', 'EN', '中文', 'Iban'],
+    consent:
+      'I agree for the SPM2Diploma Team to contact me via WhatsApp regarding this initial review. My information will be handled according to the Privacy Notice.',
+    submit: 'Submit for a Free Review',
+    submitting: 'Submitting…',
+    confirmTitle: 'Your Initial Review Has Been Received',
+    confirmBody:
+      'The SPM2Diploma Team will review your initial profile and contact you via WhatsApp within one working day.',
+    statusPartial: 'Initial Profile Received — Not Yet Complete',
+    statusComplete: 'Full Profile Received',
+    btnContinue: 'Continue the Full Profile',
+    btnLater: 'Continue Later',
+    btnWhatsapp: 'WhatsApp the Team Now',
+    continueNote:
+      'Completing the full profile (5–8 minutes) helps the team review your pathway more accurately. You can also complete it later.',
   },
   outcomes: {
     title: 'What Could Change for You?',
@@ -94,6 +220,11 @@ export const en: Dict = {
       'You do not have to walk this journey alone. Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will help, guide and move together with you from the first review until you are ready to face the assessment process.',
     photoPlaceholder: 'Official photograph of Coach Roszie',
     videoPlaceholder: 'Introduction video (to be updated)',
+    teamCard: {
+      title: 'The SPM2Diploma Team under KOBIS Berhad',
+      body: 'A dedicated programme team supports participant communication, documentation readiness, training coordination and progress monitoring.',
+    },
+    whatsappCta: 'Contact the Team on WhatsApp',
   },
   suitability: {
     title: 'Is This Journey for You?',
@@ -197,7 +328,7 @@ export const en: Dict = {
       },
       {
         q: 'What are the fees?',
-        a: 'The fee structure will be explained during a follow-up session with the SPM2Diploma Team after your profile review. [Official fee information to be updated]',
+        a: 'Fees depend on the pathway and participant needs. Full information on fees, schedules and payment options will be explained after the initial profile review. No payment is required for the initial check.',
       },
       {
         q: 'Can payment be made in stages?',
@@ -210,6 +341,26 @@ export const en: Dict = {
       {
         q: 'Who will guide me?',
         a: 'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will help, guide and move together with you from the first review until you are ready for the assessment process.',
+      },
+      {
+        q: 'Are classes physical, online or hybrid?',
+        a: 'Training and guidance methods will be explained during the briefing session according to pathway and intake group. [Pending official confirmation]',
+      },
+      {
+        q: 'What happens after the eligibility check?',
+        a: 'The team will review your initial profile and contact you via WhatsApp within one working day to discuss the suitable pathway and next steps.',
+      },
+      {
+        q: 'Which body issues the qualification?',
+        a: 'Official qualification information, NOSS references and assessment partners are undergoing final confirmation. Confirmed information will be explained to applicants during the profile review session.',
+      },
+      {
+        q: 'What is the role of KOBIS Berhad?',
+        a: 'KOBIS Berhad manages programme strategy, marketing, applicant coordination, the digital platform and programme administration. Coach Roszie and the programme team handle participant guidance and support.',
+      },
+      {
+        q: 'How is my personal data handled?',
+        a: 'Your information is stored securely, accessed only by the authorised team, and handled according to the Privacy Notice. It is not sold or shared for third-party marketing.',
       },
     ],
   },
@@ -424,8 +575,9 @@ export const en: Dict = {
     publicLinks: {
       pathways: 'Two Pathways',
       journey: 'Your Journey',
-      coach: 'Coach Roszie & Team',
+      coach: 'Coach & Team',
       faq: 'FAQ',
+      semak: 'Eligibility Check',
       contact: 'Contact',
       privacy: 'Privacy Notice',
       programInfo: 'Important Programme Information',
@@ -449,26 +601,35 @@ export const en: Dict = {
       'For eligibility checks and official information, the SPM2Diploma Team will assist you personally.',
     shortcuts: [
       {
-        q: 'Who is suitable to apply?',
-        a: 'This programme suits entrepreneurs and organisational leaders with real experience — such as business owners and leaders of NGOs, cooperatives and associations — who are serious about obtaining a Diploma qualification.',
+        q: 'Am I eligible with only SPM?',
+        a: 'SPM holders with relevant experience are welcome to undergo a profile review. Final eligibility is subject to background, experience, evidence of competency and the official programme requirements.',
       },
       {
-        q: 'What are the two Diploma pathways?',
-        a: 'Pathway 1: Diploma Kemahiran Keusahawanan (DKM Level 4 direction) for entrepreneurs. Pathway 2: Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi (DLKM Level 5 direction) for organisational leaders.',
+        q: 'Which pathway suits me?',
+        a: 'The Entrepreneurship pathway suits business owners and managers. The Leadership pathway suits leaders of NGOs, cooperatives, associations and organisational administrators. If unsure, submit the initial check and the team will help assess your profile.',
+      },
+      {
+        q: 'How long does the process take?',
+        a: 'The actual duration depends on participant readiness, portfolio requirements and the assessment schedule. The team will explain an estimate during the profile review session.',
+      },
+      {
+        q: 'What evidence of experience is required?',
+        a: 'Examples: business or organisation registration, company profile, project reports, meeting minutes, financial or operational records, photographs and relevant certificates. No documents need to be uploaded during the initial check.',
+      },
+      {
+        q: 'What are the programme fees?',
+        a: 'Fees depend on the pathway and participant needs. Full information will be explained after the initial profile review. No payment is required for the initial check.',
       },
       {
         q: 'Can I continue working?',
         a: 'Yes. This pathway is designed for people who are still working, running a business or holding organisational responsibilities.',
       },
       {
-        q: 'How does the review process work?',
-        a: 'Complete the Eligibility Check form (5–8 minutes). The team will review your profile and contact you to discuss the suitable pathway. Final eligibility is subject to the team review.',
-      },
-      {
-        q: 'Who will guide me?',
-        a: 'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will guide you from the first review until assessment preparation.',
+        q: 'What happens after I submit the check?',
+        a: 'The team will review your initial profile and contact you via WhatsApp within one working day to explain the next steps.',
       },
     ],
+    primaryCta: 'Start the Free Initial Check',
     askTeam: 'Ask the Team on WhatsApp',
   },
   privacy: {
@@ -488,6 +649,32 @@ export const en: Dict = {
       'Participation does not guarantee automatic certification. Participants must complete the programme requirements and be verified as competent through the prescribed assessment process.',
       'Official qualification names and NOSS references are subject to final confirmation and will be updated from time to time.',
     ],
+  },
+  seo: {
+    home: {
+      title: 'SPM2Diploma | Diploma Pathway for Entrepreneurs & Organisational Leaders — KOBIS Berhad',
+      desc: 'A guided pathway for entrepreneurs and organisational leaders to bring real experience towards a higher qualification. Free 60-second initial check.',
+    },
+    pathway1: {
+      title: 'Entrepreneurship Pathway | SPM2Diploma',
+      desc: 'The Diploma Kemahiran Keusahawanan pathway for experienced business owners, entrepreneurs and business managers.',
+    },
+    pathway2: {
+      title: 'Leadership & Organisational Administration Pathway | SPM2Diploma',
+      desc: 'The advanced leadership Diploma pathway for leaders of NGOs, cooperatives, associations and organisational administrators.',
+    },
+    semakan: {
+      title: 'Free Eligibility Check | SPM2Diploma',
+      desc: 'Free 60-second initial check. The SPM2Diploma Team will contact you via WhatsApp within one working day.',
+    },
+    login: { title: 'Participant Login | SPM2Diploma', desc: 'Access your application status, progress and checklist.' },
+    privacy: { title: 'Privacy Notice | SPM2Diploma', desc: 'How your personal information is handled by SPM2Diploma and KOBIS Berhad.' },
+    programInfo: { title: 'Important Programme Information | SPM2Diploma', desc: 'Important information on the SPM2Diploma process, assessment and certification.' },
+  },
+  notFound: {
+    title: 'Page Not Found',
+    body: 'The page you are looking for does not exist or has been moved.',
+    cta: 'Back to Home',
   },
   common: {
     loading: 'Loading…',

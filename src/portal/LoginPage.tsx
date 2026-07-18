@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { isDemoMode } from '../lib/data'
 import { useAuth } from '../lib/auth'
+import { usePageMeta } from '../lib/usePageMeta'
 import { useI18n } from '../i18n'
 import './portal.css'
 
@@ -9,6 +10,7 @@ const HOME_BY_ROLE = { participant: '/peserta', admin: '/team', director: '/peng
 
 export function LoginPage() {
   const { t } = useI18n()
+  usePageMeta(t.seo.login.title, t.seo.login.desc, '/login')
   const { signIn } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()

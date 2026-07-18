@@ -6,7 +6,7 @@
  * Demo data lives in localStorage and is clearly labelled in the UI.
  */
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
-import type { Application, FinanceEntry, NewApplication, Profile, ProgrammeUpdate, Role } from './types'
+import type { Application, FinanceEntry, NewApplication, Profile, ProgrammeUpdate, QuickLead, Role } from './types'
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -101,6 +101,8 @@ function seedDemoData() {
       participant_checklist: ['personal_details', 'pathway_selected', 'briefing_completed', 'registration_completed'],
       consent: true,
       consent_timestamp: daysAgo(6),
+      preferred_language: 'BM',
+      profile_stage: 'complete',
       user_id: 'demo-participant',
     },
     {
@@ -136,6 +138,8 @@ function seedDemoData() {
       participant_checklist: ['personal_details', 'pathway_selected'],
       consent: true,
       consent_timestamp: daysAgo(3),
+      preferred_language: 'BM',
+      profile_stage: 'complete',
       user_id: null,
     },
   ]
@@ -192,6 +196,72 @@ export async function getProfile(): Promise<Profile | null> {
 }
 
 /* ── Applications ─────────────────────────────────────────────── */
+
+/**
+ * Stage 1: save the 60-second preliminary lead IMMEDIATELY (spec V2.5 §12).
+ * The full record is created with empty detail fields; stage 2 completes it.
+ */
+export async function submitQuickLead(lead: QuickLead): Promise<{ reference: string } | { error: string }> {
+  const reference = generateReference()
+  const app: NewApplication = {
+    application_reference: reference,
+    full_name: lead.full_name,
+    age_range: '',
+    location: '',
+    phone: lead.phone,
+    email: '',
+    highest_qualification: lead.highest_qualification,
+    selected_pathway: lead.pathway,
+    business_or_organisation_name: '',
+    organisation_type: null,
+    current_position: '',
+    industry: null,
+    years_experience: lead.years_experience,
+    team_size: '',
+    responsibilities: '',
+    website_or_social_link: null,
+    evidence_readiness: [],
+    commitment_level: '',
+    financial_readiness: '',
+    motivation: '',
+    additional_information: null,
+    lead_source: lead.lead_source,
+    consent: true,
+    consent_timestamp: new Date().toISOString(),
+    preferred_language: lead.preferred_language,
+    profile_stage: 'preliminary',
+  }
+  const result = await submitApplication(app)
+  return 'error' in result ? result : { reference }
+}
+
+/**
+ * Stage 2: complete the detailed profile for an existing preliminary lead.
+ * Identified by reference + phone (capability pair). In production this goes
+ * through the `complete_profile` SECURITY DEFINER RPC so anonymous users can
+ * update ONLY their own preliminary record's profile fields.
+ */
+export async function completeProfile(
+  reference: string,
+  phone: string,
+  patch: Partial<Application>
+): Promise<boolean> {
+  if (isDemoMode) {
+    const apps = demoRead<Application[]>(DEMO_APPS_KEY, [])
+    const idx = apps.findIndex((a) => a.application_reference === reference && a.phone === phone)
+    if (idx === -1) return false
+    apps[idx] = { ...apps[idx], ...patch, profile_stage: 'complete' }
+    demoWrite(DEMO_APPS_KEY, apps)
+    return true
+  }
+  const { error } = await supabase!.rpc('complete_profile', {
+    p_reference: reference,
+    p_phone: phone,
+    p_patch: { ...patch, profile_stage: 'complete' },
+  })
+  return !error
+}
+
 export async function submitApplication(app: NewApplication): Promise<{ reference: string } | { error: string }> {
   const record = {
     ...app,

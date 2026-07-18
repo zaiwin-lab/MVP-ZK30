@@ -332,6 +332,7 @@ function Dashboard() {
                   <tr>
                     <th>Nama</th>
                     <th>Laluan</th>
+                    <th>Profil</th>
                     <th>Status</th>
                     <th>Komitmen</th>
                     <th>Kewangan</th>
@@ -351,6 +352,11 @@ function Dashboard() {
                         </span>
                       </td>
                       <td>{PATHWAY_LABELS[a.selected_pathway]}</td>
+                      <td>
+                        <span className={`pill ${a.profile_stage === 'preliminary' ? 'pill--gold' : 'pill--green'}`}>
+                          {a.profile_stage === 'preliminary' ? 'Awal' : 'Lengkap'}
+                        </span>
+                      </td>
                       <td>
                         <span className={`pill ${STATUS_PILL[a.status]}`}>{STATUS_LABELS[a.status]}</span>
                       </td>

@@ -1,7 +1,9 @@
 import { useI18n } from '../i18n'
+import { usePageMeta } from '../lib/usePageMeta'
 
 export function ProgramInfoPage() {
   const { t } = useI18n()
+  usePageMeta(t.seo.programInfo.title, t.seo.programInfo.desc, '/maklumat-program')
   return (
     <section className="section">
       <div className="container container--narrow">

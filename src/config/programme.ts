@@ -51,7 +51,12 @@ export const PATHWAYS: Record<'keusahawanan' | 'kepimpinan', PathwayConfig> = {
   },
 }
 
-/** Contact & continuation channels */
+/**
+ * Contact & continuation channels.
+ * NOTE: The V2.5 master prompt mentions 011-2846 5813, but the live V1 site
+ * and the original build spec both use 011-2846 6813. Keeping 6813 (the
+ * number currently in use) — change BOTH values below if 5813 is correct.
+ */
 export const CONTACT = {
   whatsappDisplay: '011-2846 6813',
   whatsappIntl: '601128466813',
@@ -68,12 +73,16 @@ export const COACH = {
   name: 'Coach Hjh Roszie Amir',
   shortName: 'Coach Roszie',
   roles: ['Operating Partner', 'Lead Trainer'],
-  /** PLACEHOLDER — replace with the approved official biography */
+  /** Role-based description — only verified facts; no invented credentials */
   bioMs:
-    'Coach Hjh Roszie Amir ialah Operating Partner dan Lead Trainer Program SPM2Diploma. ' +
-    'Beliau bersama Team SPM2Diploma di bawah KOBIS Berhad membimbing setiap peserta dari semakan awal ' +
-    'sehingga persediaan penilaian. [Biografi rasmi penuh akan dikemas kini]',
-  bioPending: true,
+    'Coach Hjh Roszie Amir menerajui perjalanan bimbingan peserta bersama Team SPM2Diploma di bawah ' +
+    'KOBIS Berhad. Daripada semakan profil awal dan perbincangan laluan sehingga bimbingan portfolio ' +
+    'dan persediaan penilaian, peserta menerima sokongan tersusun sepanjang proses.',
+  bioEn:
+    'Coach Hjh Roszie Amir leads the participant guidance journey together with Team SPM2Diploma under ' +
+    'KOBIS Berhad. From preliminary profile review and pathway discussion to portfolio guidance and ' +
+    'assessment preparation, participants receive structured support throughout the process.',
+  bioPending: false,
   /** PLACEHOLDER — list confirmed credentials only; do not invent */
   credentials: [] as string[],
   photoUrl: null as string | null, // Replace with official photograph path
@@ -133,6 +142,18 @@ export interface Testimonial {
   photoUrl: string | null
 }
 export const TESTIMONIALS: Testimonial[] = []
+
+/**
+ * Intake urgency facts (spec: genuine urgency only — no fake countdowns).
+ * Only values entered here are shown; null values display nothing.
+ */
+export const INTAKE = {
+  reviewsOpen: true,
+  closingDate: null as string | null, // e.g. '2026-09-30'
+  placesAvailable: null as number | null,
+  briefingDate: null as string | null,
+  intakeDate: null as string | null,
+}
 
 /** Participant journey stages (spec L) — order matters */
 export const PROGRESS_STAGES = [

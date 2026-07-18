@@ -1,11 +1,28 @@
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { generateReference, submitApplication } from '../lib/data'
+import { completeProfile, generateReference, submitApplication } from '../lib/data'
+import { leadSourceWithUTM, track } from '../lib/analytics'
 import type { NewApplication } from '../lib/types'
 import { useI18n } from '../i18n'
 import './semakan.css'
 
 type Pathway = 'keusahawanan' | 'kepimpinan' | 'unsure'
+
+interface StoredLead {
+  reference: string
+  pathway: Pathway
+  name: string
+  phone: string
+}
+
+export function getStoredLead(): StoredLead | null {
+  try {
+    const raw = sessionStorage.getItem('spm2d.lead')
+    return raw ? (JSON.parse(raw) as StoredLead) : null
+  } catch {
+    return null
+  }
+}
 
 interface FormState {
   pathway: Pathway | ''
@@ -69,8 +86,14 @@ export function SemakanForm({ leadSource = 'website' }: { leadSource?: string })
   const { t } = useI18n()
   const f = t.form
   const navigate = useNavigate()
+  /** Stage-2 mode: an existing preliminary lead is completed, not re-created */
+  const [lead] = useState<StoredLead | null>(getStoredLead)
   const [step, setStep] = useState(1)
-  const [state, setState] = useState<FormState>(INITIAL)
+  const [state, setState] = useState<FormState>(() =>
+    lead
+      ? { ...INITIAL, pathway: lead.pathway, fullName: lead.name, phone: lead.phone }
+      : INITIAL
+  )
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(false)
@@ -132,6 +155,7 @@ export function SemakanForm({ leadSource = 'website' }: { leadSource?: string })
     const e = validators[step]()
     setErrors(e)
     if (Object.keys(e).length) return
+    track('detailed_step_completed', { step, stage2: !!lead })
     setStep((s) => Math.min(s + 1, TOTAL_STEPS))
     scrollTop()
   }
@@ -148,6 +172,41 @@ export function SemakanForm({ leadSource = 'website' }: { leadSource?: string })
     if (Object.keys(e).length) return
     setSubmitting(true)
     setSubmitError(false)
+
+    // Stage 2: complete the existing preliminary lead instead of creating a new record
+    if (lead) {
+      const ok = await completeProfile(lead.reference, lead.phone, {
+        age_range: state.ageRange,
+        location: state.location.trim(),
+        email: state.email.trim(),
+        business_or_organisation_name: state.bizName.trim(),
+        organisation_type: isLeadership ? state.orgType : null,
+        current_position: state.role.trim(),
+        industry: isBusiness ? state.industry.trim() : null,
+        team_size: state.teamSize.trim(),
+        responsibilities: state.responsibilities.trim(),
+        website_or_social_link: state.website.trim() || null,
+        evidence_readiness: state.evidence,
+        commitment_level: state.commitment,
+        financial_readiness: state.financial,
+        motivation: state.motivation,
+        additional_information: state.motivationOther.trim() || null,
+      })
+      setSubmitting(false)
+      if (!ok) {
+        setSubmitError(true)
+        return
+      }
+      track('final_application_submitted', { mode: 'stage2' })
+      sessionStorage.removeItem('spm2d.lead')
+      sessionStorage.setItem(
+        'spm2d.lastSubmission',
+        JSON.stringify({ reference: lead.reference, pathway: state.pathway, date: new Date().toISOString(), stage: 'full' })
+      )
+      navigate('/semakan/terima-kasih')
+      return
+    }
+
     const reference = generateReference()
     const app: NewApplication = {
       application_reference: reference,
@@ -171,9 +230,11 @@ export function SemakanForm({ leadSource = 'website' }: { leadSource?: string })
       financial_readiness: state.financial,
       motivation: state.motivation,
       additional_information: state.motivationOther.trim() || null,
-      lead_source: leadSource,
+      lead_source: leadSourceWithUTM(leadSource),
       consent: true,
       consent_timestamp: new Date().toISOString(),
+      preferred_language: null,
+      profile_stage: 'complete',
     }
     const result = await submitApplication(app)
     setSubmitting(false)
@@ -181,9 +242,10 @@ export function SemakanForm({ leadSource = 'website' }: { leadSource?: string })
       setSubmitError(true)
       return
     }
+    track('final_application_submitted', { mode: 'direct' })
     sessionStorage.setItem(
       'spm2d.lastSubmission',
-      JSON.stringify({ reference, pathway: state.pathway, date: new Date().toISOString() })
+      JSON.stringify({ reference, pathway: state.pathway, date: new Date().toISOString(), stage: 'full' })
     )
     navigate('/semakan/terima-kasih')
   }
@@ -201,6 +263,11 @@ export function SemakanForm({ leadSource = 'website' }: { leadSource?: string })
 
   return (
     <div className="semakan" ref={topRef}>
+      {lead && (
+        <p className="stage2note" role="status">
+          {t.quick.statusPartial} · {lead.reference} — {t.quick.continueNote}
+        </p>
+      )}
       <div className="semakan__head">
         <h2 className="semakan__title">{f.title}</h2>
         <p className="semakan__support">{f.support}</p>

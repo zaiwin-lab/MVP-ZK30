@@ -28,6 +28,7 @@ export function Footer() {
           <Link to="/#perjalanan">{f.publicLinks.journey}</Link>
           <Link to="/#coach">{f.publicLinks.coach}</Link>
           <Link to="/#faq">{f.publicLinks.faq}</Link>
+          <Link to="/semakan">{f.publicLinks.semak}</Link>
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
             {f.publicLinks.contact}
           </a>
