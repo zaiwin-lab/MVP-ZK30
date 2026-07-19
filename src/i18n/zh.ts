@@ -31,10 +31,10 @@ export const zh: Dict = {
   },
   hero: {
     eyebrow: '专为企业家与组织领导者而设的课程',
-    headline1: '多年来累积了丰富的实战经验?',
-    headline2: '现在,把它带到文凭的层次。',
+    headline1: 'SPM 直通文凭。',
+    headline2: '不必辞职,不必从零开始。',
     support:
-      '专为企业家以及非政府组织、合作社、协会与其他组织的领导者而设的引导式途径,让您在不放弃现有事业、业务或职责的情况下,把真实经验带向更高的资格。',
+      '您的商业与领导经验将通过马来西亚技能文凭(Diploma Kemahiran Malaysia)官方途径接受评估——由马来西亚人力资源部技能发展局(JPK)负责颁发认证。边工作边学习,从初步审核到评估全程有团队引导。',
     badges: ['以真实经验为基础', '作品集辅导', '灵活的途径', '评估准备'],
     ctaPrimary: '免费资格查询',
     ctaSecondary: '探索两条途径',
@@ -72,7 +72,7 @@ export const zh: Dict = {
     intro: '两条文凭途径:一条为创业者而设,一条为组织领导者而设。',
     card1: {
       name: 'Diploma Kemahiran Keusahawanan(创业技能文凭)',
-      levelNote: '官方方向:马来西亚技能文凭(DKM)第四级',
+      levelNote: '由马来西亚人力资源部技能发展局(JPK)颁发认证',
       for: ['企业东主', '企业家', '业务经理'],
       forTitle: '适合:',
       message: '您多年来努力经营事业。现在,或许是时候以更高的资格来巩固您的经验了。',
@@ -82,7 +82,7 @@ export const zh: Dict = {
     },
     card2: {
       name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi(领导与组织管理高级文凭)',
-      levelNote: '官方方向:马来西亚高级技能文凭(DLKM)第五级',
+      levelNote: '由马来西亚人力资源部技能发展局(JPK)颁发认证',
       for: ['非政府组织领导', '合作社领导', '协会领导', '顾问', '组织行政人员', '高级管理人员'],
       forTitle: '适合:',
       message: '您曾领导团队、项目与组织。现在,把您的领导经验提升到更高的层次。',

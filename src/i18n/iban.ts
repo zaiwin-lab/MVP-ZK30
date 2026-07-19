@@ -35,10 +35,10 @@ export const iban: Dict = {
   },
   hero: {
     eyebrow: 'Program Khas Ke Sida Bedagang & Tuai Gerempung',
-    headline1: 'Udah Bertaun-taun Ngumpul Penemu Enggau Pengalaman?',
-    headline2: 'Diatu Maya Mai Iya Ngagai Tikas Diploma.',
+    headline1: 'SPM Ngagai Diploma.',
+    headline2: 'Enda Ibuh Badu Bekereja. Enda Ibuh Berengkah Ari Puchuk.',
     support:
-      'Jalai diberi ajar ke sida ke bedagang sereta tuai NGO, koperasi, persatuan enggau gerempung bukai ti deka mai pengalaman amat sida ngagai kelulusan ti tinggi agi, enda ninggalka pengawa, dagang tauka tanggungpengawa diatu.',
+      'Pengalaman dagang enggau pengalaman nyadi tuai nuan dipansik nengah jalai ofisial Diploma Kemahiran Malaysia — sijil ari Jabatan Pembangunan Kemahiran (JPK), Kementerian Sumber Manusia Malaysia. Belajar sambil bekereja, diberi ajar ari pun datai ke penilai.',
     badges: ['Bepelasarka pengalaman amat', 'Ajar portfolio', 'Jalai fleksibel', 'Penyedia penilai'],
     ctaPrimary: 'Pansik Penau Percuma',
     ctaSecondary: 'Terokai Dua Jalai',
@@ -76,7 +76,7 @@ export const iban: Dict = {
     intro: 'Dua jalai Diploma. Siti ke sida bedagang, siti ke tuai gerempung.',
     card1: {
       name: 'Diploma Kemahiran Keusahawanan',
-      levelNote: 'Tuju ofisial: Diploma Kemahiran Malaysia — Tahap 4',
+      levelNote: 'Sijil ari Jabatan Pembangunan Kemahiran (JPK) — Kementerian Sumber Manusia Malaysia',
       for: ['Empu dagang', 'Sida bedagang', 'Pengurus dagang'],
       forTitle: 'Ngena ke:',
       message:
@@ -94,7 +94,7 @@ export const iban: Dict = {
     },
     card2: {
       name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
-      levelNote: 'Tuju ofisial: Diploma Lanjutan Kemahiran Malaysia — Tahap 5',
+      levelNote: 'Sijil ari Jabatan Pembangunan Kemahiran (JPK) — Kementerian Sumber Manusia Malaysia',
       for: [
         'Tuai NGO',
         'Tuai koperasi',

@@ -23,10 +23,10 @@ export const en: Dict = {
   },
   hero: {
     eyebrow: 'A Dedicated Programme for Entrepreneurs & Organisational Leaders',
-    headline1: 'Years of Real Experience Behind You?',
-    headline2: 'Now Take It to Diploma Level.',
+    headline1: 'SPM To Diploma.',
+    headline2: 'Without Quitting Your Job. Without Starting From Zero.',
     support:
-      'A guided pathway for entrepreneurs and leaders of NGOs, cooperatives, associations and organisations who want to bring their real experience towards a higher qualification, without leaving their career, business or current responsibilities.',
+      'Your business and leadership experience is assessed through the official Diploma Kemahiran Malaysia pathway — certification by the Department of Skills Development (JPK), Ministry of Human Resources Malaysia. Learn while you work, guided from the first review to assessment.',
     badges: ['Based on real experience', 'Portfolio guidance', 'Flexible pathway', 'Assessment preparation'],
     ctaPrimary: 'Free Eligibility Check',
     ctaSecondary: 'Explore the Two Pathways',
@@ -64,7 +64,7 @@ export const en: Dict = {
     intro: 'Two Diploma pathways. One for business builders, one for organisational leaders.',
     card1: {
       name: 'Diploma Kemahiran Keusahawanan',
-      levelNote: 'Official direction: Diploma Kemahiran Malaysia — Level 4',
+      levelNote: 'Certification by the Department of Skills Development (JPK) — Ministry of Human Resources Malaysia',
       for: ['Business owners', 'Entrepreneurs', 'Business managers'],
       forTitle: 'Suitable for:',
       message:
@@ -82,7 +82,7 @@ export const en: Dict = {
     },
     card2: {
       name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
-      levelNote: 'Official direction: Diploma Lanjutan Kemahiran Malaysia — Level 5',
+      levelNote: 'Certification by the Department of Skills Development (JPK) — Ministry of Human Resources Malaysia',
       for: [
         'NGO leaders',
         'Cooperative leaders',

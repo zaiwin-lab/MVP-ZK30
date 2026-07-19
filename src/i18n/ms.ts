@@ -25,10 +25,10 @@ export const ms = {
   },
   hero: {
     eyebrow: 'Program Khas Untuk Usahawan & Pemimpin Organisasi',
-    headline1: 'Sudah Bertahun-Tahun Membina Pengalaman?',
-    headline2: 'Kini Masa Untuk Membawa Ia Ke Tahap Diploma.',
+    headline1: 'SPM Ke Diploma.',
+    headline2: 'Tanpa Berhenti Kerja. Tanpa Mula Dari Kosong.',
     support:
-      'Laluan dibimbing untuk usahawan serta pemimpin NGO, koperasi, persatuan dan organisasi yang mahu membawa pengalaman sebenar mereka ke arah kelayakan lebih tinggi—tanpa meninggalkan kerjaya, perniagaan atau tanggungjawab semasa.',
+      'Pengalaman perniagaan dan kepimpinan anda dinilai melalui laluan rasmi Diploma Kemahiran Malaysia — persijilan oleh Jabatan Pembangunan Kemahiran (JPK), Kementerian Sumber Manusia Malaysia. Belajar sambil bekerja, dibimbing dari mula hingga penilaian.',
     badges: ['Berdasarkan pengalaman sebenar', 'Bimbingan portfolio', 'Laluan fleksibel', 'Persediaan penilaian'],
     ctaPrimary: 'Semak Kelayakan Percuma',
     ctaSecondary: 'Terokai Dua Laluan',
@@ -66,7 +66,7 @@ export const ms = {
     intro: 'Dua laluan Diploma. Satu untuk pembina perniagaan, satu untuk pemimpin organisasi.',
     card1: {
       name: 'Diploma Kemahiran Keusahawanan',
-      levelNote: 'Hala tuju rasmi: Diploma Kemahiran Malaysia — Tahap 4',
+      levelNote: 'Persijilan oleh Jabatan Pembangunan Kemahiran (JPK) — Kementerian Sumber Manusia Malaysia',
       for: ['Pemilik perniagaan', 'Usahawan', 'Pengurus perniagaan'],
       forTitle: 'Sesuai untuk:',
       message:
@@ -84,7 +84,7 @@ export const ms = {
     },
     card2: {
       name: 'Diploma Lanjutan Kepimpinan & Pentadbiran Organisasi',
-      levelNote: 'Hala tuju rasmi: Diploma Lanjutan Kemahiran Malaysia — Tahap 5',
+      levelNote: 'Persijilan oleh Jabatan Pembangunan Kemahiran (JPK) — Kementerian Sumber Manusia Malaysia',
       for: [
         'Pemimpin NGO',
         'Pemimpin koperasi',
