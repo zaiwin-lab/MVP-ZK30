@@ -3,7 +3,7 @@
 ## Deploy SOP (Netlify manual zip — user's preferred flow)
 1. `npm run build`
 2. Zip the **contents** of `dist/` (including `_redirects`) as `spm2diploma-<version>-site.zip`
-3. **Always deliver the zip as a clickable chat attachment (SendUserFile)** — never only drop it in the folder. The user drags the attachment straight into Netlify → Deploys → Deploy manually.
+3. Keep the zip at the repo root (gitignored via `*-site.zip`) AND **always deliver both**: the zip as a clickable chat attachment (SendUserFile) for drag-and-drop into Netlify → Deploys → Deploy manually, plus its full path written as a clickable file reference in the message so the user can open the location and rename it.
 4. Do not automate Netlify deploys via API/MCP — manual drag-and-drop only.
 
 ## Key facts
