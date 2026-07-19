@@ -48,8 +48,7 @@ export const iban: Dict = {
       steps: ['Pemansik pengalaman', 'Pemilih jalai', 'Ajar portfolio', 'Penyedia penilai'],
       cta: 'Berengkah Pansik Keterubah →',
     },
-    trust:
-      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trust: 'Team SPM2Diploma di baruh KOBIS Berhad deka bejalai enggau nuan sepemanjai pejalai tu.',
   },
   experience: {
     label: 'PENGALAMAN NUAN PATUT DIIKTIRAF',
@@ -67,7 +66,7 @@ export const iban: Dict = {
   },
   credStrip: [
     'Program diuruska KOBIS Berhad',
-    'Diberi ajar Coach Roszie & Team SPM2Diploma',
+    'Diberi ajar magang Team SPM2Diploma',
     'Jalai bepelasarka pengalaman enggau bukti kompetensi',
     'Chara penilai formal diperlu',
     'Enda ibuh ninggalka pengawa tauka dagang',
@@ -134,7 +133,7 @@ export const iban: Dict = {
       { title: 'Senarai Pemeriksa Bukti', body: 'Ajar pasal dokumen enggau bukti ti engka diperlu.' },
       { title: 'Penyedia Penilai', body: 'Ajar kena nulung peserta sedia napi chara penilai.' },
       { title: 'Participant Progress Portal', body: 'Senarai pemeriksa enggau pemansang pejalai peserta ba siti endur.' },
-      { title: 'Sokong Team SPM2Diploma', body: 'Tulung nengah Coach Roszie, team program enggau WhatsApp.' },
+      { title: 'Sokong Team SPM2Diploma', body: 'Tulung nengah team program enggau WhatsApp ofisial.' },
     ],
   },
   midCta: {
@@ -257,7 +256,7 @@ export const iban: Dict = {
     intro: 'Lapan pengelangkah ti terang, diberi ajar ari pun datai ke ujung.',
     steps: [
       { title: 'Pansik Penau', body: 'Padahka pengalaman enggau latar nuan.' },
-      { title: 'Team Mansik Profil Nuan', body: 'Coach Roszie enggau team nilai jalai ti ngena.' },
+      { title: 'Team Mansik Profil Nuan', body: 'Team program nilai jalai ti ngena ke nuan.' },
       { title: 'Berandau Pasal Jalai Ti Ngena', body: 'Randau kediri pasal jalai nuan.' },
       { title: 'Tembuka Pendaftar', body: 'Tembuka pendaftar program ti ofisial.' },
       { title: 'Enggau Latih & Ajar', body: 'Latih enggau ajar enggau team.' },
@@ -380,13 +379,12 @@ export const iban: Dict = {
     headline1: 'Pengalaman Nuan Udah Mai Nuan Datai Ditu.',
     headline2: 'Diatu Mai Iya Ngagai Tikas Ti Tinggi Agi.',
     cta: 'Pansik Penau Aku',
-    trust:
-      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trust: 'Team SPM2Diploma di baruh KOBIS Berhad deka bejalai enggau nuan sepemanjai pejalai tu.',
   },
   form: {
     title: 'Pansik Penau SPM2Diploma',
     support:
-      'Padahka mimit pasal pengalaman nuan. Coach Roszie enggau Team SPM2Diploma deka mansik penerang nuan lalu nulung milih jalai ti ngena.',
+      'Padahka mimit pasal pengalaman nuan. Team SPM2Diploma deka mansik penerang nuan lalu nulung milih jalai ti ngena.',
     stepLabel: 'Pengelangkah',
     of: 'ari',
     next: 'Pengelangkah Siti Agi',

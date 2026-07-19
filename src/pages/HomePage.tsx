@@ -120,54 +120,45 @@ export function HomePage() {
             </p>
           </Reveal>
           <div className="pathsplit">
-            <Reveal className="pathpanel pathpanel--navy">
-              <p className="pathpanel__level">{t.pathways.card1.levelNote}</p>
-              <h3 className="pathpanel__name">{t.pathways.card1.name}</h3>
-              <p className="pathpanel__msg">“{t.pathways.card1.message}”</p>
-              <p className="pathpanel__fortitle">{t.pathways.card1.forTitle}</p>
-              <ul className="pathpanel__for">
-                {t.pathways.card1.for.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
-              <p className="pathpanel__fortitle">{t.pathways.card1.expTitle}</p>
-              <ul className="pathpanel__exp">
-                {t.pathways.card1.expAreas.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
-              <Link
-                to="/laluan/keusahawanan"
-                className="btn btn--gold pathpanel__cta"
-                onClick={() => track('pathway_selected', { pathway: 'keusahawanan', where: 'home-cards' })}
-              >
-                {t.pathways.card1.cta}
-              </Link>
-            </Reveal>
-            <Reveal delay={120} className="pathpanel pathpanel--light">
-              <p className="pathpanel__level">{t.pathways.card2.levelNote}</p>
-              <h3 className="pathpanel__name">{t.pathways.card2.name}</h3>
-              <p className="pathpanel__msg">“{t.pathways.card2.message}”</p>
-              <p className="pathpanel__fortitle">{t.pathways.card2.forTitle}</p>
-              <ul className="pathpanel__for">
-                {t.pathways.card2.for.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
-              <p className="pathpanel__fortitle">{t.pathways.card2.expTitle}</p>
-              <ul className="pathpanel__exp pathpanel__exp--light">
-                {t.pathways.card2.expAreas.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
-              <Link
-                to="/laluan/kepimpinan"
-                className="btn btn--navy pathpanel__cta"
-                onClick={() => track('pathway_selected', { pathway: 'kepimpinan', where: 'home-cards' })}
-              >
-                {t.pathways.card2.cta}
-              </Link>
-            </Reveal>
+            {([
+              ['keusahawanan', t.pathways.card1, 'LALUAN 1'],
+              ['kepimpinan', t.pathways.card2, 'LALUAN 2'],
+            ] as const).map(([id, card, tag], i) => (
+              <Reveal key={id} delay={i * 120} className="pathcard">
+                <div className="pathcard__head">
+                  <span className="pathcard__tag">{tag}</span>
+                  <h3 className="pathcard__name">{card.name}</h3>
+                  <p className="pathcard__level">{card.levelNote}</p>
+                </div>
+                <div className="pathcard__body">
+                  <p className="pathcard__msg">“{card.message}”</p>
+                  <p className="pathcard__fortitle">{card.forTitle}</p>
+                  <ul className="pathcard__chips">
+                    {card.for.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                  <p className="pathcard__fortitle">{card.expTitle}</p>
+                  <ul className="pathcard__checks">
+                    {card.expAreas.map((x) => (
+                      <li key={x}>
+                        <span className="pathcard__tick" aria-hidden="true">
+                          ✓
+                        </span>
+                        {x}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={`/laluan/${id}`}
+                    className="btn btn--gold pathcard__cta"
+                    onClick={() => track('pathway_selected', { pathway: id, where: 'home-cards' })}
+                  >
+                    {card.cta}
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
           </div>
           <Reveal className="pathunsure">
             <p className="pathunsure__q">{t.pathways.unsure.question}</p>

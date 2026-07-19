@@ -36,8 +36,7 @@ export const en: Dict = {
       steps: ['Experience review', 'Pathway selection', 'Portfolio guidance', 'Assessment preparation'],
       cta: 'Start the Initial Check →',
     },
-    trust:
-      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trust: 'The SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
   },
   experience: {
     label: 'YOUR EXPERIENCE DESERVES RECOGNITION',
@@ -55,7 +54,7 @@ export const en: Dict = {
   },
   credStrip: [
     'Programme managed by KOBIS Berhad',
-    'Guided by Coach Roszie & the SPM2Diploma Team',
+    'Fully guided by the SPM2Diploma Team',
     'Pathway based on experience and evidence of competency',
     'A formal assessment process is required',
     'No need to leave your job or business',
@@ -122,7 +121,7 @@ export const en: Dict = {
       { title: 'Evidence Checklist', body: 'Guidance on the documents and evidence that may be required.' },
       { title: 'Assessment Preparation', body: 'Guidance to help participants prepare for the assessment process.' },
       { title: 'Participant Progress Portal', body: 'Your checklist and journey progress in one place.' },
-      { title: 'SPM2Diploma Team Support', body: 'Support through Coach Roszie, the programme team and WhatsApp.' },
+      { title: 'SPM2Diploma Team Support', body: 'Support through the programme team and the official WhatsApp channel.' },
     ],
   },
   midCta: {
@@ -245,7 +244,7 @@ export const en: Dict = {
     intro: 'Eight clear steps, guided from start to finish.',
     steps: [
       { title: 'Check Eligibility', body: 'Share your experience and background.' },
-      { title: 'Team Reviews Your Profile', body: 'Coach Roszie and the team assess your suitable pathway.' },
+      { title: 'Team Reviews Your Profile', body: 'The programme team assesses your suitable pathway.' },
       { title: 'Discuss the Suitable Pathway', body: 'A personal discussion about your pathway.' },
       { title: 'Complete Registration', body: 'Complete the official programme registration.' },
       { title: 'Join Training and Guidance', body: 'Training and coaching with the team.' },
@@ -368,13 +367,12 @@ export const en: Dict = {
     headline1: 'Your Experience Has Brought You This Far.',
     headline2: 'Now Take It to the Next Level.',
     cta: 'Check My Eligibility',
-    trust:
-      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trust: 'The SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
   },
   form: {
     title: 'SPM2Diploma Eligibility Check',
     support:
-      'Tell us a little about your experience. Coach Roszie and the SPM2Diploma Team will review your information and help determine the suitable pathway.',
+      'Tell us a little about your experience. The SPM2Diploma Team will review your information and help determine the suitable pathway.',
     stepLabel: 'Step',
     of: 'of',
     next: 'Next Step',

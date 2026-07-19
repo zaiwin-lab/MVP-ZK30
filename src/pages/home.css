@@ -1,8 +1,10 @@
 /* ── HERO ─────────────────────────────────────────────────────── */
 .hero {
+  /* V1-style bright royal navy: vivid, welcoming, high-energy */
   background:
-    radial-gradient(90rem 40rem at 85% -20%, oklch(0.32 0.08 265 / 0.85), transparent 60%),
-    var(--navy-900);
+    radial-gradient(80rem 45rem at 12% -15%, oklch(0.42 0.13 270 / 0.85), transparent 55%),
+    radial-gradient(70rem 35rem at 100% 115%, oklch(0.38 0.11 280 / 0.6), transparent 60%),
+    linear-gradient(150deg, oklch(0.33 0.105 268), oklch(0.25 0.085 262));
   color: var(--on-navy);
   overflow: hidden;
 }
@@ -15,22 +17,27 @@
   padding-block: clamp(4rem, 9vw, 7rem);
 }
 
-/* The single named kicker of the brand (used once, hero only) */
+/* The single named kicker of the brand (used once, hero only) — V1 pill style */
 .hero__eyebrow {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--gold-300);
+  border: 1px solid oklch(0.72 0.12 85 / 0.6);
+  background: oklch(0.72 0.12 85 / 0.1);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
 }
 
 .hero__eyebrowrule {
-  width: 34px;
-  height: 2px;
+  width: 8px;
+  height: 8px;
   background: var(--gold-500);
-  border-radius: 1px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 
@@ -48,7 +55,7 @@
 }
 
 .hero__line--gold {
-  color: var(--gold-300);
+  color: oklch(0.82 0.145 88);
 }
 
 .hero__support {
@@ -64,6 +71,19 @@
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-top: 2rem;
+}
+
+/* V1-style CTAs: big, confident, pill-shaped */
+.hero__ctas .btn,
+.finalcta__actions .btn {
+  border-radius: 999px;
+  padding: 0.95rem 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.hero__ctas .btn--gold {
+  box-shadow: 0 8px 24px oklch(0.72 0.12 85 / 0.35);
 }
 
 .hero__micro {
@@ -184,7 +204,7 @@
   }
 }
 
-/* ── PATHWAYS: asymmetric paired panels ───────────────────────── */
+/* ── PATHWAYS: standardized twin cards (V1 style — navy head, light body) ── */
 .pathsplit {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
@@ -192,67 +212,73 @@
   margin-top: clamp(2rem, 5vw, 3.5rem);
 }
 
-.pathpanel {
-  border-radius: var(--radius-lg);
-  padding: clamp(1.75rem, 4vw, 2.75rem);
+.pathcard {
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-1);
-}
-
-.pathpanel--navy {
-  background: var(--navy-900);
-  color: var(--on-navy);
-}
-
-.pathpanel--navy h3 {
-  color: var(--on-navy);
-}
-
-.pathpanel--light {
   background: var(--white);
   border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
 }
 
-.pathpanel__level {
-  font-size: 0.8rem;
+.pathcard__head {
+  background:
+    radial-gradient(40rem 18rem at 50% -60%, oklch(0.38 0.11 268 / 0.9), transparent 70%),
+    var(--navy-900);
+  color: var(--on-navy);
+  text-align: center;
+  padding: clamp(1.6rem, 3.5vw, 2.2rem) clamp(1.4rem, 3vw, 2rem);
+}
+
+.pathcard__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold-300);
+  border: 1px solid var(--gold-500);
+  border-radius: 999px;
+  padding: 0.28rem 0.9rem;
+}
+
+.pathcard__name {
+  margin-top: 0.9rem;
+  font-size: var(--text-xl);
+  line-height: 1.2;
+  color: var(--on-navy);
+}
+
+.pathcard__level {
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--gold-600);
-}
-
-.pathpanel--navy .pathpanel__level {
   color: var(--gold-300);
 }
 
-.pathpanel__name {
-  margin-top: 0.6rem;
-  font-size: var(--text-xl);
-  line-height: 1.2;
+.pathcard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(1.5rem, 3.5vw, 2.2rem);
 }
 
-.pathpanel__msg {
-  margin-top: 1rem;
+.pathcard__msg {
   font-family: var(--font-display);
   font-style: italic;
   font-size: var(--text-md);
   line-height: 1.6;
-}
-
-.pathpanel--navy .pathpanel__msg {
-  color: var(--on-navy-soft);
-}
-
-.pathpanel--light .pathpanel__msg {
   color: var(--ink-soft);
 }
 
-.pathpanel__fortitle {
+.pathcard__fortitle {
   margin-top: 1.4rem;
   font-weight: 700;
   font-size: 0.9rem;
+  color: var(--navy-900);
 }
 
-.pathpanel__for {
+.pathcard__chips {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -260,26 +286,47 @@
   margin-top: 0.7rem;
 }
 
-.pathpanel__for li {
+.pathcard__chips li {
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-}
-
-.pathpanel--navy .pathpanel__for li {
-  background: oklch(1 0 0 / 0.1);
-  color: var(--on-navy);
-}
-
-.pathpanel--light .pathpanel__for li {
   background: var(--navy-50);
   color: var(--navy-900);
 }
 
-.pathpanel__cta {
-  margin-top: 1.8rem;
-  align-self: flex-start;
+.pathcard__checks {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.pathcard__checks li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0;
+  font-size: 0.92rem;
+  border-bottom: 1px solid oklch(0.93 0.008 265);
+}
+
+.pathcard__checks li:last-child {
+  border-bottom: 0;
+}
+
+.pathcard__tick {
+  color: var(--gold-600);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pathcard__cta {
+  margin-top: auto;
+  padding-top: 0;
+  width: 100%;
+}
+
+.pathcard__body .pathcard__cta {
+  margin-top: 1.6rem;
 }
 
 /* ── OUTCOMES ─────────────────────────────────────────────────── */
@@ -565,8 +612,8 @@
 
 /* Hero journey card (replaces decorative motif) */
 .journeycard {
-  background: oklch(1 0 0 / 0.06);
-  border: 1px solid oklch(1 0 0 / 0.16);
+  background: oklch(1 0 0 / 0.09);
+  border: 1px solid oklch(1 0 0 / 0.2);
   border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 3vw, 2.2rem);
   backdrop-filter: blur(6px);
@@ -574,8 +621,10 @@
 }
 
 .journeycard__title {
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: var(--text-lg);
-  color: var(--gold-300);
+  color: var(--on-navy);
   line-height: 1.3;
 }
 
@@ -613,6 +662,10 @@
 .journeycard__cta {
   width: 100%;
   margin-top: 1.5rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px oklch(0.72 0.12 85 / 0.3);
 }
 
 /* Hero trust badges */
@@ -625,12 +678,25 @@
 }
 
 .hero__badges li {
-  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  padding: 0.35rem 0.85rem;
+  padding: 0.42rem 0.95rem;
   border-radius: 999px;
-  border: 1px solid oklch(1 0 0 / 0.25);
+  border: 1px solid oklch(1 0 0 / 0.28);
+  background: oklch(1 0 0 / 0.08);
   color: var(--on-navy);
+}
+
+.hero__badges li::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: oklch(0.82 0.145 88);
+  flex-shrink: 0;
 }
 
 /* Credibility strip */
@@ -709,28 +775,6 @@
   font-weight: 700;
   font-size: 0.85rem;
   flex-shrink: 0;
-}
-
-/* Pathway experience chips + unsure block */
-.pathpanel__exp {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 0.6rem;
-}
-
-.pathpanel__exp li {
-  font-size: 0.78rem;
-  padding: 0.22rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid oklch(1 0 0 / 0.25);
-  color: var(--on-navy-soft);
-}
-
-.pathpanel__exp--light li {
-  border-color: oklch(0.85 0.01 265);
-  color: var(--ink-soft);
 }
 
 .pathunsure {

@@ -38,8 +38,7 @@ export const ms = {
       steps: ['Semakan pengalaman', 'Pemilihan laluan', 'Bimbingan portfolio', 'Persediaan penilaian'],
       cta: 'Mulakan Semakan Awal →',
     },
-    trust:
-      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trust: 'Team SPM2Diploma di bawah KOBIS Berhad akan bersama anda sepanjang perjalanan ini.',
   },
   experience: {
     label: 'PENGALAMAN ANDA WAJAR DIIKTIRAF',
@@ -57,7 +56,7 @@ export const ms = {
   },
   credStrip: [
     'Program dikendalikan oleh KOBIS Berhad',
-    'Dibimbing oleh Coach Roszie & Team SPM2Diploma',
+    'Dibimbing sepenuhnya oleh Team SPM2Diploma',
     'Laluan berdasarkan pengalaman dan bukti kompetensi',
     'Proses penilaian diperlukan',
     'Tidak perlu meninggalkan pekerjaan atau perniagaan',
@@ -124,7 +123,7 @@ export const ms = {
       { title: 'Senarai Semak Bukti', body: 'Panduan mengenai dokumen dan bukti yang mungkin diperlukan.' },
       { title: 'Persediaan Penilaian', body: 'Bimbingan bagi membantu peserta bersedia menghadapi proses penilaian.' },
       { title: 'Participant Progress Portal', body: 'Checklist dan kemajuan perjalanan peserta dalam satu tempat.' },
-      { title: 'Sokongan Team SPM2Diploma', body: 'Bantuan melalui Coach Roszie, team program dan saluran WhatsApp.' },
+      { title: 'Sokongan Team SPM2Diploma', body: 'Bantuan melalui team program dan saluran WhatsApp rasmi.' },
     ],
   },
   midCta: {
@@ -247,7 +246,7 @@ export const ms = {
     intro: 'Lapan langkah yang jelas, dibimbing dari mula hingga akhir.',
     steps: [
       { title: 'Semak Kelayakan', body: 'Kongsikan pengalaman dan latar belakang anda.' },
-      { title: 'Team Menyemak Profil Anda', body: 'Coach Roszie dan team menilai kesesuaian laluan.' },
+      { title: 'Team Menyemak Profil Anda', body: 'Team program menilai kesesuaian laluan anda.' },
       { title: 'Bincang Laluan Yang Sesuai', body: 'Sesi perbincangan peribadi mengenai laluan anda.' },
       { title: 'Lengkapkan Pendaftaran', body: 'Selesaikan pendaftaran rasmi program.' },
       { title: 'Sertai Latihan & Bimbingan', body: 'Latihan dan bimbingan bersama team.' },
@@ -370,13 +369,12 @@ export const ms = {
     headline1: 'Pengalaman Anda Sudah Membawa Anda Sejauh Ini.',
     headline2: 'Kini Bawa Ia Ke Tahap Seterusnya.',
     cta: 'Semak Kelayakan Saya',
-    trust:
-      'Coach Roszie and the SPM2Diploma Team under KOBIS Berhad will be together with you throughout this journey.',
+    trust: 'Team SPM2Diploma di bawah KOBIS Berhad akan bersama anda sepanjang perjalanan ini.',
   },
   form: {
     title: 'Semakan Kelayakan SPM2Diploma',
     support:
-      'Ceritakan sedikit tentang pengalaman anda. Coach Roszie dan Team SPM2Diploma akan menyemak maklumat anda dan membantu menentukan laluan yang bersesuaian.',
+      'Ceritakan sedikit tentang pengalaman anda. Team SPM2Diploma akan menyemak maklumat anda dan membantu menentukan laluan yang bersesuaian.',
     stepLabel: 'Langkah',
     of: 'daripada',
     next: 'Langkah Seterusnya',

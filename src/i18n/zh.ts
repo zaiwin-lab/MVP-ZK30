@@ -44,8 +44,7 @@ export const zh: Dict = {
       steps: ['经验审核', '途径选择', '作品集辅导', '评估准备'],
       cta: '开始初步查询 →',
     },
-    trust:
-      'Coach Roszie 与 KOBIS Berhad 属下的 SPM2Diploma 团队将全程与您同行。',
+    trust: 'KOBIS Berhad 属下的 SPM2Diploma 团队将全程与您同行。',
   },
   experience: {
     label: '您的经验值得被认可',
@@ -63,7 +62,7 @@ export const zh: Dict = {
   },
   credStrip: [
     '课程由 KOBIS Berhad 管理',
-    '由 Coach Roszie 与 SPM2Diploma 团队引导',
+    '由 SPM2Diploma 团队全程引导',
     '途径以经验与能力证明为基础',
     '需要经过正式评估程序',
     '无需放弃工作或生意',
@@ -107,7 +106,7 @@ export const zh: Dict = {
       { title: '证明材料清单', body: '关于可能需要的文件与证明的指引。' },
       { title: '评估准备', body: '协助学员为评估过程做好准备的辅导。' },
       { title: '学员进度平台', body: '您的清单与旅程进度尽在一处。' },
-      { title: 'SPM2Diploma 团队支援', body: '通过 Coach Roszie、课程团队与 WhatsApp 获得协助。' },
+      { title: 'SPM2Diploma 团队支援', body: '通过课程团队与官方 WhatsApp 渠道获得协助。' },
     ],
   },
   midCta: {
@@ -227,7 +226,7 @@ export const zh: Dict = {
     intro: '八个清晰的步骤,从头到尾全程引导。',
     steps: [
       { title: '资格查询', body: '分享您的经验与背景。' },
-      { title: '团队审核您的资料', body: 'Coach Roszie 与团队评估适合您的途径。' },
+      { title: '团队审核您的资料', body: '课程团队评估适合您的途径。' },
       { title: '商讨合适的途径', body: '就您的途径进行个人化商谈。' },
       { title: '完成注册', body: '完成课程的正式注册。' },
       { title: '参与培训与辅导', body: '与团队一起接受培训与辅导。' },
@@ -348,12 +347,12 @@ export const zh: Dict = {
     headline1: '您的经验已带您走到今天。',
     headline2: '现在,把它带到下一个层次。',
     cta: '查询我的资格',
-    trust: 'Coach Roszie 与 KOBIS Berhad 属下的 SPM2Diploma 团队将全程与您同行。',
+    trust: 'KOBIS Berhad 属下的 SPM2Diploma 团队将全程与您同行。',
   },
   form: {
     title: 'SPM2Diploma 资格查询',
     support:
-      '请简单分享您的经验。Coach Roszie 与 SPM2Diploma 团队将审核您的资料,并协助确定适合您的途径。',
+      '请简单分享您的经验。SPM2Diploma 团队将审核您的资料,并协助确定适合您的途径。',
     stepLabel: '步骤',
     of: '/',
     next: '下一步',
