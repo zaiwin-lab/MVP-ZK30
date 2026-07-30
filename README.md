@@ -63,3 +63,14 @@ Search the codebase for `pendingConfirmation`, `[Untuk pengesahan`, and
 Roszie's biography/photo, verification links, and verified 中文/Iban
 translations must be confirmed and filled in `src/config/programme.ts` and
 `src/i18n/`.
+
+
+---
+
+## Portfolio Status & Delivery Role
+
+**Status:** Configurable training-journey and programme-operations prototype.
+
+Product strategy, programme workflow architecture and solution direction are led by **Zaiwin Kassim**, together with the **KOBIS AI Prodigy Team**, using supervised AI-assisted development.
+
+Programme names, partner references, fees, biographies and translations must be verified and authorised before public production use. The prototype demonstrates capability and does not by itself imply commissioning or endorsement by any external organisation.
