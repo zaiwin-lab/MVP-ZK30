@@ -1059,3 +1059,285 @@
   gap: 0.9rem;
   margin-top: 2rem;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   V2+ LAUNCH EDITION — new homepage sections
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sectionlabel--light {
+  color: var(--gold-300);
+}
+
+/* 2 ── Audience cards */
+.audgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 1.1rem;
+  margin-top: 2.4rem;
+}
+
+.audcard {
+  padding: 1.6rem 1.5rem;
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.audcard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+.audcard__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: var(--navy-50);
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.audcard__title {
+  font-size: var(--text-lg);
+  margin-bottom: 0.5rem;
+}
+
+.audcard__body {
+  color: var(--ink-soft);
+  font-size: var(--text-base);
+}
+
+/* 3 ── Experience-has-value band */
+.valueband {
+  text-align: center;
+}
+
+.valueband__title {
+  max-width: 24ch;
+  margin-inline: auto;
+  font-size: var(--text-2xl);
+}
+
+.valueband__body {
+  margin: 0 auto;
+  color: var(--on-navy-soft);
+  font-size: var(--text-md);
+  max-width: 60ch;
+}
+
+/* 4 ── How it works — six steps */
+.howgrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.1rem;
+  margin-top: 2.4rem;
+}
+
+.howstep {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.4rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  box-shadow: var(--shadow-1);
+}
+
+.howstep__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--navy-900);
+  color: var(--on-navy);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+.howstep__title {
+  font-size: var(--text-md);
+  margin-bottom: 0.25rem;
+}
+
+.howstep__body {
+  color: var(--ink-soft);
+  font-size: var(--text-base);
+}
+
+/* 5 ── What you get — benefit grid */
+.getgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+  margin-top: 2.4rem;
+}
+
+.getcard {
+  padding: 1.5rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.getcard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+.getcard__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: oklch(0.93 0.05 88);
+  font-size: 1.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.getcard__title {
+  font-size: var(--text-md);
+  margin-bottom: 0.4rem;
+}
+
+.getcard__body {
+  color: var(--ink-soft);
+  font-size: var(--text-base);
+}
+
+/* 6 ── Progression flow */
+.progflow {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2.4rem;
+}
+
+.progstep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  flex: 1 1 180px;
+  max-width: 230px;
+  padding: 1.3rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid oklch(0.88 0.02 265);
+  box-shadow: var(--shadow-1);
+}
+
+.progstep__dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  color: var(--navy-900);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+.progstep__label {
+  font-weight: 600;
+  color: var(--navy-900);
+  font-size: var(--text-base);
+}
+
+.progstep__arrow {
+  position: absolute;
+  right: -0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-600);
+  font-size: 1.4rem;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.progflow__note {
+  margin: 2rem auto 0;
+  max-width: 68ch;
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 720px) {
+  .progflow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .progstep {
+    flex-direction: row;
+    max-width: none;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .progstep__arrow {
+    display: none;
+  }
+}
+
+/* 8 ── Organisation / cohort band */
+.cohortband {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  padding: 2.2rem 2.4rem;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  box-shadow: var(--shadow-1);
+}
+
+.cohortband__title {
+  font-size: var(--text-xl);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.cohortband__body {
+  max-width: 56ch;
+  margin: 0;
+}
+
+.cohortband__cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .cohortband {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.8rem 1.4rem;
+  }
+
+  .cohortband__cta {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}

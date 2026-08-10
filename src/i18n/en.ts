@@ -680,4 +680,122 @@ export const en: Dict = {
     pendingConfirmation: 'Pending official confirmation',
     demoNotice: 'Demo mode — data is not permanently stored.',
   },
+  /* ── V2+ LAUNCH EDITION — new homepage copy (contained namespace) ── */
+  home2: {
+    ctaPrimary: 'Free Eligibility Check',
+    ctaWhatsapp: 'WhatsApp Advisor',
+    audiences: {
+      label: 'WHO IT IS FOR',
+      title: 'Built for People Who Already Have Experience',
+      intro:
+        'If you have already built real experience in one of these areas, this pathway may be for you.',
+      cards: [
+        {
+          icon: '🏪',
+          title: 'Entrepreneurs & SME Owners',
+          body: 'You have managed a business, sales, customers, finance, employees and operations.',
+        },
+        {
+          icon: '🤝',
+          title: 'NGO / Cooperative / Association Leaders',
+          body: 'You are experienced in leadership, governance, programmes and organisational management.',
+        },
+        {
+          icon: '💼',
+          title: 'Executives & Operations',
+          body: 'You handle operations, administration, projects, customers, teams and documentation.',
+        },
+        {
+          icon: '📈',
+          title: 'Managers & Business Successors',
+          body: 'You carry responsibility for company management, employees, leadership and growth.',
+        },
+      ],
+    },
+    value: {
+      label: 'YOUR EXPERIENCE HAS VALUE',
+      title: 'Your Experience Already Has Value. Now See How Far It Can Take You.',
+      body: 'You may already have years of valuable business, leadership or operational experience. Explore whether there is a suitable, structured progression pathway for you.',
+    },
+    how: {
+      title: 'How It Works',
+      intro: 'Six simple steps — clear from start to finish.',
+      steps: [
+        { title: 'Check Eligibility', body: 'Share your experience through a short, free form.' },
+        { title: 'Consultation', body: 'An advisor contacts you to understand your background and goals.' },
+        {
+          title: 'Review / Screening',
+          body: 'Experience and documents are reviewed. Suitable candidates may go through a short screening or interview.',
+        },
+        { title: 'Confirmation', body: 'A suitable pathway and a written offer are shared with you.' },
+        { title: 'Programme', body: 'You begin the programme journey in a structured way.' },
+        { title: 'Coaching & Support', body: 'Workshops, coaching and mentoring throughout the journey.' },
+      ],
+    },
+    get: {
+      title: 'What You Get',
+      intro: 'More than a qualification pathway — a guided journey.',
+      items: {
+        pathway: { icon: '🧭', title: 'Structured Pathway', body: 'An organised qualification progression pathway based on your experience.' },
+        workshop: { icon: '🏫', title: 'Face-to-Face Workshop', body: 'Physical workshop sessions to strengthen learning and preparation.' },
+        groupCoaching: { icon: '👥', title: 'Online Group Coaching', body: 'Group guidance sessions held online.' },
+        personalCoaching: { icon: '🎯', title: '1-to-1 Coaching', body: 'Personal guidance based on your needs and progress.' },
+        mentoring: { icon: '🧠', title: 'Ongoing Mentoring', body: 'Mentor support throughout the journey — more than programme registration.' },
+        support: { icon: '💬', title: 'Participant Support', body: 'Help through the programme team and the official WhatsApp channel.' },
+        progress: { icon: '📊', title: 'Progress Guidance', body: 'A participant portal with a checklist and progress monitoring.' },
+      },
+    },
+    progression: {
+      title: 'Your Progression',
+      intro: 'Simple and clear — from experience to qualification.',
+      steps: [
+        'SPM / Experience',
+        'Eligibility Check',
+        'Suitable Professional Skills Pathway',
+        'Potential Further Progression',
+      ],
+      note: 'Official qualification information (including levels such as DKM Level 4 / DLKM Level 5), NOSS and the certification body will be confirmed and explained during the profile review session.',
+    },
+    faqTitle: 'Frequently Asked Questions',
+    faq: [
+      {
+        q: 'I only have SPM. Can I be eligible?',
+        a: 'SPM holders with relevant experience are welcome to undergo a profile review. Final eligibility is subject to background, experience, evidence of competency and the official programme requirements.',
+      },
+      {
+        q: 'What experience is relevant?',
+        a: 'Real experience in business, organisational leadership, operations or management. Your experience is the foundation of this pathway.',
+      },
+      {
+        q: 'Is there a screening or interview?',
+        a: 'Yes. To ensure suitability, potential candidates may go through a short online screening or interview. This helps the team understand your experience and confirm the right pathway.',
+      },
+      {
+        q: 'What documents are required?',
+        a: 'Examples include: business or organisation registration, company profile, project reports, financial or operational records, photographs and relevant certificates. No documents need to be uploaded during the initial check.',
+      },
+      {
+        q: 'How does payment work?',
+        a: 'Payment can be discussed flexibly, including the possibility of staged payments. Full information on fees and the payment structure will be explained by an advisor after the eligibility check. No payment is required for the initial check. [Pending official confirmation]',
+      },
+      {
+        q: 'Are classes online or face-to-face?',
+        a: 'The programme journey may include a face-to-face workshop, online group coaching and personal guidance. The actual method will be explained according to pathway and intake group. [Pending official confirmation]',
+      },
+      {
+        q: 'Can I keep working or running my business?',
+        a: 'Yes. This pathway is designed for people who are still working, running a business or holding organisational responsibilities.',
+      },
+      {
+        q: 'What happens after the eligibility check?',
+        a: 'The team will review your initial profile and contact you via WhatsApp within one working day to discuss the suitable pathway and next steps.',
+      },
+    ],
+    cohort: {
+      label: 'ORGANISATIONS & COHORTS',
+      title: 'For Cooperatives, NGOs, Associations & Employers',
+      body: 'Want to bring this pathway to your members, employees or community? We can discuss a cohort arrangement for organisations.',
+      cta: 'Discuss Cohort / Organisation Partnership',
+    },
+  },
 }

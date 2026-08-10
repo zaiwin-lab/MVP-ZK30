@@ -692,4 +692,122 @@ export const iban: Dict = {
     pendingConfirmation: 'Nganti pengesah ofisial',
     demoNotice: 'Mod demo — data enda disimpan tetap.',
   },
+  /* ── V2+ LAUNCH EDITION — utai baru ba laman utama (namespace nyendiri) ── */
+  home2: {
+    ctaPrimary: 'Semak Kelayakan Percuma',
+    ctaWhatsapp: 'WhatsApp Advisor',
+    audiences: {
+      label: 'SAPA TE KENA',
+      title: 'Digaga Ke Orang Ke Udah Bisi Pengalaman',
+      intro:
+        'Enti nuan udah ngaga pengalaman amat ba siti ari bidang tu, laluan tu engka kena ke nuan.',
+      cards: [
+        {
+          icon: '🏪',
+          title: 'Usahawan & Tuan SME',
+          body: 'Nuan udah ngintu bisnis, jual, pelanggan, duit, pekerja enggau operasi.',
+        },
+        {
+          icon: '🤝',
+          title: 'Tuai NGO / Koperasi / Persatuan',
+          body: 'Nuan bisi pengalaman ba pengintu, tadbir urus, program enggau pengurus organisasi.',
+        },
+        {
+          icon: '💼',
+          title: 'Eksekutif & Operasi',
+          body: 'Nuan ngintu operasi, pentadbiran, projek, pelanggan, pasukan enggau dokumentasi.',
+        },
+        {
+          icon: '📈',
+          title: 'Pengurus & Waris Bisnis',
+          body: 'Nuan mikul tanggungjawab ngurus syarikat, pekerja, pengintu enggau pemansang.',
+        },
+      ],
+    },
+    value: {
+      label: 'PENGALAMAN NUAN BEREGA',
+      title: 'Pengalaman Nuan Udah Berega. Diatu, Peda Sebrapa Jauh Iya Ulih Mai Nuan.',
+      body: 'Nuan engka udah bertaun ngaga bisnis, nuai organisasi tauka ngintu operasi. Terika kati bisi laluan pemansang kelayakan ti berstruktur enggau kena ke nuan.',
+    },
+    how: {
+      title: 'Baka Ni Iya Bejalai',
+      intro: 'Enam langkah ti mudah — terang ari pun ngagai penghujung.',
+      steps: [
+        { title: 'Semak Kelayakan', body: 'Sebagi pengalaman nuan ngena borang ringkas ti percuma.' },
+        { title: 'Konsultasi', body: 'Advisor bekomunikasi enggau nuan kena meretika latar belakang enggau tuju nuan.' },
+        {
+          title: 'Semakan / Saringan',
+          body: 'Pengalaman enggau dokumen disemak. Calon ti bisi potensi engka ngena saringan tauka temu bual ringkas.',
+        },
+        { title: 'Pengesahan', body: 'Laluan ti kena enggau tawaran betulis disebagi enggau nuan.' },
+        { title: 'Program', body: 'Nuan berengkah pejalai program ngena chara ti berstruktur.' },
+        { title: 'Pengintu & Sokongan', body: 'Bengkel, coaching enggau mentoring sepanjang pejalai.' },
+      ],
+    },
+    get: {
+      title: 'Nama Ti Diterima Nuan',
+      intro: 'Lebih ari semina laluan kelayakan — siti pejalai ti dibimbing.',
+      items: {
+        pathway: { icon: '🧭', title: 'Laluan Berstruktur', body: 'Laluan pemansang kelayakan ti tersusun nitih pengalaman nuan.' },
+        workshop: { icon: '🏫', title: 'Bengkel Betemu Mua', body: 'Sesi bengkel fizikal kena ngeringkang pemelajar enggau penyendia.' },
+        groupCoaching: { icon: '👥', title: 'Coaching Kumpulan Online', body: 'Sesi pengintu bekumpulan ngena chara online.' },
+        personalCoaching: { icon: '🎯', title: 'Coaching 1-ngagai-1', body: 'Pengintu peribadi nitih peguna enggau pemansang nuan.' },
+        mentoring: { icon: '🧠', title: 'Mentoring Ti Terus', body: 'Sokongan mentor sepanjang pejalai — ukai semina daftar program.' },
+        support: { icon: '💬', title: 'Sokongan Peserta', body: 'Tulung ari team program enggau saluran WhatsApp ofisial.' },
+        progress: { icon: '📊', title: 'Panduan Pemansang', body: 'Portal peserta enggau checklist enggau pemantau pemansang nuan.' },
+      },
+    },
+    progression: {
+      title: 'Laluan Pemansang Nuan',
+      intro: 'Mudah enggau terang — ari pengalaman ngagai kelayakan.',
+      steps: [
+        'SPM / Pengalaman',
+        'Semakan Kelayakan',
+        'Laluan Kemahiran Profesional Ti Kena',
+        'Peluang Pemansang Ti Lebih Tinggi',
+      ],
+      note: 'Utai ofisial pasal kelayakan (nyengkaum tahap baka DKM Tahap 4 / DLKM Tahap 5), NOSS enggau badan pengeluar sijil deka dipedis enggau diterangka lebuh sesi semakan profil.',
+    },
+    faqTitle: 'Tanya Ti Selalu',
+    faq: [
+      {
+        q: 'Aku semina bisi SPM. Kati aku ulih layak?',
+        a: 'Orang ke megai SPM ti bisi pengalaman ti kena dikangauka kena ngambika semakan profil. Kelayakan penudi begantung ba latar belakang, pengalaman, bukti kompetensi enggau peguna ofisial program.',
+      },
+      {
+        q: 'Pengalaman baka ni ti kena?',
+        a: 'Pengalaman amat ba bisnis, pengintu organisasi, operasi tauka pengurus. Pengalaman nuan nya pun laluan tu.',
+      },
+      {
+        q: 'Kati bisi saringan tauka temu bual?',
+        a: 'Au. Kena mastika kena, calon ti bisi potensi engka ngena saringan tauka temu bual ringkas ngena online. Tu nulung team meretika pengalaman nuan enggau mastika laluan ti betul.',
+      },
+      {
+        q: 'Dokumen baka ni ti diguna?',
+        a: 'Ngambika: daftar bisnis tauka organisasi, profil syarikat, laporan projek, rekod duit tauka operasi, gambar enggau sijil ti kena. Dokumen enda perlu di-upload lebuh semakan awal.',
+      },
+      {
+        q: 'Baka ni chara mayar?',
+        a: 'Bayar ulih dirundingka ngena chara fleksibel, nyengkaum peluang bayar beperingkat. Utai penuh pasal yuran enggau struktur bayar deka diterangka advisor udah semakan kelayakan. Nadai bayar diguna kena semakan awal. [Nganti pengesah ofisial]',
+      },
+      {
+        q: 'Kelas online tauka betemu mua?',
+        a: 'Pejalai program engka nyengkaum bengkel betemu mua, coaching kumpulan online enggau pengintu peribadi. Chara ti amat deka diterangka nitih laluan enggau kumpulan pengambi. [Nganti pengesah ofisial]',
+      },
+      {
+        q: 'Kati aku ulih terus gawa tauka bejalaika bisnis?',
+        a: 'Au. Laluan tu digaga ke orang ke agi gawa, bejalaika bisnis tauka megai tanggungjawab organisasi.',
+      },
+      {
+        q: 'Nama nyadi udah semakan kelayakan?',
+        a: 'Team deka nyemak profil awal nuan lalu bekomunikasi enggau nuan ngena WhatsApp dalam sahari gawa kena berandau pasal laluan ti kena enggau langkah ti datai.',
+      },
+    ],
+    cohort: {
+      label: 'ORGANISASI & KOHORT',
+      title: 'Kena Koperasi, NGO, Persatuan & Majikan',
+      body: 'Deka mai laluan tu ngagai ahli, pekerja tauka komuniti nuan? Kami ulih berandau pasal kerjasama kohort kena organisasi.',
+      cta: 'Berandau Cohort / Kerjasama Organisasi',
+    },
+  },
 }

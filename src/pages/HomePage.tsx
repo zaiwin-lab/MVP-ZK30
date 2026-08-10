@@ -2,16 +2,15 @@ import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Reveal } from '../components/Reveal'
 import { QuickCheck } from '../components/QuickCheck'
-import { COACH, TESTIMONIALS, whatsappLink, CONTACT } from '../config/programme'
+import { BENEFITS, COHORT, whatsappLink, CONTACT } from '../config/programme'
 import { track } from '../lib/analytics'
 import { usePageMeta } from '../lib/usePageMeta'
 import { useI18n } from '../i18n'
 import './home.css'
 
-const RECEIVE_ICONS = ['🔍', '🧭', '🎓', '📁', '📋', '🎯', '📊', '🤝']
-
 export function HomePage() {
   const { t } = useI18n()
+  const h = t.home2
   const { hash } = useLocation()
   usePageMeta(t.seo.home.title, t.seo.home.desc, '/')
 
@@ -24,9 +23,11 @@ export function HomePage() {
   const trackCta = (where: string) => () => track('hero_cta_clicked', { where })
   const trackWa = (where: string) => () => track('whatsapp_clicked', { where })
 
+  const benefits = BENEFITS.filter((b) => b.show)
+
   return (
     <>
-      {/* 1 ── HERO: V1 split-screen energy, V2 credibility */}
+      {/* 1 ── HERO — one clear message, one primary CTA */}
       <section className="hero" id="hero">
         <div className="container hero__grid">
           <div className="hero__copy">
@@ -46,17 +47,22 @@ export function HomePage() {
             </ul>
             <div className="hero__ctas">
               <Link to="/semakan" className="btn btn--gold" onClick={trackCta('hero')}>
-                {t.hero.ctaPrimary}
+                {h.ctaPrimary}
               </Link>
-              <a href="#laluan" className="btn btn--ghost-light">
-                {t.hero.ctaSecondary}
+              <a
+                href={whatsappLink()}
+                className="btn btn--ghost-light"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackWa('hero')}
+              >
+                {h.ctaWhatsapp}
               </a>
             </div>
             <p className="hero__micro">{t.hero.ctaMicrocopy}</p>
             <p className="hero__trust">{t.hero.trust}</p>
           </div>
 
-          {/* Premium journey card replaces the decorative area (V2.5 §7) */}
           <div className="hero__visual">
             <div className="journeycard">
               <h2 className="journeycard__title">{t.hero.card.title}</h2>
@@ -71,14 +77,14 @@ export function HomePage() {
                 ))}
               </ol>
               <Link to="/semakan" className="btn btn--gold journeycard__cta" onClick={trackCta('hero-card')}>
-                {t.hero.card.cta}
+                {h.ctaPrimary}
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2 ── CREDIBILITY STRIP (V2.5 §8) */}
+      {/* Slim credibility strip (compact trust, not a full section) */}
       <div className="credstrip" role="list">
         {t.credStrip.map((item) => (
           <span className="credstrip__item" role="listitem" key={item}>
@@ -87,322 +93,148 @@ export function HomePage() {
         ))}
       </div>
 
-      {/* 3 ── PROBLEM SECTION (V2.5 §9) */}
-      <section className="section" id="pengalaman">
-        <div className="container">
-          <Reveal>
-            <p className="sectionlabel">{t.experience.label}</p>
-            <h2 className="problem__title">{t.experience.title}</h2>
-            <div className="gold-rule" />
-            <p className="text-soft problem__intro">{t.experience.intro}</p>
-          </Reveal>
-          <div className="problem__grid">
-            {t.experience.items.map((item, i) => (
-              <Reveal key={item} delay={i * 50} className="problem__card">
-                <span className="problem__tick" aria-hidden="true">
-                  ✓
-                </span>
-                {item}
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4 ── TWO PATHWAYS (V2.5 §10) */}
-      <section className="section section--ivory" id="laluan">
+      {/* 2 ── SIAPA YANG SESUAI — four audience cards */}
+      <section className="section" id="sesuai">
         <div className="container">
           <Reveal className="text-center">
-            <h2>{t.pathways.title}</h2>
+            <p className="sectionlabel">{h.audiences.label}</p>
+            <h2>{h.audiences.title}</h2>
             <div className="gold-rule gold-rule--center" />
             <p className="text-soft" style={{ margin: '0 auto' }}>
-              {t.pathways.intro}
+              {h.audiences.intro}
             </p>
           </Reveal>
-          <div className="pathsplit">
-            {([
-              ['keusahawanan', t.pathways.card1, 'LALUAN 1'],
-              ['kepimpinan', t.pathways.card2, 'LALUAN 2'],
-            ] as const).map(([id, card, tag], i) => (
-              <Reveal key={id} delay={i * 120} className="pathcard">
-                <div className="pathcard__head">
-                  <span className="pathcard__tag">{tag}</span>
-                  <h3 className="pathcard__name">{card.name}</h3>
-                  <p className="pathcard__level">{card.levelNote}</p>
-                </div>
-                <div className="pathcard__body">
-                  <p className="pathcard__msg">“{card.message}”</p>
-                  <p className="pathcard__fortitle">{card.forTitle}</p>
-                  <ul className="pathcard__chips">
-                    {card.for.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                  <p className="pathcard__fortitle">{card.expTitle}</p>
-                  <ul className="pathcard__checks">
-                    {card.expAreas.map((x) => (
-                      <li key={x}>
-                        <span className="pathcard__tick" aria-hidden="true">
-                          ✓
-                        </span>
-                        {x}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    to={`/laluan/${id}`}
-                    className="btn btn--gold pathcard__cta"
-                    onClick={() => track('pathway_selected', { pathway: id, where: 'home-cards' })}
-                  >
-                    {card.cta}
-                  </Link>
-                </div>
+          <div className="audgrid">
+            {h.audiences.cards.map((c, i) => (
+              <Reveal key={c.title} delay={i * 70} className="audcard">
+                <span className="audcard__icon" aria-hidden="true">
+                  {c.icon}
+                </span>
+                <h3 className="audcard__title">{c.title}</h3>
+                <p className="audcard__body">{c.body}</p>
               </Reveal>
             ))}
           </div>
-          <Reveal className="pathunsure">
-            <p className="pathunsure__q">{t.pathways.unsure.question}</p>
-            <Link to="/semakan" className="btn btn--ghost-navy" onClick={trackCta('pathway-unsure')}>
-              {t.pathways.unsure.cta}
+          <div className="text-center" style={{ marginTop: '2.2rem' }}>
+            <Link to="/semakan" className="btn btn--gold" onClick={trackCta('audiences')}>
+              {h.ctaPrimary}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 ── YOUR EXPERIENCE HAS VALUE — short, respectful */}
+      <section className="section section--navy valueband" id="pengalaman">
+        <div className="container container--narrow text-center">
+          <Reveal>
+            <p className="sectionlabel sectionlabel--light">{h.value.label}</p>
+            <h2 className="valueband__title">{h.value.title}</h2>
+            <div className="gold-rule gold-rule--center" />
+            <p className="valueband__body">{h.value.body}</p>
           </Reveal>
         </div>
       </section>
 
-      {/* 5 ── WHAT YOU RECEIVE (V2.5 §11) */}
+      {/* 4 ── HOW IT WORKS — six simple steps (screening included) */}
+      <section className="section section--ivory" id="cara">
+        <div className="container">
+          <Reveal className="text-center">
+            <h2>{h.how.title}</h2>
+            <div className="gold-rule gold-rule--center" />
+            <p className="text-soft" style={{ margin: '0 auto' }}>
+              {h.how.intro}
+            </p>
+          </Reveal>
+          <ol className="howgrid">
+            {h.how.steps.map((s, i) => (
+              <Reveal as="li" key={s.title} delay={i * 60} className="howstep">
+                <span className="howstep__num" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="howstep__title">{s.title}</h3>
+                  <p className="howstep__body">{s.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 5 ── WHAT YOU GET — benefit-led, config-driven */}
       <section className="section" id="manfaat">
         <div className="container">
           <Reveal className="text-center">
-            <h2>{t.receive.title}</h2>
+            <h2>{h.get.title}</h2>
             <div className="gold-rule gold-rule--center" />
             <p className="text-soft" style={{ margin: '0 auto' }}>
-              {t.receive.intro}
+              {h.get.intro}
             </p>
           </Reveal>
-          <div className="receive__grid">
-            {t.receive.items.map((item, i) => (
-              <Reveal key={item.title} delay={i * 40} className="receive__card">
-                <span className="receive__icon" aria-hidden="true">
-                  {RECEIVE_ICONS[i]}
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </Reveal>
-            ))}
+          <div className="getgrid">
+            {benefits.map((b, i) => {
+              const item = h.get.items[b.id]
+              return (
+                <Reveal key={b.id} delay={i * 45} className="getcard">
+                  <span className="getcard__icon" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <h3 className="getcard__title">{item.title}</h3>
+                  <p className="getcard__body">{item.body}</p>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* 6 ── MID-PAGE CONVERSION BLOCK (V2.5 §13) */}
-      <section className="midcta">
-        <div className="container text-center">
-          <h2 className="midcta__title">{t.midCta.title}</h2>
-          <p className="midcta__body">{t.midCta.body}</p>
-          <div className="midcta__actions">
-            <Link to="/semakan" className="btn btn--gold" onClick={trackCta('mid-page')}>
-              {t.midCta.ctaPrimary}
-            </Link>
-            <a
-              href={whatsappLink()}
-              className="btn btn--ghost-light"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={trackWa('mid-page')}
-            >
-              {t.midCta.ctaWhatsapp}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 7 ── COACH ROSZIE + TEAM AUTHORITY (V2.5 §14) */}
-      <section className="section section--navy" id="coach">
-        <div className="container coachsec__grid">
-          <Reveal className="coachsec__photo">
-            {COACH.photoUrl ? (
-              <img src={COACH.photoUrl} alt={COACH.name} />
-            ) : (
-              <div className="coachsec__placeholder" role="img" aria-label={t.coach.photoPlaceholder}>
-                <svg viewBox="0 0 120 120" width="72" height="72" fill="none" stroke="var(--gold-300)" strokeWidth="3" aria-hidden="true">
-                  <circle cx="60" cy="42" r="22" />
-                  <path d="M18 108c6-24 22-36 42-36s36 12 42 36" strokeLinecap="round" />
-                </svg>
-                <p>{t.coach.photoPlaceholder}</p>
-              </div>
-            )}
-          </Reveal>
-          <div className="coachsec__copy">
-            <Reveal>
-              <h2>{t.coach.title}</h2>
-              <div className="gold-rule" />
-              <p className="coachsec__name">{COACH.name}</p>
-              <ul className="coachsec__roles">
-                {t.coach.roles.map((r) => (
-                  <li key={r}>{r}</li>
-                ))}
-              </ul>
-              <p className="coachsec__bio">{COACH.bioMs}</p>
-              <div className="coachsec__teamcard">
-                <h3>{t.coach.teamCard.title}</h3>
-                <p>{t.coach.teamCard.body}</p>
-              </div>
-              <blockquote className="coachsec__trust">
-                <p>“{t.coach.trust}”</p>
-                <p className="coachsec__trustms">{t.coach.trustMs}</p>
-              </blockquote>
-              <a
-                href={whatsappLink()}
-                className="btn btn--ghost-light"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ marginTop: '1.2rem' }}
-                onClick={trackWa('coach')}
-              >
-                {t.coach.whatsappCta}
-              </a>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {TESTIMONIALS.length > 0 && (
-        <section className="section" id="testimoni">
-          <div className="container">
-            <h2 className="text-center">Testimoni</h2>
-            <div className="outcomes">
-              {TESTIMONIALS.map((tm) => (
-                <blockquote key={tm.name} className="outcome">
-                  <p>“{tm.quote}”</p>
-                  <footer>
-                    <strong>{tm.name}</strong> — {tm.role}
-                  </footer>
-                </blockquote>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 8 ── SUITABILITY (retained from V2) */}
-      <section className="section" id="sesuai">
-        <div className="container suit__grid">
-          <Reveal className="suit__lead">
-            <h2>{t.suitability.title}</h2>
-            <div className="gold-rule" />
-            <p className="suit__statement">“{t.suitability.statement}”</p>
-          </Reveal>
-          <ul className="suit__list">
-            {t.suitability.items.map((item, i) => (
-              <Reveal as="li" key={item} delay={i * 50} className="suit__item">
-                {item}
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 9 ── EIGHT-STEP JOURNEY: premium alternating timeline (V2.5 §16) */}
-      <section className="section section--wash" id="perjalanan">
+      {/* 6 ── YOUR PROGRESSION — simple visual */}
+      <section className="section section--wash" id="progres">
         <div className="container">
           <Reveal className="text-center">
-            <h2>{t.journey.title}</h2>
+            <h2>{h.progression.title}</h2>
             <div className="gold-rule gold-rule--center" />
             <p className="text-soft" style={{ margin: '0 auto' }}>
-              {t.journey.intro}
+              {h.progression.intro}
             </p>
           </Reveal>
-          <ol className="timeline">
-            {t.journey.steps.map((s, i) => (
-              <Reveal as="li" key={s.title} delay={i * 60} className="timeline__step">
-                <span className="timeline__num" aria-hidden="true">
+          <ol className="progflow">
+            {h.progression.steps.map((s, i) => (
+              <Reveal as="li" key={s} delay={i * 90} className="progstep">
+                <span className="progstep__dot" aria-hidden="true">
                   {i + 1}
                 </span>
-                <div className="timeline__body">
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
-                </div>
+                <span className="progstep__label">{s}</span>
+                {i < h.progression.steps.length - 1 && (
+                  <span className="progstep__arrow" aria-hidden="true">
+                    →
+                  </span>
+                )}
               </Reveal>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* 10 ── FUTURE TRANSFORMATION (V2.5 §17) */}
-      <section className="section" id="transformasi">
-        <div className="container">
-          <Reveal>
-            <h2>{t.transform.title}</h2>
-            <div className="gold-rule" />
-          </Reveal>
-          <div className="outcomes">
-            {t.transform.items.map((o, i) => (
-              <Reveal key={o} delay={i * 50} className="transform__item">
-                <span aria-hidden="true" className="transform__mark">
-                  →
-                </span>
-                <p>{o}</p>
-              </Reveal>
-            ))}
-          </div>
-          <p className="outcomes__note text-soft">{t.transform.disclaimer}</p>
-        </div>
-      </section>
-
-      {/* 11 ── HOW IT WORKS OFFICIALLY (V2.5 §15) + credibility accordion */}
-      <section className="section section--ivory" id="kredibiliti">
-        <div className="container container--narrow">
-          <Reveal>
-            <h2>{t.official.title}</h2>
-            <div className="gold-rule" />
-          </Reveal>
-          <ol className="official__list">
-            {t.official.points.map((p, i) => (
-              <li key={p}>
-                <span className="official__num" aria-hidden="true">
-                  {i + 1}
-                </span>
-                {p}
-              </li>
-            ))}
-          </ol>
-          <p className="official__pending">
-            <span className="pending-mark">{t.common.pendingConfirmation}</span> {t.official.pendingNote}
+          <p className="progflow__note text-soft">
+            <span className="pending-mark">{t.common.pendingConfirmation}</span> {h.progression.note}
           </p>
-          <div className="accordion">
-            {t.credibility.items.map((item) => (
-              <details key={item.q} className="accordion__item">
-                <summary>{item.q}</summary>
-                <p>{item.a}</p>
-              </details>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 12 ── GENUINE URGENCY (V2.5 §18) */}
-      <section className="urgency">
-        <div className="container text-center">
-          <h2 className="urgency__title">{t.urgency.title}</h2>
-          <p className="urgency__body">{t.urgency.body}</p>
-          <Link to="/semakan" className="btn btn--gold" onClick={trackCta('urgency')}>
-            {t.urgency.cta}
-          </Link>
-          <p className="urgency__promise">{t.urgency.responsePromise}</p>
-        </div>
-      </section>
-
-      {/* 13 ── FAQ (V2.5 §19) */}
+      {/* 7 ── FAQ — curated launch set */}
       <section className="section" id="faq">
         <div className="container container--narrow">
           <Reveal>
-            <h2>{t.faq.title}</h2>
+            <h2>{h.faqTitle}</h2>
             <div className="gold-rule" />
           </Reveal>
           <div className="accordion">
-            {t.faq.items.map((item) => (
-              <details key={item.q} className="accordion__item" onToggle={(e) => {
-                if ((e.target as HTMLDetailsElement).open) track('faq_opened', { q: item.q.slice(0, 60) })
-              }}>
+            {h.faq.map((item) => (
+              <details
+                key={item.q}
+                className="accordion__item"
+                onToggle={(e) => {
+                  if ((e.target as HTMLDetailsElement).open) track('faq_opened', { q: item.q.slice(0, 60) })
+                }}
+              >
                 <summary>{item.q}</summary>
                 <p>{item.a}</p>
               </details>
@@ -416,20 +248,43 @@ export function HomePage() {
               rel="noopener noreferrer"
               onClick={trackWa('faq')}
             >
-              {t.midCta.ctaWhatsapp} — {CONTACT.whatsappDisplay}
+              {h.ctaWhatsapp} — {CONTACT.whatsappDisplay}
             </a>
           </div>
         </div>
       </section>
 
-      {/* 14 ── 60-SECOND CHECK (embedded) */}
+      {/* 8 ── ORGANISATION / COHORT — secondary conversion */}
+      {COHORT.show && (
+        <section className="section section--ivory" id="kohort">
+          <div className="container">
+            <Reveal className="cohortband">
+              <div>
+                <p className="sectionlabel">{h.cohort.label}</p>
+                <h2 className="cohortband__title">{h.cohort.title}</h2>
+                <p className="text-soft cohortband__body">{h.cohort.body}</p>
+              </div>
+              <a
+                href={whatsappLink(COHORT.whatsappMessage)}
+                className="btn btn--navy cohortband__cta"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackWa('cohort')}
+              >
+                {h.cohort.cta}
+              </a>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* 9 ── FINAL CTA — embedded eligibility check + closing */}
       <section className="section section--wash" id="semakan-embed">
         <div className="container">
           <QuickCheck leadSource="homepage" />
         </div>
       </section>
 
-      {/* 15 ── FINAL CTA */}
       <section className="section section--navy finalcta">
         <div className="container text-center">
           <Reveal>
@@ -440,7 +295,7 @@ export function HomePage() {
             </h2>
             <div className="finalcta__actions">
               <Link to="/semakan" className="btn btn--gold finalcta__btn" onClick={trackCta('final')}>
-                {t.finalCta.cta}
+                {h.ctaPrimary}
               </Link>
               <a
                 href={whatsappLink()}
@@ -449,7 +304,7 @@ export function HomePage() {
                 rel="noopener noreferrer"
                 onClick={trackWa('final')}
               >
-                {t.midCta.ctaWhatsapp}
+                {h.ctaWhatsapp}
               </a>
             </div>
             <p className="finalcta__trust">{t.finalCta.trust}</p>

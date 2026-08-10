@@ -682,4 +682,122 @@ export const ms = {
     pendingConfirmation: 'Untuk pengesahan rasmi',
     demoNotice: 'Mod demo — data tidak disimpan secara kekal.',
   },
+  /* ── V2+ LAUNCH EDITION — new homepage copy (contained namespace) ── */
+  home2: {
+    ctaPrimary: 'Semak Kelayakan Percuma',
+    ctaWhatsapp: 'WhatsApp Advisor',
+    audiences: {
+      label: 'SIAPA YANG SESUAI',
+      title: 'Dibina Untuk Mereka Yang Sudah Berpengalaman',
+      intro:
+        'Jika anda sudah membina pengalaman sebenar dalam salah satu bidang ini, laluan ini mungkin untuk anda.',
+      cards: [
+        {
+          icon: '🏪',
+          title: 'Usahawan & Pemilik SME',
+          body: 'Anda telah menguruskan perniagaan, jualan, pelanggan, kewangan, pekerja dan operasi.',
+        },
+        {
+          icon: '🤝',
+          title: 'Pemimpin NGO / Koperasi / Persatuan',
+          body: 'Anda berpengalaman dalam kepimpinan, tadbir urus, program dan pengurusan organisasi.',
+        },
+        {
+          icon: '💼',
+          title: 'Eksekutif & Operasi',
+          body: 'Anda mengendalikan operasi, pentadbiran, projek, pelanggan, pasukan dan dokumentasi.',
+        },
+        {
+          icon: '📈',
+          title: 'Pengurus & Pewaris Perniagaan',
+          body: 'Anda memikul tanggungjawab pengurusan syarikat, pekerja, kepimpinan dan pertumbuhan.',
+        },
+      ],
+    },
+    value: {
+      label: 'PENGALAMAN ANDA BERNILAI',
+      title: 'Pengalaman Anda Sudah Bernilai. Sekarang, Lihat Sejauh Mana Ia Boleh Membawa Anda.',
+      body: 'Anda mungkin sudah bertahun-tahun membina perniagaan, memimpin organisasi atau menguruskan operasi. Terokai sama ada terdapat laluan kemajuan kelayakan yang berstruktur dan bersesuaian untuk anda.',
+    },
+    how: {
+      title: 'Bagaimana Ia Berfungsi',
+      intro: 'Enam langkah mudah — jelas dari awal hingga akhir.',
+      steps: [
+        { title: 'Semak Kelayakan', body: 'Kongsi pengalaman anda melalui borang ringkas percuma.' },
+        { title: 'Konsultasi', body: 'Advisor menghubungi anda untuk memahami latar belakang dan matlamat.' },
+        {
+          title: 'Semakan / Saringan',
+          body: 'Pengalaman dan dokumen disemak. Calon yang berpotensi mungkin melalui saringan atau temu bual ringkas.',
+        },
+        { title: 'Pengesahan', body: 'Laluan yang sesuai dan tawaran bertulis dikongsikan dengan anda.' },
+        { title: 'Program', body: 'Anda memulakan perjalanan program secara berstruktur.' },
+        { title: 'Bimbingan & Sokongan', body: 'Bengkel, coaching dan mentoring sepanjang perjalanan.' },
+      ],
+    },
+    get: {
+      title: 'Apa Yang Anda Dapat',
+      intro: 'Lebih daripada sekadar laluan kelayakan — sebuah perjalanan yang dibimbing.',
+      items: {
+        pathway: { icon: '🧭', title: 'Laluan Berstruktur', body: 'Laluan kemajuan kelayakan yang tersusun berdasarkan pengalaman anda.' },
+        workshop: { icon: '🏫', title: 'Bengkel Bersemuka', body: 'Sesi bengkel fizikal untuk memperkukuh pembelajaran dan penyediaan.' },
+        groupCoaching: { icon: '👥', title: 'Coaching Kumpulan Online', body: 'Sesi bimbingan berkumpulan secara dalam talian.' },
+        personalCoaching: { icon: '🎯', title: 'Coaching 1-ke-1', body: 'Bimbingan peribadi mengikut keperluan dan kemajuan anda.' },
+        mentoring: { icon: '🧠', title: 'Mentoring Berterusan', body: 'Sokongan mentor sepanjang perjalanan — bukan sekadar pendaftaran program.' },
+        support: { icon: '💬', title: 'Sokongan Peserta', body: 'Bantuan melalui team program dan saluran WhatsApp rasmi.' },
+        progress: { icon: '📊', title: 'Panduan Kemajuan', body: 'Portal peserta dengan checklist dan pemantauan kemajuan anda.' },
+      },
+    },
+    progression: {
+      title: 'Laluan Kemajuan Anda',
+      intro: 'Mudah dan jelas — daripada pengalaman kepada kelayakan.',
+      steps: [
+        'SPM / Pengalaman',
+        'Semakan Kelayakan',
+        'Laluan Kemahiran Profesional Yang Sesuai',
+        'Kemungkinan Kemajuan Lanjutan',
+      ],
+      note: 'Maklumat rasmi kelayakan (termasuk tahap seperti DKM Tahap 4 / DLKM Tahap 5), NOSS dan badan persijilan akan disahkan dan diterangkan semasa sesi semakan profil.',
+    },
+    faqTitle: 'Soalan Lazim',
+    faq: [
+      {
+        q: 'Saya hanya ada SPM. Bolehkah saya layak?',
+        a: 'Pemegang SPM yang mempunyai pengalaman berkaitan dialu-alukan untuk menjalani semakan profil. Kelayakan akhir tertakluk kepada latar belakang, pengalaman, bukti kompetensi dan keperluan rasmi program.',
+      },
+      {
+        q: 'Pengalaman apa yang relevan?',
+        a: 'Pengalaman sebenar dalam perniagaan, kepimpinan organisasi, operasi atau pengurusan. Pengalaman anda adalah asas kepada laluan ini.',
+      },
+      {
+        q: 'Adakah terdapat saringan atau temu bual?',
+        a: 'Ya. Bagi memastikan kesesuaian, calon yang berpotensi mungkin melalui proses saringan atau temu bual ringkas secara dalam talian. Ini membantu team memahami pengalaman anda dan memastikan laluan yang betul.',
+      },
+      {
+        q: 'Dokumen apa yang diperlukan?',
+        a: 'Antaranya: pendaftaran perniagaan atau organisasi, profil syarikat, laporan projek, rekod kewangan atau operasi, gambar dan sijil berkaitan. Dokumen tidak perlu dimuat naik semasa semakan awal.',
+      },
+      {
+        q: 'Bagaimana proses pembayaran?',
+        a: 'Pembayaran boleh dibincangkan secara fleksibel, termasuk kemungkinan bayaran secara berperingkat. Maklumat penuh mengenai yuran dan struktur bayaran akan diterangkan oleh advisor selepas semakan kelayakan. Tiada bayaran diperlukan untuk semakan awal. [Untuk pengesahan rasmi]',
+      },
+      {
+        q: 'Kelas online atau bersemuka?',
+        a: 'Perjalanan program mungkin merangkumi bengkel bersemuka, coaching kumpulan dalam talian dan bimbingan peribadi. Kaedah sebenar akan diterangkan mengikut laluan dan kumpulan pengambilan. [Untuk pengesahan rasmi]',
+      },
+      {
+        q: 'Bolehkah saya terus bekerja atau menjalankan perniagaan?',
+        a: 'Ya. Laluan ini direka untuk mereka yang masih bekerja, menjalankan perniagaan atau memegang tanggungjawab organisasi.',
+      },
+      {
+        q: 'Apa yang berlaku selepas semakan kelayakan?',
+        a: 'Team akan menyemak profil awal anda dan menghubungi anda melalui WhatsApp dalam tempoh satu hari bekerja untuk membincangkan laluan yang sesuai dan langkah seterusnya.',
+      },
+    ],
+    cohort: {
+      label: 'ORGANISASI & KOHORT',
+      title: 'Untuk Koperasi, NGO, Persatuan & Majikan',
+      body: 'Ingin membawa laluan ini kepada ahli, pekerja atau komuniti anda? Kami boleh berbincang mengenai kerjasama kohort untuk organisasi.',
+      cta: 'Bincang Cohort / Kerjasama Organisasi',
+    },
+  },
 }

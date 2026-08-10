@@ -193,3 +193,68 @@ export const APPLICATION_STATUSES = [
   'withdrawn',
 ] as const
 export type ApplicationStatus = (typeof APPLICATION_STATUSES)[number]
+
+/**
+ * ─────────────────────────────────────────────────────────────────────────────
+ * V2+ LAUNCH EDITION CONFIG (added for the launch upgrade)
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Everything below controls the new homepage sections. Copy lives in the
+ * i18n `home2` block (all 4 languages); toggles and compliance-sensitive
+ * values live HERE so they can be changed without touching components.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/**
+ * "What You Get" benefits shown on the homepage. Reorder or flip `show` to
+ * hide any item instantly — the copy for each id lives in i18n `home2.get.items`.
+ * Items flagged `pending` were discussed with Coach Roszie / RATC and should be
+ * scope-confirmed; the wording is deliberately non-guaranteeing so they are safe
+ * to display now. Set `show: false` to remove one until confirmed.
+ */
+export type BenefitId =
+  | 'pathway'
+  | 'workshop'
+  | 'groupCoaching'
+  | 'personalCoaching'
+  | 'mentoring'
+  | 'support'
+  | 'progress'
+
+export const BENEFITS: { id: BenefitId; show: boolean; pending?: boolean }[] = [
+  { id: 'pathway', show: true },
+  { id: 'workshop', show: true, pending: true }, // face-to-face workshop — confirm scope with RATC
+  { id: 'groupCoaching', show: true, pending: true }, // online group coaching — confirm with RATC
+  { id: 'personalCoaching', show: true, pending: true }, // 1-to-1 coaching — confirm with RATC
+  { id: 'mentoring', show: true, pending: true }, // ongoing mentoring — confirm with RATC
+  { id: 'support', show: true },
+  { id: 'progress', show: true },
+]
+
+/**
+ * Payment — commercial model may include a booking fee + staged/milestone
+ * payments. We publish only that flexible/staged payment MAY be available
+ * (no amounts, no percentages) until KOBIS/RATC confirm the figures.
+ * REQUIRES KOBIS/RATC CONFIRMATION for any amount.
+ */
+export const PAYMENT = {
+  flexibleAvailable: true, // mention that staged/booking payment may be discussed
+  bookingFeeDisplay: null as string | null, // e.g. 'RM___' — confirm first
+  milestones: null as string | null, // e.g. '30% / 40% / 30%' — confirm first
+  showAmountsOnSite: false, // keep amounts advisor-only until confirmed
+}
+
+/** Organisation / cohort enquiry channel (secondary conversion path). */
+export const COHORT = {
+  show: true,
+  whatsappMessage:
+    'Salam, saya ingin berbincang mengenai kerjasama kohort / organisasi untuk Program SPM2Diploma.',
+}
+
+/**
+ * Analytics — set `gtmId` to a GTM container (GTM-XXXXXX) or GA4 id when the
+ * tag is ready. When null, events still flow to window.dataLayer + the local
+ * ring buffer (see lib/analytics.ts) so nothing breaks pre-launch.
+ */
+export const ANALYTICS = {
+  gtmId: null as string | null, // REQUIRES KOBIS confirmation of the GTM/GA id
+}

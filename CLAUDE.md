@@ -6,6 +6,13 @@
 3. Keep the zip at the repo root (gitignored via `*-site.zip`) AND **always deliver both**: the zip as a clickable chat attachment (SendUserFile) for drag-and-drop into Netlify → Deploys → Deploy manually, plus its full path written as a clickable file reference in the message so the user can open the location and rename it.
 4. Do not automate Netlify deploys via API/MCP — manual drag-and-drop only.
 
+## V2+ Launch Edition (current)
+- Homepage is 9 focused sections: Hero → Siapa Sesuai (4 audience cards) → Pengalaman Bernilai → How It Works (6 steps, incl. screening) → What You Get (config-driven) → Progression → FAQ (8) → Cohort/Organisation → QuickCheck + Final CTA.
+- ONE dominant CTA everywhere: "Semak Kelayakan Percuma" (secondary: WhatsApp Advisor). Label source: `home2.ctaPrimary` / `nav.cta`.
+- All new homepage copy lives in the `home2` i18n namespace (all 4 langs). New toggles/config in `programme.ts`: `BENEFITS` (show/pending per item), `PAYMENT` (no amounts until confirmed), `COHORT`, `ANALYTICS.gtmId`.
+- Old heavy sections (2-pathway split, 8-step timeline, transform, official accordion, coach section) are removed from the homepage but their i18n keys + `/laluan/:id` + `/maklumat-program` pages are preserved — nothing deleted.
+- Phase 2 ideas parked in `PHASE2_BACKLOG.md`. Items needing KOBIS/RATC sign-off are flagged there and in `programme.ts`.
+
 ## Key facts
 - Live site: https://spm2diplomafasttrack.netlify.app
 - WhatsApp: 011-2846 6813 (V2.5 prompt said 5813 — unconfirmed; single source: `src/config/programme.ts` CONTACT)
