@@ -24,6 +24,26 @@
   flex-shrink: 0;
 }
 
+.wordmark__mark {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.7rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--navy-900);
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.wordmark__mark sup {
+  color: var(--gold-500);
+  font-size: 0.6em;
+  font-weight: 800;
+  line-height: 0;
+  top: -0.05em;
+  margin: 0 0.01em;
+}
+
 .wordmark__text {
   font-family: var(--font-display);
   font-weight: 700;

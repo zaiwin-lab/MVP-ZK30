@@ -7,18 +7,9 @@ import './header.css'
 function Wordmark() {
   return (
     <Link to="/" className="wordmark" aria-label="SPM2Diploma — Utama">
-      <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="var(--navy-900)" />
-        <path
-          d="M14 40 L32 14 L50 40"
-          fill="none"
-          stroke="var(--gold-500)"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <rect x="18" y="46" width="28" height="5" rx="2.5" fill="var(--gold-500)" />
-      </svg>
+      <span className="wordmark__mark" aria-hidden="true">
+        S<sup>2</sup>D
+      </span>
       <span className="wordmark__text">
         SPM<em>2</em>Diploma
       </span>
