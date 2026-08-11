@@ -605,6 +605,9 @@ export const iban: Dict = {
   floating: {
     whatsappLabel: 'WhatsApp Team SPM2Diploma',
     officerTitle: 'Pemantu Digital',
+    online: 'Dalam talian · 24/7',
+    greetingTitle: 'Bisi tanya? Aku ulih nulung.',
+    greetingBody: 'Jawab tekala pasal program.',
     officerIntro:
       'Salam! Aku ulih nulung nyaut tanya pasal Program SPM2Diploma. Pilih tanya dibaruh:',
     officerNote:

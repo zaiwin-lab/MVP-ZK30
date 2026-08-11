@@ -593,6 +593,9 @@ export const en: Dict = {
   floating: {
     whatsappLabel: 'WhatsApp the SPM2Diploma Team',
     officerTitle: 'Digital Officer',
+    online: 'Online · 24/7',
+    greetingTitle: 'Have a question? I can help.',
+    greetingBody: 'Instant answers about the programme.',
     officerIntro:
       'Hello! I can help answer general questions about the SPM2Diploma Programme. Choose a question below:',
     officerNote:

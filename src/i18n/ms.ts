@@ -595,6 +595,9 @@ export const ms = {
   floating: {
     whatsappLabel: 'WhatsApp Team SPM2Diploma',
     officerTitle: 'Pembantu Digital',
+    online: 'Dalam talian · 24/7',
+    greetingTitle: 'Ada soalan? Saya boleh bantu.',
+    greetingBody: 'Jawapan segera tentang program.',
     officerIntro:
       'Salam! Saya boleh membantu menjawab soalan umum mengenai Program SPM2Diploma. Pilih soalan di bawah:',
     officerNote:

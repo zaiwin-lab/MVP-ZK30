@@ -13,12 +13,37 @@ function WhatsAppIcon() {
   )
 }
 
+/** Friendly assistant character — antenna, screen face, gold accents. */
+function BotFace() {
+  return (
+    <svg viewBox="0 0 48 48" width="34" height="34" fill="none" aria-hidden="true">
+      {/* antenna */}
+      <line x1="24" y1="6" x2="24" y2="12" stroke="var(--gold-300)" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="24" cy="5" r="2.4" fill="var(--gold-500)" />
+      {/* head */}
+      <rect x="9" y="12" width="30" height="24" rx="8" fill="#fff" />
+      {/* eyes */}
+      <circle cx="18.5" cy="23" r="2.6" fill="var(--navy-900)" />
+      <circle cx="29.5" cy="23" r="2.6" fill="var(--navy-900)" />
+      {/* cheeks */}
+      <circle cx="14" cy="27.5" r="1.4" fill="var(--gold-500)" opacity="0.7" />
+      <circle cx="34" cy="27.5" r="1.4" fill="var(--gold-500)" opacity="0.7" />
+      {/* smile */}
+      <path d="M19 29.5c1.6 1.6 8.4 1.6 10 0" stroke="var(--navy-900)" strokeWidth="2.2" strokeLinecap="round" />
+      {/* ears */}
+      <rect x="5.5" y="20" width="3" height="8" rx="1.5" fill="#fff" />
+      <rect x="39.5" y="20" width="3" height="8" rx="1.5" fill="#fff" />
+    </svg>
+  )
+}
+
 export function FloatingTools() {
   const { t } = useI18n()
   const { pathname } = useLocation()
   const [officerOpen, setOfficerOpen] = useState(false)
   const [activeQ, setActiveQ] = useState<number | null>(null)
   const [hideSticky, setHideSticky] = useState(false)
+  const [greetOpen, setGreetOpen] = useState(false)
   const dialogRef = useRef<HTMLDivElement>(null)
 
   // Hide the sticky CTA while the Semakan form (or its section) is on screen
@@ -43,6 +68,35 @@ export function FloatingTools() {
     setOfficerOpen(false)
   }, [pathname])
 
+  // Welcome bubble: appear once per session, shortly after load, on the public site
+  useEffect(() => {
+    if (pathname.startsWith('/semakan')) return
+    try {
+      if (sessionStorage.getItem('spm2d.greetSeen')) return
+    } catch {
+      /* storage unavailable */
+    }
+    const id = setTimeout(() => setGreetOpen(true), 1600)
+    return () => clearTimeout(id)
+  }, [pathname])
+
+  const dismissGreet = () => {
+    setGreetOpen(false)
+    try {
+      sessionStorage.setItem('spm2d.greetSeen', '1')
+    } catch {
+      /* ignore */
+    }
+  }
+
+  const openOfficer = () => {
+    dismissGreet()
+    setOfficerOpen((v) => {
+      if (!v) track('digital_assistant_opened')
+      return !v
+    })
+  }
+
   // Close Digital Officer on Escape
   useEffect(() => {
     if (!officerOpen) return
@@ -55,12 +109,20 @@ export function FloatingTools() {
 
   return (
     <>
-      {/* Digital Officer — bottom-left (spec Q) */}
+      {/* Digital assistant — bottom-left */}
       <div className="float float--left">
         {officerOpen && (
           <div className="officer" ref={dialogRef} role="dialog" aria-label={t.floating.officerTitle}>
             <div className="officer__head">
-              <strong>{t.floating.officerTitle}</strong>
+              <span className="officer__ident">
+                <span className="officer__avatar" aria-hidden="true">
+                  <BotFace />
+                </span>
+                <span>
+                  <strong>{t.floating.officerTitle}</strong>
+                  <span className="officer__status">{t.floating.online}</span>
+                </span>
+              </span>
               <button
                 className="officer__close"
                 onClick={() => setOfficerOpen(false)}
@@ -108,19 +170,28 @@ export function FloatingTools() {
             </div>
           </div>
         )}
+
+        {/* Welcome bubble — invites people to use the 24/7 assistant */}
+        {greetOpen && !officerOpen && (
+          <div className="greet" role="status">
+            <button className="greet__close" onClick={dismissGreet} aria-label={t.nav.close}>
+              ✕
+            </button>
+            <button className="greet__body" onClick={openOfficer}>
+              <span className="greet__title">{t.floating.greetingTitle}</span>
+              <span className="greet__sub">{t.floating.greetingBody}</span>
+            </button>
+          </div>
+        )}
+
         <button
-          className="floatbtn floatbtn--officer"
-          onClick={() => {
-            setOfficerOpen((v) => !v)
-            if (!officerOpen) track('digital_assistant_opened')
-          }}
+          className={`floatbtn floatbtn--officer${!officerOpen ? ' floatbtn--pulse' : ''}`}
+          onClick={openOfficer}
           aria-expanded={officerOpen}
           aria-label={t.floating.officerTitle}
         >
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-            <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.3 0-2.6-.3-3.7-.8L4 21l1.4-4.3A8.5 8.5 0 1 1 21 12Z" strokeLinejoin="round" />
-            <path d="M8.5 10.5h7M8.5 13.5h4.5" strokeLinecap="round" />
-          </svg>
+          <BotFace />
+          <span className="floatbtn__online" aria-hidden="true" />
         </button>
       </div>
 

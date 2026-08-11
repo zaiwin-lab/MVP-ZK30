@@ -562,6 +562,9 @@ export const zh: Dict = {
   floating: {
     whatsappLabel: '通过 WhatsApp 联系 SPM2Diploma 团队',
     officerTitle: '数字助理',
+    online: '在线 · 24/7',
+    greetingTitle: '有疑问?我来帮您。',
+    greetingBody: '关于课程的即时解答。',
     officerIntro: '您好!我可以解答有关 SPM2Diploma 课程的一般问题。请选择以下问题:',
     officerNote: '有关资格查询与官方信息,SPM2Diploma 团队将亲自为您服务。',
     shortcuts: [

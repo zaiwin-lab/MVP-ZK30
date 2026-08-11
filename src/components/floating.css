@@ -17,6 +17,7 @@
 }
 
 .floatbtn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,9 +38,111 @@
 }
 
 .floatbtn--officer {
+  width: 62px;
+  height: 62px;
+  background: linear-gradient(150deg, var(--navy-800), var(--navy-900));
+  color: var(--white);
+  border: 2px solid var(--gold-500);
+}
+
+/* Green "online" dot signalling 24/7 availability */
+.floatbtn__online {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #2fd06a;
+  border: 2.5px solid var(--navy-900);
+}
+
+/* Gentle attention pulse (until first opened) */
+@media (prefers-reduced-motion: no-preference) {
+  .floatbtn--pulse::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-500);
+    animation: officerPulse 2.6s var(--ease-out) infinite;
+  }
+}
+
+@keyframes officerPulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Welcome bubble */
+.greet {
+  position: absolute;
+  bottom: 74px;
+  left: 0;
+  width: min(250px, calc(100vw - 2.2rem));
   background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: 16px 16px 16px 4px;
+  box-shadow: var(--shadow-2);
+  padding: 0.2rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .greet {
+    animation: greetIn 320ms var(--ease-out) both;
+  }
+}
+
+@keyframes greetIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.greet__body {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 0.9rem 0.8rem;
+  border-radius: 14px;
+}
+
+.greet__body:hover {
+  background: var(--navy-50);
+}
+
+.greet__title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
   color: var(--navy-900);
-  border: 1.5px solid oklch(0.88 0.01 265);
+  line-height: 1.3;
+}
+
+.greet__sub {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.greet__close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.greet__close:hover {
+  background: var(--navy-50);
+  color: var(--navy-900);
 }
 
 /* Digital Officer panel */
@@ -62,6 +165,33 @@
   background: var(--navy-900);
   color: var(--on-navy);
   padding: 0.7rem 1rem;
+}
+
+.officer__ident {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  line-height: 1.2;
+}
+
+.officer__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(150deg, var(--navy-700), var(--navy-900));
+  border: 1.5px solid var(--gold-500);
+  flex-shrink: 0;
+}
+
+.officer__status {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold-300);
+  margin-top: 0.05rem;
 }
 
 .officer__close {
