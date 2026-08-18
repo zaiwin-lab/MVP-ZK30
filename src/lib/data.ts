@@ -7,6 +7,7 @@
  */
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { Application, FinanceEntry, NewApplication, Profile, ProgrammeUpdate, QuickLead, Role } from './types'
+import { submitToNetlify } from './netlifyForms'
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -246,6 +247,23 @@ export async function completeProfile(
   phone: string,
   patch: Partial<Application>
 ): Promise<boolean> {
+  // Send the completed detail to Netlify Forms too, so the fuller profile
+  // reaches the team even without a database (fire-and-forget).
+  void submitToNetlify({
+    application_reference: reference,
+    phone,
+    profile_stage: 'complete',
+    full_name: patch.full_name,
+    email: patch.email,
+    location: patch.location,
+    business_or_organisation_name: patch.business_or_organisation_name,
+    current_position: patch.current_position,
+    industry: patch.industry,
+    team_size: patch.team_size,
+    motivation: patch.motivation,
+    commitment_level: patch.commitment_level,
+    financial_readiness: patch.financial_readiness,
+  })
   if (isDemoMode) {
     const apps = demoRead<Application[]>(DEMO_APPS_KEY, [])
     const idx = apps.findIndex((a) => a.application_reference === reference && a.phone === phone)
@@ -272,6 +290,28 @@ export async function submitApplication(app: NewApplication): Promise<{ referenc
     participant_progress_stage: 'application_received' as const,
     participant_checklist: ['personal_details', 'pathway_selected'] as Application['participant_checklist'],
   }
+  // Capture every lead to Netlify Forms for follow-up — runs regardless of
+  // whether Supabase is configured (fire-and-forget, never blocks the user).
+  void submitToNetlify({
+    application_reference: app.application_reference,
+    profile_stage: app.profile_stage,
+    full_name: app.full_name,
+    phone: app.phone,
+    email: app.email,
+    highest_qualification: app.highest_qualification,
+    selected_pathway: app.selected_pathway,
+    years_experience: app.years_experience,
+    preferred_language: app.preferred_language,
+    lead_source: app.lead_source,
+    location: app.location,
+    business_or_organisation_name: app.business_or_organisation_name,
+    current_position: app.current_position,
+    industry: app.industry,
+    team_size: app.team_size,
+    motivation: app.motivation,
+    commitment_level: app.commitment_level,
+    financial_readiness: app.financial_readiness,
+  })
   if (isDemoMode) {
     const apps = demoRead<Application[]>(DEMO_APPS_KEY, [])
     apps.unshift({ ...record, id: `demo-${Date.now()}`, created_at: new Date().toISOString(), user_id: null })

@@ -20,7 +20,8 @@
 - `import './styles/global.css'` must stay the FIRST import in `src/main.tsx` (CSS cascade order).
 - 4 languages (BM default, EN, ZH, Iban); ZH/Iban carry verification banners. `src/i18n/ms.ts` is the source of truth for the Dict type.
 - Never invent official info, guarantees, or fake urgency (see banned-claims list in PRODUCT.md).
-- Supabase optional: demo mode runs without env vars. Production needs migrations 0001 + 0002 and VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY.
+- Supabase optional: demo mode runs without env vars. Production needs migrations 0001 + 0002 (or the combined `supabase/setup.sql`) and VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY. Full guide: `SUPABASE_SETUP.md`.
+- Lead capture (launch default, NO database): every eligibility submission also POSTs to **Netlify Forms** (`name="eligibility"`) via `src/lib/netlifyForms.ts`, fired from `submitApplication` + `completeProfile` in `data.ts`. A hidden static form in `index.html` registers it at build (React SPA — Netlify can't detect JS-rendered forms). Leads land in Netlify → Site → Forms; add an email notification there. Runs independently of Supabase, so leads are captured even in demo mode. Keep the field names in `index.html` in sync with the keys sent from `data.ts`.
 
 ## QA
 Run the Playwright suite in the session scratchpad (`qa25.mjs`) against `npx vite preview --port 4173` before shipping any zip.

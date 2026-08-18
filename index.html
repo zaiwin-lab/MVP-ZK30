@@ -20,6 +20,34 @@
     <link rel="stylesheet" href="/fonts/fonts.css" />
   </head>
   <body>
+    <!--
+      Netlify Forms: hidden static form so Netlify's build bot registers the
+      "eligibility" form. The React app submits to it via fetch
+      (src/lib/netlifyForms.ts). Keep these field names in sync with the keys
+      sent from data.ts. Submissions appear in Netlify → Site → Forms.
+    -->
+    <form name="eligibility" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="eligibility" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="application_reference" />
+      <input type="text" name="profile_stage" />
+      <input type="text" name="full_name" />
+      <input type="text" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="highest_qualification" />
+      <input type="text" name="selected_pathway" />
+      <input type="text" name="years_experience" />
+      <input type="text" name="preferred_language" />
+      <input type="text" name="lead_source" />
+      <input type="text" name="location" />
+      <input type="text" name="business_or_organisation_name" />
+      <input type="text" name="current_position" />
+      <input type="text" name="industry" />
+      <input type="text" name="team_size" />
+      <textarea name="motivation"></textarea>
+      <input type="text" name="commitment_level" />
+      <input type="text" name="financial_readiness" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
