@@ -25,10 +25,13 @@ npm run build      # production build → dist/
 ## Deploy (Netlify)
 
 1. Connect this repo, build command `npm run build`, publish directory `dist`.
-2. (When ready) create a Supabase project, run `supabase/migrations/0001_init.sql`
-   in the SQL editor, then set in Netlify environment variables:
+2. (When ready) create a Supabase project, paste `supabase/setup.sql` into the
+   SQL editor and run it (this is migrations 0001 + 0002 combined and
+   idempotent), then set in Netlify environment variables:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
+
+   Full walkthrough: [`SUPABASE_SETUP.md`](SUPABASE_SETUP.md).
 3. Create team accounts in Supabase Auth, then set their `role` in the
    `profiles` table (`admin` or `director`). Link a participant's auth user to
    their application via `applications.user_id`.
