@@ -16,8 +16,18 @@ export function Footer() {
           <p className="sitefooter__signature">{f.signature}</p>
           <p className="sitefooter__powered">
             {f.poweredBy}{' '}
-            <a href={CONTACT.kobisUrl} target="_blank" rel="noopener noreferrer">
+            <a className="kobislink" href={CONTACT.kobisUrl} target="_blank" rel="noopener noreferrer">
               KOBIS Berhad
+            </a>
+          </p>
+          <p className="sitefooter__credit">
+            {f.designedBy}{' '}
+            <a className="kobislink" href={CONTACT.kobisUrl} target="_blank" rel="noopener noreferrer">
+              KOBIS Berhad
+            </a>
+            <span className="sitefooter__creditsep" aria-hidden="true">·</span>
+            <a className="kobislink sitefooter__crediturl" href={CONTACT.kobisUrl} target="_blank" rel="noopener noreferrer">
+              www.kobisberhad.com
             </a>
           </p>
         </div>

@@ -600,6 +600,7 @@ export const iban: Dict = {
     managementAccess: 'Management Access',
     signature: 'SPM2Diploma is an initiative managed by KOBIS Berhad.',
     poweredBy: 'Powered and managed by',
+    designedBy: 'Digaga & ditempa oleh',
     copyright: '© 2026 KOBIS Berhad. All Rights Reserved.',
   },
   floating: {

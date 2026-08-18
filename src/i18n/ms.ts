@@ -590,6 +590,7 @@ export const ms = {
     managementAccess: 'Management Access',
     signature: 'SPM2Diploma is an initiative managed by KOBIS Berhad.',
     poweredBy: 'Powered and managed by',
+    designedBy: 'Direka & dibina oleh',
     copyright: '© 2026 KOBIS Berhad. All Rights Reserved.',
   },
   floating: {

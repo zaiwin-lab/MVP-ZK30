@@ -557,6 +557,7 @@ export const zh: Dict = {
     managementAccess: 'Management Access',
     signature: 'SPM2Diploma 是由 KOBIS Berhad 管理的项目。',
     poweredBy: '由此机构支持与管理:',
+    designedBy: '设计与开发:',
     copyright: '© 2026 KOBIS Berhad. All Rights Reserved.',
   },
   floating: {
