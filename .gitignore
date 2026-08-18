@@ -5,3 +5,6 @@ dist
 *.local
 *.tsbuildinfo
 *-site.zip
+
+# Netlify CLI local state
+.netlify
