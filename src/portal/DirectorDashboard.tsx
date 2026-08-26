@@ -70,31 +70,34 @@ function FinanceCard() {
 
   return (
     <div className="card">
-      <h2>Ringkasan Kewangan (dimasukkan secara manual)</h2>
-      <div className="stats">
-        <div className="stat">
-          <div className="stat__label">Hasil dijangka</div>
-          <div className="stat__value" style={{ fontSize: '1.1rem' }}>{RM(totals.expected)}</div>
+      <div className="sectionhead">
+        <h2>Ringkasan Kewangan</h2>
+        <span className="sectionhead__meta">Dimasukkan secara manual</span>
+      </div>
+      <div className="fintiles">
+        <div className="fintile">
+          <div className="fintile__label">Hasil dijangka</div>
+          <div className="fintile__value">{RM(totals.expected)}</div>
         </div>
-        <div className="stat stat--accent">
-          <div className="stat__label">Diterima</div>
-          <div className="stat__value" style={{ fontSize: '1.1rem' }}>{RM(totals.received)}</div>
+        <div className="fintile">
+          <div className="fintile__label">Diterima</div>
+          <div className="fintile__value" style={{ color: 'var(--green-600)' }}>{RM(totals.received)}</div>
         </div>
-        <div className="stat">
-          <div className="stat__label">Belum diterima</div>
-          <div className="stat__value" style={{ fontSize: '1.1rem' }}>{RM(totals.outstanding)}</div>
+        <div className="fintile">
+          <div className="fintile__label">Belum diterima</div>
+          <div className="fintile__value">{RM(totals.outstanding)}</div>
         </div>
-        <div className="stat">
-          <div className="stat__label">Perbelanjaan operasi</div>
-          <div className="stat__value" style={{ fontSize: '1.1rem' }}>{RM(totals.expenses)}</div>
+        <div className="fintile">
+          <div className="fintile__label">Perbelanjaan operasi</div>
+          <div className="fintile__value">{RM(totals.expenses)}</div>
         </div>
-        <div className="stat">
-          <div className="stat__label">Bayaran rakan kongsi</div>
-          <div className="stat__value" style={{ fontSize: '1.1rem' }}>{RM(totals.partner)}</div>
+        <div className="fintile">
+          <div className="fintile__label">Bayaran rakan kongsi</div>
+          <div className="fintile__value">{RM(totals.partner)}</div>
         </div>
-        <div className="stat">
-          <div className="stat__label">Anggaran baki program</div>
-          <div className={`stat__value${totals.balance < 0 ? ' finance-neg' : ''}`} style={{ fontSize: '1.1rem' }}>
+        <div className="fintile fintile--balance">
+          <div className="fintile__label">Anggaran baki program</div>
+          <div className={`fintile__value${totals.balance < 0 ? ' finance-neg' : ''}`}>
             {RM(totals.balance)}
           </div>
         </div>
@@ -196,6 +199,7 @@ function Dashboard() {
   }, [apps])
 
   const pct = (n: number, of: number) => (of === 0 ? '—' : `${Math.round((n / of) * 100)}%`)
+  const width = (n: number, of: number) => (of === 0 ? 0 : Math.round((n / of) * 100))
 
   return (
     <div className="portal">
@@ -222,7 +226,13 @@ function Dashboard() {
           </p>
         ) : (
           <>
+            {/* KPI row — registrations emphasized, each with context */}
             <div className="stats">
+              <div className="stat stat--primary">
+                <div className="stat__label">Pendaftaran</div>
+                <div className="stat__value">{m.enrolled}</div>
+                <div className="stat__sub">{pct(m.enrolled, m.qualified)} daripada calon layak</div>
+              </div>
               <div className="stat">
                 <div className="stat__label">Jumlah permohonan</div>
                 <div className="stat__value">{m.total}</div>
@@ -230,60 +240,120 @@ function Dashboard() {
               <div className="stat">
                 <div className="stat__label">Calon layak</div>
                 <div className="stat__value">{m.qualified}</div>
-              </div>
-              <div className="stat stat--accent">
-                <div className="stat__label">Pendaftaran</div>
-                <div className="stat__value">{m.enrolled}</div>
+                <div className="stat__sub">{pct(m.qualified, m.total)} daripada permohonan</div>
               </div>
               <div className="stat">
-                <div className="stat__label">Komited</div>
-                <div className="stat__value">{m.committed}</div>
-              </div>
-              <div className="stat">
-                <div className="stat__label">Bersedia kewangan</div>
-                <div className="stat__value">{m.financiallyReady}</div>
+                <div className="stat__label">Kadar penukaran</div>
+                <div className="stat__value">{pct(m.enrolled, m.total)}</div>
+                <div className="stat__sub">Permohonan → Mendaftar</div>
               </div>
             </div>
 
+            {/* Conversion funnel */}
             <div className="card">
-              <h2>Pecahan laluan & penukaran ringkas</h2>
-              <div className="table-wrap">
-                <table className="data">
-                  <thead>
-                    <tr>
-                      <th>Ukuran</th>
-                      <th>Nilai</th>
-                      <th>Kadar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Laluan Keusahawanan</td>
-                      <td>{m.byPathway.keusahawanan}</td>
-                      <td>{pct(m.byPathway.keusahawanan, m.total)}</td>
-                    </tr>
-                    <tr>
-                      <td>Laluan Kepimpinan</td>
-                      <td>{m.byPathway.kepimpinan}</td>
-                      <td>{pct(m.byPathway.kepimpinan, m.total)}</td>
-                    </tr>
-                    <tr>
-                      <td>Belum pasti</td>
-                      <td>{m.byPathway.unsure}</td>
-                      <td>{pct(m.byPathway.unsure, m.total)}</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Permohonan → Layak</strong></td>
-                      <td>{m.qualified}</td>
-                      <td>{pct(m.qualified, m.total)}</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Layak → Mendaftar</strong></td>
-                      <td>{m.enrolled}</td>
-                      <td>{pct(m.enrolled, m.qualified)}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="sectionhead">
+                <h2>Corong penukaran</h2>
+                <span className="sectionhead__meta">Permohonan → Layak → Mendaftar</span>
+              </div>
+              {m.total === 0 ? (
+                <p className="portal__empty">
+                  Belum ada permohonan. Corong ini terisi secara automatik apabila lead pertama masuk.
+                </p>
+              ) : (
+                <div className="funnel">
+                  <div className="funnelrow">
+                    <div className="funnelrow__head">
+                      <span className="funnelrow__label">Permohonan diterima</span>
+                      <span className="funnelrow__value"><b>{m.total}</b> · 100%</span>
+                    </div>
+                    <div className="funnel__track">
+                      <div className="funnel__bar funnel__bar--1" style={{ width: '100%' }} />
+                    </div>
+                  </div>
+                  <div className="funnel__conv">{pct(m.qualified, m.total)} daripada permohonan menjadi layak</div>
+                  <div className="funnelrow">
+                    <div className="funnelrow__head">
+                      <span className="funnelrow__label">Calon layak</span>
+                      <span className="funnelrow__value"><b>{m.qualified}</b> · {pct(m.qualified, m.total)}</span>
+                    </div>
+                    <div className="funnel__track">
+                      <div className="funnel__bar funnel__bar--2" style={{ width: `${width(m.qualified, m.total)}%` }} />
+                    </div>
+                  </div>
+                  <div className="funnel__conv">{pct(m.enrolled, m.qualified)} daripada layak mendaftar</div>
+                  <div className="funnelrow">
+                    <div className="funnelrow__head">
+                      <span className="funnelrow__label">Mendaftar</span>
+                      <span className="funnelrow__value"><b>{m.enrolled}</b> · {pct(m.enrolled, m.total)}</span>
+                    </div>
+                    <div className="funnel__track">
+                      <div className="funnel__bar funnel__bar--3" style={{ width: `${width(m.enrolled, m.total)}%` }} />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Pathway split + candidate readiness */}
+            <div className="mgmt-2col">
+              <div className="card">
+                <h2>Pecahan laluan</h2>
+                <div className="distrib">
+                  <div>
+                    <div className="distribrow__head">
+                      <span>Keusahawanan</span>
+                      <span><b>{m.byPathway.keusahawanan}</b> · {pct(m.byPathway.keusahawanan, m.total)}</span>
+                    </div>
+                    <div className="distrib__track">
+                      <div className="distrib__fill distrib__fill--a" style={{ width: `${width(m.byPathway.keusahawanan, m.total)}%` }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="distribrow__head">
+                      <span>Kepimpinan</span>
+                      <span><b>{m.byPathway.kepimpinan}</b> · {pct(m.byPathway.kepimpinan, m.total)}</span>
+                    </div>
+                    <div className="distrib__track">
+                      <div className="distrib__fill distrib__fill--b" style={{ width: `${width(m.byPathway.kepimpinan, m.total)}%` }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="distribrow__head">
+                      <span>Belum pasti</span>
+                      <span><b>{m.byPathway.unsure}</b> · {pct(m.byPathway.unsure, m.total)}</span>
+                    </div>
+                    <div className="distrib__track">
+                      <div className="distrib__fill distrib__fill--c" style={{ width: `${width(m.byPathway.unsure, m.total)}%` }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card">
+                <h2>Kesediaan calon</h2>
+                <div className="distrib">
+                  <div>
+                    <div className="distribrow__head">
+                      <span>Komited untuk meneruskan</span>
+                      <span><b>{m.committed}</b> · {pct(m.committed, m.total)}</span>
+                    </div>
+                    <div className="distrib__track">
+                      <div className="distrib__fill distrib__fill--a" style={{ width: `${width(m.committed, m.total)}%` }} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="distribrow__head">
+                      <span>Bersedia dari segi kewangan</span>
+                      <span><b>{m.financiallyReady}</b> · {pct(m.financiallyReady, m.total)}</span>
+                    </div>
+                    <div className="distrib__track">
+                      <div className="distrib__fill distrib__fill--b" style={{ width: `${width(m.financiallyReady, m.total)}%` }} />
+                    </div>
+                  </div>
+                </div>
+                <p className="portal__sub" style={{ marginTop: '1rem' }}>
+                  Isyarat daripada borang kelayakan — panduan awal keutamaan susulan.
+                </p>
               </div>
             </div>
 

@@ -331,3 +331,316 @@
 .finance-neg {
   color: var(--red-600);
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   V2+ dashboard structure — finalized layout/concept
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Card section header: title left, optional meta/action right */
+.sectionhead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.sectionhead h2 {
+  margin-bottom: 0;
+}
+.sectionhead__meta {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* ── Participant: status band (the anchor) ──────────────────────── */
+.statusband {
+  background: var(--navy-900);
+  color: var(--on-navy);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.3rem, 3vw, 1.9rem);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  margin-bottom: 1.2rem;
+}
+.statusband__now {
+  min-width: 0;
+}
+.statusband__eyebrow {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+}
+.statusband__stage {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0.25rem 0 0.9rem;
+  text-wrap: balance;
+}
+.progressbar {
+  height: 9px;
+  border-radius: 999px;
+  background: oklch(1 0 0 / 0.16);
+  overflow: hidden;
+}
+.progressbar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+  transition: width var(--dur) var(--ease-out);
+}
+.statusband__pct {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--on-navy-soft);
+  font-weight: 600;
+}
+.statusband__next {
+  align-self: center;
+  background: oklch(1 0 0 / 0.07);
+  border: 1px solid oklch(1 0 0 / 0.14);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.statusband__next .statusband__eyebrow {
+  color: var(--gold-300);
+}
+.statusband__nextaction {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.35rem 0 0.9rem;
+  color: var(--white);
+}
+.metachips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+}
+.metachip {
+  background: oklch(1 0 0 / 0.08);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--on-navy-soft);
+}
+.metachip strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* ── Two-column dashboard grid (main + sidebar) ─────────────────── */
+.dashgrid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+.dashcol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 0;
+}
+.dashcol .card + .card {
+  margin-top: 0;
+}
+
+/* Updates feed (participant sidebar) */
+.updatefeed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.updatefeed__item {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid oklch(0.92 0.01 265);
+}
+.updatefeed__item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.updatefeed__item strong {
+  display: block;
+  font-size: 0.95rem;
+}
+.updatefeed__item p {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  margin-top: 0.2rem;
+}
+
+/* ── Management: emphasized KPI + context ───────────────────────── */
+.stat--primary {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+}
+.stat--primary .stat__label {
+  color: var(--gold-300);
+}
+.stat--primary .stat__value {
+  color: var(--white);
+}
+.stat__sub {
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.stat--primary .stat__sub {
+  color: var(--on-navy-soft);
+}
+
+/* ── Conversion funnel ──────────────────────────────────────────── */
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.funnelrow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+}
+.funnelrow__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+.funnelrow__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.funnelrow__value {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.funnelrow__value b {
+  color: var(--navy-900);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.funnel__track {
+  height: 34px;
+  background: var(--navy-50);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.funnel__bar {
+  height: 100%;
+  border-radius: 8px;
+  min-width: 3px;
+  transition: width var(--dur) var(--ease-out);
+}
+.funnel__bar--1 { background: var(--navy-700); }
+.funnel__bar--2 { background: var(--gold-500); }
+.funnel__bar--3 { background: var(--green-600); }
+.funnel__conv {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 0.1rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.funnel__conv::before {
+  content: '↓';
+  color: var(--gold-600);
+  font-weight: 700;
+}
+
+/* ── Distribution bars (pathways / readiness) ───────────────────── */
+.distrib {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.distribrow__head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+.distribrow__head b {
+  font-weight: 700;
+  color: var(--navy-900);
+}
+.distrib__track {
+  height: 10px;
+  background: var(--navy-50);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.distrib__fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width var(--dur) var(--ease-out);
+}
+.distrib__fill--a { background: var(--navy-700); }
+.distrib__fill--b { background: var(--gold-500); }
+.distrib__fill--c { background: oklch(0.72 0.02 265); }
+
+/* ── Finance tiles ──────────────────────────────────────────────── */
+.fintiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1.3rem;
+}
+.fintile {
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+}
+.fintile--balance {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+}
+.fintile__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.fintile--balance .fintile__label {
+  color: var(--gold-300);
+}
+.fintile__value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-top: 0.2rem;
+}
+.fintile--balance .fintile__value {
+  color: var(--white);
+}
+
+/* ── Responsive collapse ────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .statusband,
+  .dashgrid,
+  .mgmt-2col {
+    grid-template-columns: 1fr;
+  }
+}
+.mgmt-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressbar__fill,
+  .funnel__bar,
+  .distrib__fill {
+    transition: none;
+  }
+}

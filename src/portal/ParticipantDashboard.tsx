@@ -41,6 +41,9 @@ function Dashboard() {
   }
 
   const currentIdx = app ? PROGRESS_STAGES.indexOf(app.participant_progress_stage) : 0
+  const stepNo = currentIdx + 1
+  const totalSteps = PROGRESS_STAGES.length
+  const pct = Math.round((stepNo / totalSteps) * 100)
   const nextItem = CHECKLIST_ITEMS.find((c) => !app?.participant_checklist.includes(c))
   const trainingDate = updates.find((u) => u.training_date)?.training_date
 
@@ -81,100 +84,113 @@ function Dashboard() {
                 </a>
               </div>
             )}
-            <div className="stats">
-              <div className="stat">
-                <div className="stat__label">{p.refLabel}</div>
-                <div className="stat__value" style={{ fontSize: '1.05rem' }}>
-                  {app.application_reference}
+
+            {/* Status band — the anchor: where you are + what's next */}
+            <section className="statusband" aria-label={p.statusLabel}>
+              <div className="statusband__now">
+                <span className="statusband__eyebrow">{p.statusLabel}</span>
+                <h2 className="statusband__stage">{p.stages[app.participant_progress_stage]}</h2>
+                <div className="progressbar" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
+                  <div className="progressbar__fill" style={{ width: `${pct}%` }} />
+                </div>
+                <p className="statusband__pct">
+                  {pct}% · {stepNo} / {totalSteps}
+                </p>
+                <div className="metachips">
+                  <span className="metachip">
+                    {p.refLabel}: <strong>{app.application_reference}</strong>
+                  </span>
+                  <span className="metachip">
+                    {p.pathwayLabel}:{' '}
+                    <strong>
+                      {app.selected_pathway === 'unsure'
+                        ? t.confirmation.unsurePathway
+                        : t.form.steps.pathway.options[app.selected_pathway]}
+                    </strong>
+                  </span>
+                  <span className="metachip">
+                    {p.trainingLabel}: <strong>{trainingDate ? dateFmt(trainingDate) : p.trainingTBA}</strong>
+                  </span>
                 </div>
               </div>
-              <div className="stat">
-                <div className="stat__label">{p.pathwayLabel}</div>
-                <div className="stat__value" style={{ fontSize: '1.05rem' }}>
-                  {app.selected_pathway === 'unsure'
-                    ? t.confirmation.unsurePathway
-                    : t.form.steps.pathway.options[app.selected_pathway]}
-                </div>
+              <div className="statusband__next">
+                <span className="statusband__eyebrow">{p.nextActionTitle}</span>
+                <p className="statusband__nextaction">
+                  {nextItem ? p.checklist[nextItem] : p.stages[app.participant_progress_stage]}
+                </p>
+                <a className="btn btn--gold btn--sm" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+                  {p.whatsappSupport}
+                </a>
               </div>
-              <div className="stat">
-                <div className="stat__label">{p.statusLabel}</div>
-                <div className="stat__value" style={{ fontSize: '1.05rem' }}>
-                  {p.stages[app.participant_progress_stage]}
-                </div>
-              </div>
-              <div className="stat">
-                <div className="stat__label">{p.trainingLabel}</div>
-                <div className="stat__value" style={{ fontSize: '1.05rem' }}>
-                  {trainingDate ? dateFmt(trainingDate) : p.trainingTBA}
-                </div>
-              </div>
-            </div>
+            </section>
 
-            <div className="card">
-              <h2>{p.progressTitle}</h2>
-              <ol className="rail">
-                {PROGRESS_STAGES.map((stage, i) => (
-                  <li
-                    key={stage}
-                    className={`railstep${i < currentIdx ? ' railstep--done' : ''}${
-                      i === currentIdx ? ' railstep--current' : ''
-                    }`}
-                    aria-current={i === currentIdx ? 'step' : undefined}
-                  >
-                    <span className="railstep__dot" aria-hidden="true">
-                      {i < currentIdx ? '✓' : i + 1}
-                    </span>
-                    <span className="railstep__label">{p.stages[stage]}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <div className="card">
-              <h2>{p.checklistTitle}</h2>
-              <ul className="checklist">
-                {CHECKLIST_ITEMS.map((item) => {
-                  const done = app.participant_checklist.includes(item)
-                  return (
-                    <li key={item} className={done ? 'is-done' : ''}>
-                      <span className={`checklist__box${done ? ' checklist__box--on' : ''}`} aria-hidden="true">
-                        ✓
-                      </span>
-                      {p.checklist[item]}
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-
-            {nextItem && (
-              <div className="card">
-                <h2>{p.nextActionTitle}</h2>
-                <p style={{ fontWeight: 600 }}>→ {p.checklist[nextItem]}</p>
-              </div>
-            )}
-
-            <div className="card">
-              <h2>{p.updatesTitle}</h2>
-              {updates.length === 0 ? (
-                <p className="text-soft">{p.noUpdates}</p>
-              ) : (
-                updates.map((u) => (
-                  <div key={u.id} style={{ marginBottom: '0.9rem' }}>
-                    <strong>{u.title}</strong>
-                    <p className="text-soft" style={{ fontSize: '0.9rem' }}>
-                      {u.body}
-                    </p>
+            <div className="dashgrid">
+              <div className="dashcol">
+                <div className="card">
+                  <div className="sectionhead">
+                    <h2>{p.progressTitle}</h2>
+                    <span className="sectionhead__meta">{stepNo} / {totalSteps}</span>
                   </div>
-                ))
-              )}
-            </div>
+                  <ol className="rail">
+                    {PROGRESS_STAGES.map((stage, i) => (
+                      <li
+                        key={stage}
+                        className={`railstep${i < currentIdx ? ' railstep--done' : ''}${
+                          i === currentIdx ? ' railstep--current' : ''
+                        }`}
+                        aria-current={i === currentIdx ? 'step' : undefined}
+                      >
+                        <span className="railstep__dot" aria-hidden="true">
+                          {i < currentIdx ? '✓' : i + 1}
+                        </span>
+                        <span className="railstep__label">{p.stages[stage]}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
 
-            <div className="card">
-              <h2>{p.contactTitle}</h2>
-              <a className="btn btn--gold" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-                {p.whatsappSupport} — {CONTACT.whatsappDisplay}
-              </a>
+                <div className="card">
+                  <h2>{p.checklistTitle}</h2>
+                  <ul className="checklist">
+                    {CHECKLIST_ITEMS.map((item) => {
+                      const done = app.participant_checklist.includes(item)
+                      return (
+                        <li key={item} className={done ? 'is-done' : ''}>
+                          <span className={`checklist__box${done ? ' checklist__box--on' : ''}`} aria-hidden="true">
+                            ✓
+                          </span>
+                          {p.checklist[item]}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </div>
+
+              <aside className="dashcol">
+                <div className="card">
+                  <h2>{p.updatesTitle}</h2>
+                  {updates.length === 0 ? (
+                    <p className="portal__empty" style={{ padding: '1.2rem 0' }}>{p.noUpdates}</p>
+                  ) : (
+                    <div className="updatefeed">
+                      {updates.map((u) => (
+                        <div key={u.id} className="updatefeed__item">
+                          <strong>{u.title}</strong>
+                          <p>{u.body}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="card">
+                  <h2>{p.contactTitle}</h2>
+                  <a className="btn btn--gold" href={whatsappLink()} target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
+                    {p.whatsappSupport} — {CONTACT.whatsappDisplay}
+                  </a>
+                </div>
+              </aside>
             </div>
           </>
         )}
