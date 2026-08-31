@@ -224,6 +224,8 @@ export const zh: Dict = {
     qWhatsapp: 'WhatsApp 号码',
     qOrg: '企业或组织名称',
     orgHint: '如适用',
+    qEmail: '电邮',
+    emailHint: '选填',
     consent: '我同意 SPM2Diploma 团队通过 WhatsApp 就此初步评估与我联系。我的资料将依据隐私声明处理。',
     getAdvisor: '获取顾问评估',
     submitting: '提交中…',

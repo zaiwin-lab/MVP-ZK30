@@ -243,6 +243,8 @@ export const en: Dict = {
     qWhatsapp: 'WhatsApp Number',
     qOrg: 'Business or organisation name',
     orgHint: 'If applicable',
+    qEmail: 'Email',
+    emailHint: 'Optional',
     consent:
       'I agree for the SPM2Diploma Team to contact me via WhatsApp about this preliminary check. My information is handled according to the Privacy Notice.',
     getAdvisor: 'Get Advisor Review',

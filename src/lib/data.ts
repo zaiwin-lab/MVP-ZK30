@@ -245,6 +245,7 @@ export interface PreliminaryLead {
   result: string
   full_name: string
   phone: string
+  email: string
   org: string
   preferred_language: string
   lead_source: string | null
@@ -265,6 +266,7 @@ export async function submitPreliminaryLead(p: PreliminaryLead): Promise<{ ok: b
     profile_stage: 'preliminary',
     full_name: p.full_name,
     phone: p.phone,
+    email: p.email,
     selected_pathway: p.pathway,
     years_experience: p.years_experience,
     role: p.role,
@@ -283,7 +285,7 @@ export async function submitPreliminaryLead(p: PreliminaryLead): Promise<{ ok: b
     age_range: '',
     location: '',
     phone: p.phone,
-    email: '',
+    email: p.email,
     highest_qualification: '',
     selected_pathway: p.pathway,
     business_or_organisation_name: p.org,

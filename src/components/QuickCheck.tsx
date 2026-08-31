@@ -34,6 +34,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
   // Step 3 lead
   const [name, setName] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
+  const [email, setEmail] = useState('')
   const [org, setOrg] = useState('')
   const [consent, setConsent] = useState(false)
 
@@ -83,6 +84,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
     const e: Record<string, string> = {}
     if (!name.trim()) e.name = v.required
     if (!/^\+?[0-9\s-]{8,15}$/.test(whatsapp.trim())) e.whatsapp = v.invalidPhone
+    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) e.email = v.invalidEmail
     if (!consent) e.consent = v.consentRequired
     setErrors(e)
     if (Object.keys(e).length) return
@@ -98,6 +100,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
       result: outcome === 'good' ? ms.semak2.resultGood : ms.semak2.resultReview,
       full_name: name.trim(),
       phone: whatsapp.trim(),
+      email: email.trim(),
       org: org.trim(),
       preferred_language: LANG_LABEL[lang] ?? 'BM',
       lead_source: leadSourceWithUTM(leadSource),
@@ -190,6 +193,21 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
               placeholder="012-345 6789"
             />
             {errors.whatsapp && <p className="field-error">{errors.whatsapp}</p>}
+          </div>
+          <div className={`field${errors.email ? ' field--error' : ''}`}>
+            <label htmlFor="s2-email">
+              {s.qEmail} <span className="semakan__hint">· {s.emailHint}</span>
+            </label>
+            <input
+              id="s2-email"
+              type="email"
+              inputMode="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              placeholder="nama@email.com"
+            />
+            {errors.email && <p className="field-error">{errors.email}</p>}
           </div>
           <div className="field">
             <label htmlFor="s2-org">

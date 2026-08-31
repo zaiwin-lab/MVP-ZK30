@@ -245,6 +245,8 @@ export const ms = {
     qWhatsapp: 'Nombor WhatsApp',
     qOrg: 'Nama perniagaan atau organisasi',
     orgHint: 'Jika berkaitan',
+    qEmail: 'Emel',
+    emailHint: 'Pilihan',
     consent:
       'Saya bersetuju supaya Team SPM2Diploma menghubungi saya melalui WhatsApp berkaitan semakan awal ini. Maklumat saya dikendalikan menurut Notis Privasi.',
     getAdvisor: 'Dapatkan Semakan Advisor',

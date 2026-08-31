@@ -255,6 +255,8 @@ export const iban: Dict = {
     qWhatsapp: 'Nombor WhatsApp',
     qOrg: 'Nama bisnes tauka organisasi',
     orgHint: 'Enti berkaitan',
+    qEmail: 'Emel',
+    emailHint: 'Pilihan',
     consent:
       'Aku setuju Team SPM2Diploma bekunsi enggau aku ngena WhatsApp pasal semakan awal tu. Data aku dikemekai nitih Notis Privasi.',
     getAdvisor: 'Ambi Semakan Advisor',
