@@ -356,19 +356,27 @@
   color: var(--navy-900);
   letter-spacing: 0.02em;
 }
+.semaksuccess__note {
+  margin: 0 auto 1.1rem;
+  max-width: 42ch;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--green-600);
+}
 .semaksuccess__wa {
   width: 100%;
   font-size: var(--text-md);
 }
-.semaksuccess__secondary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  justify-content: center;
+.semaksuccess__home {
+  display: inline-block;
   margin-top: 1rem;
+  color: var(--navy-700);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
 }
-.semaksuccess__secondary .btn {
-  flex: 1 1 200px;
+.semaksuccess__home:hover {
+  text-decoration: underline;
 }
 
 /* Submission error block */

@@ -249,10 +249,12 @@ export const iban: Dict = {
     disclaimer:
       'Tu semakan awal aja. Kelayakan penudi begantung ba pengalaman, bukti pengelandik enggau atur resmi program.',
     focusFallback: 'kerja enggau tanggungjawab nuan',
-    leadHeading: 'Ambi semakan penuh ari Advisor',
-    leadSub: 'Tulis nama enggau nombor WhatsApp nuan. Team SPM2Diploma deka bekunsi enggau nuan.',
+    leadHeading: 'Langkah penudi — kirum ngagai semakan Advisor',
+    leadSub: 'Isi maklumat ringkas tu aja. Team SPM2Diploma deka bekunsi enggau nuan ngena WhatsApp.',
     qName: 'Nama Penuh',
     qWhatsapp: 'Nombor WhatsApp',
+    qOrg: 'Nama bisnes tauka organisasi',
+    orgHint: 'Enti berkaitan',
     consent:
       'Aku setuju Team SPM2Diploma bekunsi enggau aku ngena WhatsApp pasal semakan awal tu. Data aku dikemekai nitih Notis Privasi.',
     getAdvisor: 'Ambi Semakan Advisor',
@@ -263,13 +265,13 @@ export const iban: Dict = {
       'Sambungan teputus lalu jawapan nuan agi disimpan. Tulung cuba baru, tauka terus ngagai WhatsApp Advisor.',
     retry: 'Cuba Baru',
     errorWhatsapp: 'Terus ngagai WhatsApp Advisor',
-    successTitle: 'Semakan Awal Nuan Udah Dikirum',
+    successTitle: 'Semakan Nuan Udah Selesai',
     successBody:
-      'Terima kasih, {name}. Pengalaman nuan udah direkod. Team SPM2Diploma deka nulung nuan ngelala langkah ti datai.',
+      'Terima kasih, {name}. Semakan pengalaman nuan udah lengkap lalu udah kami terima. Team SPM2Diploma deka bekunsi enggau nuan ngena WhatsApp ngagai langkah ti datai.',
+    successNote: 'Nadai agi borang ti deka diisi. Semina siti tu aja.',
     refLabel: 'Rujukan nuan',
     waAdvisor: 'WhatsApp Advisor Diatu',
-    completeProfile: 'Lengkapka Profil Aku',
-    later: 'Lengkapka Kemudian',
+    backHome: 'Pulai ngagai Laman Utama',
   },
   outcomes: {
     title: 'Nama Ulih Berubah Ke Nuan?',

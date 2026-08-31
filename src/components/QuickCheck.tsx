@@ -34,6 +34,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
   // Step 3 lead
   const [name, setName] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
+  const [org, setOrg] = useState('')
   const [consent, setConsent] = useState(false)
 
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -97,6 +98,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
       result: outcome === 'good' ? ms.semak2.resultGood : ms.semak2.resultReview,
       full_name: name.trim(),
       phone: whatsapp.trim(),
+      org: org.trim(),
       preferred_language: LANG_LABEL[lang] ?? 'BM',
       lead_source: leadSourceWithUTM(leadSource),
       consent,
@@ -138,6 +140,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
           <span className="semaksuccess__reflabel">{s.refLabel}</span>
           <strong className="semaksuccess__refval">{reference}</strong>
         </div>
+        <p className="semaksuccess__note">✓ {s.successNote}</p>
         <a
           className="btn btn--gold semaksuccess__wa"
           href={whatsappLink(advisorMessage)}
@@ -147,14 +150,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
         >
           {s.waAdvisor} — {CONTACT.whatsappDisplay}
         </a>
-        <div className="semaksuccess__secondary">
-          <a href="/semakan/profil" className="btn btn--ghost-navy" onClick={() => track('full_profile_clicked')}>
-            {s.completeProfile}
-          </a>
-          <a href="/" className="btn btn--outline btn--ghost-navy">
-            {s.later}
-          </a>
-        </div>
+        <a href="/" className="semaksuccess__home">{s.backHome}</a>
         <p className="quickcheck__promise">{t.urgency.responsePromise}</p>
       </div>
     )
@@ -194,6 +190,12 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
               placeholder="012-345 6789"
             />
             {errors.whatsapp && <p className="field-error">{errors.whatsapp}</p>}
+          </div>
+          <div className="field">
+            <label htmlFor="s2-org">
+              {s.qOrg} <span className="semakan__hint">· {s.orgHint}</span>
+            </label>
+            <input id="s2-org" value={org} onChange={(e) => setOrg(e.target.value)} autoComplete="organization" />
           </div>
 
           <label className="semakan__consentrow quickcheck__consent">

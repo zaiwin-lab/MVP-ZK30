@@ -239,10 +239,12 @@ export const ms = {
     disclaimer:
       'Ini ialah semakan awal sahaja. Kelayakan akhir tertakluk kepada pengalaman, bukti kompetensi dan keperluan rasmi program.',
     focusFallback: 'kerja dan tanggungjawab anda',
-    leadHeading: 'Dapatkan semakan penuh daripada Advisor',
-    leadSub: 'Masukkan nama dan nombor WhatsApp anda. Team SPM2Diploma akan menghubungi anda.',
+    leadHeading: 'Langkah akhir — hantar untuk semakan Advisor',
+    leadSub: 'Isi maklumat ringkas ini sahaja. Team SPM2Diploma akan menghubungi anda melalui WhatsApp.',
     qName: 'Nama Penuh',
     qWhatsapp: 'Nombor WhatsApp',
+    qOrg: 'Nama perniagaan atau organisasi',
+    orgHint: 'Jika berkaitan',
     consent:
       'Saya bersetuju supaya Team SPM2Diploma menghubungi saya melalui WhatsApp berkaitan semakan awal ini. Maklumat saya dikendalikan menurut Notis Privasi.',
     getAdvisor: 'Dapatkan Semakan Advisor',
@@ -253,13 +255,13 @@ export const ms = {
       'Sambungan terganggu dan jawapan anda masih disimpan. Sila cuba semula, atau terus ke WhatsApp Advisor.',
     retry: 'Cuba Semula',
     errorWhatsapp: 'Terus ke WhatsApp Advisor',
-    successTitle: 'Semakan Awal Anda Berjaya Dihantar',
+    successTitle: 'Semakan Anda Selesai',
     successBody:
-      'Terima kasih, {name}. Pengalaman anda telah direkodkan. Team SPM2Diploma akan membantu anda mengenal pasti langkah seterusnya.',
+      'Terima kasih, {name}. Semakan pengalaman anda lengkap dan telah kami terima. Team SPM2Diploma akan menghubungi anda melalui WhatsApp untuk langkah seterusnya.',
+    successNote: 'Tiada lagi borang untuk diisi. Cukup sekali ini sahaja.',
     refLabel: 'Rujukan anda',
     waAdvisor: 'WhatsApp Advisor Sekarang',
-    completeProfile: 'Lengkapkan Profil Saya',
-    later: 'Lengkapkan Kemudian',
+    backHome: 'Kembali ke Laman Utama',
   },
   outcomes: {
     title: 'Apa Yang Boleh Berubah Untuk Anda?',

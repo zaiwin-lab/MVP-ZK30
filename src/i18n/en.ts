@@ -237,10 +237,12 @@ export const en: Dict = {
     disclaimer:
       'This is a preliminary check only. Final eligibility is subject to experience, evidence of competency and the official programme requirements.',
     focusFallback: 'your work and responsibilities',
-    leadHeading: 'Get a full review from an Advisor',
-    leadSub: 'Enter your name and WhatsApp number. The SPM2Diploma Team will contact you.',
+    leadHeading: 'Last step — send for Advisor review',
+    leadSub: 'Just these quick details. The SPM2Diploma Team will contact you on WhatsApp.',
     qName: 'Full Name',
     qWhatsapp: 'WhatsApp Number',
+    qOrg: 'Business or organisation name',
+    orgHint: 'If applicable',
     consent:
       'I agree for the SPM2Diploma Team to contact me via WhatsApp about this preliminary check. My information is handled according to the Privacy Notice.',
     getAdvisor: 'Get Advisor Review',
@@ -251,13 +253,13 @@ export const en: Dict = {
       'The connection was interrupted and your answers are kept. Please try again, or go straight to the WhatsApp Advisor.',
     retry: 'Try Again',
     errorWhatsapp: 'Go to WhatsApp Advisor',
-    successTitle: 'Your Preliminary Check Was Submitted',
+    successTitle: 'Your Check Is Complete',
     successBody:
-      'Thank you, {name}. Your experience has been recorded. The SPM2Diploma Team will help you identify the next steps.',
+      'Thank you, {name}. Your experience check is complete and received. The SPM2Diploma Team will contact you on WhatsApp for the next steps.',
+    successNote: 'No more forms to fill. This one check is all it takes.',
     refLabel: 'Your reference',
     waAdvisor: 'WhatsApp Advisor Now',
-    completeProfile: 'Complete My Profile',
-    later: 'Complete Later',
+    backHome: 'Back to Home',
   },
   outcomes: {
     title: 'What Could Change for You?',
