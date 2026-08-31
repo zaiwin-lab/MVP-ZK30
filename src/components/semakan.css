@@ -217,6 +217,184 @@
   color: var(--ink-soft);
 }
 
+/* ── V2+ funnel: hook, multi-select, result, success, error ───── */
+.quickcheck__hook {
+  margin-top: 0.6rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  font-size: 0.98rem;
+}
+
+.quickcheck__pill--multi.quickcheck__pill--on::before {
+  content: '✓ ';
+  font-weight: 800;
+}
+
+.semakan__editlink {
+  display: inline-block;
+  margin-top: 0.9rem;
+  background: none;
+  border: none;
+  color: var(--navy-700);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.3rem 0;
+}
+.semakan__editlink:hover {
+  text-decoration: underline;
+}
+
+.leadintro {
+  margin-bottom: 1.1rem;
+}
+.leadintro__sub {
+  margin-top: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* Instant result card */
+.resultcard {
+  border-radius: var(--radius-lg);
+  padding: clamp(1.3rem, 3vw, 1.9rem);
+  margin-bottom: 1.4rem;
+  border: 1px solid transparent;
+}
+.resultcard--good {
+  background: var(--green-100);
+  border-color: oklch(0.8 0.08 155);
+}
+.resultcard--review {
+  background: oklch(0.95 0.04 88);
+  border-color: var(--gold-300);
+}
+.resultcard__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy-800);
+  letter-spacing: 0.01em;
+}
+.resultcard__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy-900);
+  margin: 0.35rem 0 0.7rem;
+  text-wrap: balance;
+}
+.resultcard__body {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+.resultcard__disclaimer {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid oklch(0.5 0.02 265 / 0.15);
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* Success screen */
+.semaksuccess {
+  text-align: center;
+  max-width: 560px;
+  margin-inline: auto;
+}
+.semaksuccess__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.semaksuccess__sub {
+  margin: 0.7rem auto 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: 46ch;
+}
+.semaksuccess__badge {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--green-600);
+  color: #fff;
+  font-size: 1.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.semaksuccess__ref {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 1.2rem auto;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  background: var(--navy-50);
+  border: 1px dashed var(--navy-700);
+}
+.semaksuccess__reflabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.semaksuccess__refval {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: 0.02em;
+}
+.semaksuccess__wa {
+  width: 100%;
+  font-size: var(--text-md);
+}
+.semaksuccess__secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.semaksuccess__secondary .btn {
+  flex: 1 1 200px;
+}
+
+/* Submission error block */
+.semakerror {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  background: var(--red-100);
+  border: 1px solid oklch(0.75 0.12 25);
+}
+.semakerror strong {
+  color: var(--red-600);
+  font-size: 0.98rem;
+}
+.semakerror p {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.semakerror__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
 /* Stage-2 banner shown above the detailed form */
 .stage2note {
   max-width: 640px;

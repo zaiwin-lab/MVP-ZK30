@@ -7,7 +7,7 @@
  */
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { Application, FinanceEntry, NewApplication, Profile, ProgrammeUpdate, QuickLead, Role } from './types'
-import { submitToNetlify } from './netlifyForms'
+import { postLeadToNetlify, submitToNetlify } from './netlifyForms'
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -236,6 +236,77 @@ export async function submitQuickLead(lead: QuickLead): Promise<{ reference: str
   return 'error' in result ? result : { reference }
 }
 
+/** Payload from the 60-second experience check (V2+ funnel). */
+export interface PreliminaryLead {
+  pathway: 'keusahawanan' | 'kepimpinan' | 'unsure'
+  years_experience: string
+  role: string
+  experiences: string[]
+  result: string
+  full_name: string
+  phone: string
+  preferred_language: string
+  lead_source: string | null
+  consent: boolean
+}
+
+/**
+ * Gated preliminary submission for the V2+ funnel.
+ * Posts to Netlify Forms and AWAITS the result: success is reported only when
+ * Netlify actually accepts it (source of truth). On success it also writes a
+ * secondary record to the demo/Supabase store (without re-posting to Netlify).
+ * The caller keeps all answers and can retry when { ok:false } is returned.
+ */
+export async function submitPreliminaryLead(p: PreliminaryLead): Promise<{ ok: boolean; reference: string }> {
+  const reference = generateReference()
+  const ok = await postLeadToNetlify({
+    application_reference: reference,
+    profile_stage: 'preliminary',
+    full_name: p.full_name,
+    phone: p.phone,
+    selected_pathway: p.pathway,
+    years_experience: p.years_experience,
+    role: p.role,
+    experiences: p.experiences,
+    result: p.result,
+    preferred_language: p.preferred_language,
+    consent: p.consent ? 'true' : 'false',
+    lead_source: p.lead_source ?? '',
+  })
+  if (!ok) return { ok: false, reference }
+
+  const app: NewApplication = {
+    application_reference: reference,
+    full_name: p.full_name,
+    age_range: '',
+    location: '',
+    phone: p.phone,
+    email: '',
+    highest_qualification: '',
+    selected_pathway: p.pathway,
+    business_or_organisation_name: '',
+    organisation_type: null,
+    current_position: p.role,
+    industry: null,
+    years_experience: p.years_experience,
+    team_size: '',
+    responsibilities: p.experiences.join(', '),
+    website_or_social_link: null,
+    evidence_readiness: [],
+    commitment_level: '',
+    financial_readiness: '',
+    motivation: '',
+    additional_information: p.result ? `Semakan awal: ${p.result}` : null,
+    lead_source: p.lead_source,
+    consent: p.consent,
+    consent_timestamp: new Date().toISOString(),
+    preferred_language: p.preferred_language,
+    profile_stage: 'preliminary',
+  }
+  await submitApplication(app, { skipNetlify: true })
+  return { ok: true, reference }
+}
+
 /**
  * Stage 2: complete the detailed profile for an existing preliminary lead.
  * Identified by reference + phone (capability pair). In production this goes
@@ -280,7 +351,10 @@ export async function completeProfile(
   return !error
 }
 
-export async function submitApplication(app: NewApplication): Promise<{ reference: string } | { error: string }> {
+export async function submitApplication(
+  app: NewApplication,
+  opts?: { skipNetlify?: boolean }
+): Promise<{ reference: string } | { error: string }> {
   const record = {
     ...app,
     status: 'new' as const,
@@ -292,7 +366,9 @@ export async function submitApplication(app: NewApplication): Promise<{ referenc
   }
   // Capture every lead to Netlify Forms for follow-up — runs regardless of
   // whether Supabase is configured (fire-and-forget, never blocks the user).
-  void submitToNetlify({
+  // Skipped when the caller has already posted to Netlify itself (gated flow),
+  // to avoid a duplicate submission.
+  if (!opts?.skipNetlify) void submitToNetlify({
     application_reference: app.application_reference,
     profile_stage: app.profile_stage,
     full_name: app.full_name,

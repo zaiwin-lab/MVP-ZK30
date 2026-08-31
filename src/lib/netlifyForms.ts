@@ -23,19 +23,45 @@ function encode(data: Record<string, string>): string {
     .join('&')
 }
 
+function buildBody(fields: Record<string, unknown>): string {
+  const data: Record<string, string> = { 'form-name': NETLIFY_FORM_NAME }
+  for (const [key, value] of Object.entries(fields)) {
+    if (value === null || value === undefined || value === '') continue
+    data[key] = Array.isArray(value) ? value.join(', ') : String(value)
+  }
+  return encode(data)
+}
+
+/**
+ * Fire-and-forget capture — used for background/secondary submissions where
+ * the applicant's flow must never block on the result.
+ */
 export async function submitToNetlify(fields: Record<string, unknown>): Promise<void> {
   try {
-    const data: Record<string, string> = { 'form-name': NETLIFY_FORM_NAME }
-    for (const [key, value] of Object.entries(fields)) {
-      if (value === null || value === undefined || value === '') continue
-      data[key] = Array.isArray(value) ? value.join(', ') : String(value)
-    }
     await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(data),
+      body: buildBody(fields),
     })
   } catch {
     /* Never block the funnel if lead-capture fails (e.g. offline / localhost). */
+  }
+}
+
+/**
+ * Gated capture — awaits Netlify and reports whether it actually accepted the
+ * submission (response.ok). The funnel shows success ONLY when this is true,
+ * so a network/Netlify failure never presents a false confirmation.
+ */
+export async function postLeadToNetlify(fields: Record<string, unknown>): Promise<boolean> {
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: buildBody(fields),
+    })
+    return res.ok
+  } catch {
+    return false
   }
 }
