@@ -166,7 +166,8 @@
 .quickcheck__pill {
   padding: 0.7rem 1.2rem;
   border-radius: 999px;
-  border: 1.5px solid oklch(0.82 0.02 265);
+  border: 1.5px solid oklch(0.86 0.02 265);
+  background: var(--navy-50);
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--navy-900);
@@ -175,6 +176,7 @@
 }
 
 .quickcheck__pill:hover {
+  background: var(--navy-100);
   border-color: var(--navy-700);
 }
 

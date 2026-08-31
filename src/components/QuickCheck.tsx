@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CONTACT, whatsappLink } from '../config/programme'
+import { whatsappLink } from '../config/programme'
 import { submitPreliminaryLead } from '../lib/data'
 import { leadSourceWithUTM, track } from '../lib/analytics'
 import { ms } from '../i18n/ms'
@@ -129,7 +129,6 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const advisorMessage = `Salam, saya ${name.trim()}. Saya baru selesai Semakan Pengalaman SPM2Diploma. Rujukan saya ialah ${reference}. Saya ingin mengetahui langkah seterusnya.`
   const errorWaMessage = `Salam, saya ${name.trim() || '—'}. Saya ingin membuat Semakan Pengalaman SPM2Diploma dan mengetahui langkah seterusnya.`
 
   /* ── Step 3+ success ─────────────────────────────────────────── */
@@ -143,17 +142,7 @@ export function QuickCheck({ leadSource = 'quick-check' }: { leadSource?: string
           <span className="semaksuccess__reflabel">{s.refLabel}</span>
           <strong className="semaksuccess__refval">{reference}</strong>
         </div>
-        <p className="semaksuccess__note">✓ {s.successNote}</p>
-        <a
-          className="btn btn--gold semaksuccess__wa"
-          href={whatsappLink(advisorMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => track('whatsapp_clicked', { where: 'semak-success' })}
-        >
-          {s.waAdvisor} — {CONTACT.whatsappDisplay}
-        </a>
-        <a href="/" className="semaksuccess__home">{s.backHome}</a>
+        <a href="/" className="btn btn--gold semaksuccess__wa">{s.backHome}</a>
         <p className="quickcheck__promise">{t.urgency.responsePromise}</p>
       </div>
     )
