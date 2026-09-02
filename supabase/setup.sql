@@ -220,6 +220,52 @@ $$;
 
 grant execute on function complete_profile(text, text, jsonb) to anon, authenticated;
 
+-- ── Link a signed-in participant to their own Semakan ──────────────
+-- Auto-link: claim any application whose email matches the logged-in user's.
+create or replace function claim_my_applications()
+returns int
+language plpgsql
+security definer set search_path = public
+as $$
+declare
+  claimed int;
+  uid uuid := auth.uid();
+  uemail text;
+begin
+  if uid is null then return 0; end if;
+  select email into uemail from auth.users where id = uid;
+  if uemail is null then return 0; end if;
+  update applications set user_id = uid
+    where user_id is null
+      and email is not null and email <> ''
+      and lower(email) = lower(uemail);
+  get diagnostics claimed = row_count;
+  return claimed;
+end;
+$$;
+grant execute on function claim_my_applications() to authenticated;
+
+-- Manual link by reference + phone (capability pair) for leads without email.
+create or replace function claim_by_reference(p_reference text, p_phone text)
+returns boolean
+language plpgsql
+security definer set search_path = public
+as $$
+declare
+  updated int;
+  uid uuid := auth.uid();
+begin
+  if uid is null then return false; end if;
+  update applications set user_id = uid
+    where application_reference = p_reference
+      and phone = p_phone
+      and user_id is null;
+  get diagnostics updated = row_count;
+  return updated > 0;
+end;
+$$;
+grant execute on function claim_by_reference(text, text) to authenticated;
+
 -- ═══════════════════════════════════════════════════════════════════
 -- PROMOTE A TEAM MEMBER (run AFTER they have signed up via the app / Auth)
 -- Every new signup starts as 'participant'. Promote by email:

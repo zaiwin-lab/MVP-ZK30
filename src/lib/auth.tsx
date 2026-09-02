@@ -1,12 +1,17 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
-import { getProfile, signIn as dataSignIn, signOut as dataSignOut } from './data'
+import { getProfile, signIn as dataSignIn, signOut as dataSignOut, signUp as dataSignUp } from './data'
 import type { Profile } from './types'
 
 interface AuthValue {
   profile: Profile | null
   loading: boolean
   signIn: (email: string, password: string) => Promise<Profile | null>
+  signUp: (
+    email: string,
+    password: string,
+    fullName: string
+  ) => Promise<{ profile: Profile | null; needsConfirmation: boolean; error?: string }>
   signOut: () => Promise<void>
 }
 
@@ -35,12 +40,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return p
   }, [])
 
+  const signUp = useCallback(async (email: string, password: string, fullName: string) => {
+    const res = await dataSignUp(email, password, fullName)
+    if (res.profile) setProfile(res.profile)
+    return res
+  }, [])
+
   const signOut = useCallback(async () => {
     await dataSignOut()
     setProfile(null)
   }, [])
 
-  const value = useMemo(() => ({ profile, loading, signIn, signOut }), [profile, loading, signIn, signOut])
+  const value = useMemo(
+    () => ({ profile, loading, signIn, signUp, signOut }),
+    [profile, loading, signIn, signUp, signOut]
+  )
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 

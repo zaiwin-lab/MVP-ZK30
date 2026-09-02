@@ -1,11 +1,55 @@
 import { useEffect, useState } from 'react'
 import { CHECKLIST_ITEMS, PROGRESS_STAGES, whatsappLink, CONTACT } from '../config/programme'
-import { getOwnApplication, isDemoMode, listUpdates } from '../lib/data'
+import { claimByReference, getOwnApplication, isDemoMode, listUpdates } from '../lib/data'
 import type { Application, ProgrammeUpdate } from '../lib/types'
 import { useAuth } from '../lib/auth'
 import { useI18n } from '../i18n'
 import { RequireRole } from './RequireRole'
 import './portal.css'
+
+function LinkSemakan({ onLinked }: { onLinked: (a: Application) => void }) {
+  const { t } = useI18n()
+  const ac = t.participant.account
+  const [reference, setReference] = useState('')
+  const [phone, setPhone] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [failed, setFailed] = useState(false)
+
+  const submit = async () => {
+    if (!reference.trim() || !phone.trim()) return
+    setBusy(true)
+    setFailed(false)
+    const ok = await claimByReference(reference, phone)
+    if (ok) {
+      const linked = await getOwnApplication()
+      if (linked) {
+        setBusy(false)
+        return onLinked(linked)
+      }
+    }
+    setBusy(false)
+    setFailed(true)
+  }
+
+  return (
+    <div className="card">
+      <h2>{ac.linkTitle}</h2>
+      <p className="text-soft" style={{ marginBottom: '1rem' }}>{ac.linkBody}</p>
+      <div className="field">
+        <label htmlFor="link-ref">{ac.linkRef}</label>
+        <input id="link-ref" value={reference} onChange={(e) => setReference(e.target.value)} placeholder="S2D-2026-…" />
+      </div>
+      <div className="field">
+        <label htmlFor="link-phone">{ac.linkPhone}</label>
+        <input id="link-phone" type="tel" inputMode="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="012-345 6789" />
+      </div>
+      {failed && <p className="field-error">{ac.linkFail}</p>}
+      <button className="btn btn--navy" onClick={submit} disabled={busy || !reference.trim() || !phone.trim()} style={{ marginTop: '0.4rem' }}>
+        {busy ? ac.linking : ac.linkBtn}
+      </button>
+    </div>
+  )
+}
 
 function Dashboard() {
   const { t, lang } = useI18n()
@@ -70,9 +114,7 @@ function Dashboard() {
         </div>
 
         {!app ? (
-          <div className="card portal__empty">
-            <p>{p.loginSupport}</p>
-          </div>
+          <LinkSemakan onLinked={(a) => setApp(a)} />
         ) : (
           <>
             {app.profile_stage === 'preliminary' && (

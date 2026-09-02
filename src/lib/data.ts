@@ -176,6 +176,33 @@ export async function signIn(email: string, password: string): Promise<Profile |
   return getProfile()
 }
 
+export async function signUp(
+  email: string,
+  password: string,
+  fullName: string
+): Promise<{ profile: Profile | null; needsConfirmation: boolean; error?: string }> {
+  if (isDemoMode) return { profile: null, needsConfirmation: false, error: 'demo' }
+  const { data, error } = await supabase!.auth.signUp({
+    email: email.trim(),
+    password,
+    options: { data: { full_name: fullName.trim() } },
+  })
+  if (error) return { profile: null, needsConfirmation: false, error: error.message }
+  if (!data.session) return { profile: null, needsConfirmation: true } // email confirmation required
+  await supabase!.rpc('claim_my_applications') // link any Semakan done with this email
+  return { profile: await getProfile(), needsConfirmation: false }
+}
+
+/** Link the signed-in participant to a Semakan lead by reference + WhatsApp number. */
+export async function claimByReference(reference: string, phone: string): Promise<boolean> {
+  if (isDemoMode) return false
+  const { data, error } = await supabase!.rpc('claim_by_reference', {
+    p_reference: reference.trim(),
+    p_phone: phone.trim(),
+  })
+  return !error && data === true
+}
+
 export async function signOut(): Promise<void> {
   if (isDemoMode) {
     localStorage.removeItem(DEMO_SESSION_KEY)
@@ -421,10 +448,13 @@ export async function getOwnApplication(): Promise<Application | null> {
   }
   const { data: userData } = await supabase!.auth.getUser()
   if (!userData.user) return null
+  await supabase!.rpc('claim_my_applications') // auto-link by matching email
   const { data } = await supabase!
     .from('applications')
     .select('*')
     .eq('user_id', userData.user.id)
+    .order('created_at', { ascending: false })
+    .limit(1)
     .maybeSingle()
   return (data as Application | null) ?? null
 }

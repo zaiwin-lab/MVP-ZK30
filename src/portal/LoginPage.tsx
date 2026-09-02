@@ -10,39 +10,87 @@ const HOME_BY_ROLE = { participant: '/peserta', admin: '/team', director: '/peng
 
 export function LoginPage() {
   const { t } = useI18n()
+  const a = t.participant
+  const ac = a.account
   usePageMeta(t.seo.login.title, t.seo.login.desc, '/login')
-  const { signIn } = useAuth()
+  const { signIn, signUp } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const [mode, setMode] = useState<'login' | 'signup'>('login')
+  const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState('')
+  const [confirmSent, setConfirmSent] = useState(false)
 
   const from = (location.state as { from?: string } | null)?.from
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setBusy(true)
-    setError(false)
-    const profile = await signIn(email, password)
-    setBusy(false)
-    if (!profile) {
-      setError(true)
-      return
+    setError('')
+    if (mode === 'signup') {
+      if (!fullName.trim()) return setError(t.form.validation.required)
+      if (password.length < 6) return setError(ac.passwordHint)
     }
-    navigate(from ?? HOME_BY_ROLE[profile.role], { replace: true })
+    setBusy(true)
+    if (mode === 'login') {
+      const profile = await signIn(email, password)
+      setBusy(false)
+      if (!profile) return setError(a.loginError)
+      return navigate(from ?? HOME_BY_ROLE[profile.role], { replace: true })
+    }
+    // signup
+    const res = await signUp(email, password, fullName)
+    setBusy(false)
+    if (res.error) return setError(ac.signupError)
+    if (res.needsConfirmation) return setConfirmSent(true)
+    if (res.profile) return navigate(from ?? HOME_BY_ROLE[res.profile.role], { replace: true })
   }
+
+  if (confirmSent) {
+    return (
+      <div className="portal">
+        <div className="container">
+          <div className="loginbox">
+            <h1>{ac.confirmTitle}</h1>
+            <p className="loginbox__sub">{ac.confirmBody}</p>
+            <button
+              className="btn btn--navy"
+              style={{ width: '100%' }}
+              onClick={() => { setConfirmSent(false); setMode('login'); setPassword('') }}
+            >
+              {a.login}
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const isSignup = mode === 'signup'
 
   return (
     <div className="portal">
       <div className="container">
         <form className="loginbox" onSubmit={handleSubmit}>
-          <h1>{t.participant.loginTitle}</h1>
-          <p className="loginbox__sub">{t.participant.loginSupport}</p>
+          <h1>{isSignup ? ac.createTitle : a.loginTitle}</h1>
+          <p className="loginbox__sub">{isSignup ? ac.createSupport : a.loginSupport}</p>
 
-          <div className={`field${error ? ' field--error' : ''}`}>
-            <label htmlFor="login-email">{t.participant.email}</label>
+          {isSignup && (
+            <div className="field">
+              <label htmlFor="signup-name">{ac.fullName}</label>
+              <input
+                id="signup-name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                autoComplete="name"
+                required
+              />
+            </div>
+          )}
+          <div className="field">
+            <label htmlFor="login-email">{a.email}</label>
             <input
               id="login-email"
               type="email"
@@ -53,19 +101,34 @@ export function LoginPage() {
             />
           </div>
           <div className={`field${error ? ' field--error' : ''}`}>
-            <label htmlFor="login-pass">{t.participant.password}</label>
+            <label htmlFor="login-pass">{a.password}</label>
             <input
               id="login-pass"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
+              autoComplete={isSignup ? 'new-password' : 'current-password'}
               required
             />
-            {error && <p className="field-error">{t.participant.loginError}</p>}
+            {isSignup && !error && <p className="loginbox__hint">{ac.passwordHint}</p>}
+            {error && <p className="field-error">{error}</p>}
           </div>
           <button className="btn btn--navy" type="submit" disabled={busy} style={{ width: '100%' }}>
-            {busy ? t.participant.loggingIn : t.participant.login}
+            {busy
+              ? isSignup
+                ? ac.creatingAccount
+                : a.loggingIn
+              : isSignup
+                ? ac.createAccount
+                : a.login}
+          </button>
+
+          <button
+            type="button"
+            className="loginbox__toggle"
+            onClick={() => { setMode(isSignup ? 'login' : 'signup'); setError('') }}
+          >
+            {isSignup ? ac.toggleToLogin : ac.toggleToCreate}
           </button>
 
           {isDemoMode && (
