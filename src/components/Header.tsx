@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { LANGS, useI18n } from '../i18n'
 import { track } from '../lib/analytics'
+import { useAuth } from '../lib/auth'
 import './header.css'
+
+const HOME_BY_ROLE = { participant: '/peserta', admin: '/team', director: '/pengurusan' } as const
 
 function Wordmark() {
   return (
@@ -40,9 +43,17 @@ function LangSwitch() {
 
 export function Header() {
   const { t } = useI18n()
+  const { profile, signOut } = useAuth()
   const [open, setOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    setOpen(false)
+    await signOut()
+    navigate('/')
+  }
+  const dashboardHome = profile ? HOME_BY_ROLE[profile.role] : '/login'
 
   useEffect(() => setOpen(false), [location.pathname, location.hash])
 
@@ -89,9 +100,20 @@ export function Header() {
 
         <div className="siteheader__actions">
           <LangSwitch />
-          <Link to="/login" className="siteheader__login" onClick={() => track('participant_login_clicked')}>
-            {t.nav.participantLogin}
-          </Link>
+          {profile ? (
+            <>
+              <Link to={dashboardHome} className="siteheader__link">
+                {profile.full_name || t.nav.participantLogin}
+              </Link>
+              <button className="siteheader__login" onClick={handleLogout}>
+                {t.participant.logout}
+              </button>
+            </>
+          ) : (
+            <Link to="/login" className="siteheader__login" onClick={() => track('participant_login_clicked')}>
+              {t.nav.participantLogin}
+            </Link>
+          )}
           <Link
             to="/semakan"
             className="btn btn--gold btn--sm siteheader__cta"
@@ -123,9 +145,20 @@ export function Header() {
                 {s.label}
               </button>
             ))}
-            <Link to="/login" className="mobilemenu__link">
-              {t.nav.participantLogin}
-            </Link>
+            {profile ? (
+              <>
+                <Link to={dashboardHome} className="mobilemenu__link">
+                  {profile.full_name || t.nav.participantLogin}
+                </Link>
+                <button className="mobilemenu__link" onClick={handleLogout}>
+                  {t.participant.logout}
+                </button>
+              </>
+            ) : (
+              <Link to="/login" className="mobilemenu__link">
+                {t.nav.participantLogin}
+              </Link>
+            )}
           </nav>
           <div className="mobilemenu__lang">
             <LangSwitch />

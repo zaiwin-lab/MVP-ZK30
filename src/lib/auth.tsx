@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
-import { getProfile, signIn as dataSignIn, signOut as dataSignOut, signUp as dataSignUp } from './data'
+import { getProfile, signIn as dataSignIn, signOut as dataSignOut, signUp as dataSignUp, supabase } from './data'
 import type { Profile } from './types'
 
 interface AuthValue {
@@ -29,8 +29,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setLoading(false)
       }
     })
+    // Keep auth state in sync (session restore on refresh, token refresh, other tabs)
+    if (!supabase) return () => { cancelled = true }
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) getProfile().then((p) => { if (!cancelled) setProfile(p) })
+      else if (!cancelled) setProfile(null)
+    })
     return () => {
       cancelled = true
+      sub.subscription.unsubscribe()
     }
   }, [])
 
