@@ -197,6 +197,10 @@ export const ms = {
     continueNote:
       'Melengkapkan profil penuh (5–8 minit) membantu team menyemak laluan anda dengan lebih tepat. Anda juga boleh melengkapkannya kemudian.',
   },
+  team2: {
+    title: 'Coach & Team',
+    intro: 'Barisan yang membimbing anda dari semakan awal sehingga penilaian.',
+  },
   semak2: {
     title: 'Semakan Pengalaman Dalam 60 Saat',
     subtitle:

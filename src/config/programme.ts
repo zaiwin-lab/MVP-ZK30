@@ -67,6 +67,26 @@ export const CONTACT = {
 export const whatsappLink = (message: string = CONTACT.whatsappMessage) =>
   `https://wa.me/${CONTACT.whatsappIntl}?text=${encodeURIComponent(message)}`
 
+/**
+ * Coach & Team roster (homepage #coach section). Placeholders for now —
+ * replace `name`, `role`, and add a `photo` URL (or /public path) per person.
+ * Leave `photo` empty to show an initials placeholder.
+ */
+export const TEAM: {
+  coach: { name: string; role: string; photo: string }
+  members: { name: string; role: string; photo: string }[]
+} = {
+  coach: { name: 'Coach Roszie', role: 'Ketua Jurulatih & Pembimbing', photo: '' },
+  members: [
+    { name: 'Ahli Team 1', role: 'Peranan', photo: '' },
+    { name: 'Ahli Team 2', role: 'Peranan', photo: '' },
+    { name: 'Ahli Team 3', role: 'Peranan', photo: '' },
+    { name: 'Ahli Team 4', role: 'Peranan', photo: '' },
+    { name: 'Ahli Team 5', role: 'Peranan', photo: '' },
+    { name: 'Ahli Team 6', role: 'Peranan', photo: '' },
+  ],
+}
+
 /** Coach & team — biography and credentials are placeholders until officially supplied */
 export const COACH = {
   name: 'Coach Hjh Roszie Amir',

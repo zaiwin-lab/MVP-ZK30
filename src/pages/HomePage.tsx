@@ -2,7 +2,15 @@ import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Reveal } from '../components/Reveal'
 import { QuickCheck } from '../components/QuickCheck'
-import { BENEFITS, COHORT, whatsappLink, CONTACT } from '../config/programme'
+import { BENEFITS, COHORT, TEAM, whatsappLink, CONTACT } from '../config/programme'
+
+const initials = (name: string) =>
+  name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? '')
+    .join('')
 import { track } from '../lib/analytics'
 import { usePageMeta } from '../lib/usePageMeta'
 import { useI18n } from '../i18n'
@@ -216,6 +224,43 @@ export function HomePage() {
           <p className="progflow__note text-soft">
             <span className="pending-mark">{t.common.pendingConfirmation}</span> {h.progression.note}
           </p>
+        </div>
+      </section>
+
+      {/* 6b ── COACH & TEAM */}
+      <section className="section section--ivory" id="coach">
+        <div className="container">
+          <Reveal className="text-center">
+            <h2>{t.team2.title}</h2>
+            <div className="gold-rule gold-rule--center" />
+            <p className="text-soft" style={{ margin: '0 auto' }}>
+              {t.team2.intro}
+            </p>
+          </Reveal>
+
+          <Reveal className="teamcard teamcard--lead">
+            {TEAM.coach.photo ? (
+              <img className="teamcard__img" src={TEAM.coach.photo} alt={TEAM.coach.name} />
+            ) : (
+              <span className="teamcard__ph" aria-hidden="true">{initials(TEAM.coach.name)}</span>
+            )}
+            <h3 className="teamcard__name">{TEAM.coach.name}</h3>
+            <p className="teamcard__role">{TEAM.coach.role}</p>
+          </Reveal>
+
+          <div className="teamgrid">
+            {TEAM.members.map((m, i) => (
+              <Reveal key={i} delay={i * 50} className="teamcard">
+                {m.photo ? (
+                  <img className="teamcard__img" src={m.photo} alt={m.name} />
+                ) : (
+                  <span className="teamcard__ph" aria-hidden="true">{initials(m.name)}</span>
+                )}
+                <h3 className="teamcard__name">{m.name}</h3>
+                <p className="teamcard__role">{m.role}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

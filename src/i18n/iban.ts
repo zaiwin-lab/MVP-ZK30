@@ -207,6 +207,10 @@ export const iban: Dict = {
     continueNote:
       'Nembuka profil penuh (5–8 minit) nulung team mansik jalai nuan enggau tepat agi. Nuan mega ulih nembuka iya ila.',
   },
+  team2: {
+    title: 'Coach & Team',
+    intro: 'Raban ti mimbing nuan ari semakan awal nyentuk ngagai penilaian.',
+  },
   semak2: {
     title: 'Semakan Pengalaman Dalam 60 Saat',
     subtitle:

@@ -1341,3 +1341,64 @@
     text-align: center;
   }
 }
+
+/* ── Coach & Team (#coach) ─────────────────────────────────────── */
+.teamgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.6rem;
+}
+.teamcard {
+  background: var(--white);
+  border: 1px solid oklch(0.9 0.01 265);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow-1);
+}
+.teamcard--lead {
+  max-width: 320px;
+  margin: 2rem auto 0.5rem;
+  border-color: var(--gold-300);
+}
+.teamcard__ph,
+.teamcard__img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  margin: 0 auto 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+.teamcard__ph {
+  background: var(--navy-50);
+  color: var(--navy-700);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+.teamcard--lead .teamcard__ph,
+.teamcard--lead .teamcard__img {
+  width: 120px;
+  height: 120px;
+  font-size: 2rem;
+}
+.teamcard--lead .teamcard__ph {
+  background: var(--navy-900);
+  color: var(--gold-300);
+}
+.teamcard__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+.teamcard__role {
+  margin-top: 0.2rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}

@@ -195,6 +195,10 @@ export const en: Dict = {
     continueNote:
       'Completing the full profile (5–8 minutes) helps the team review your pathway more accurately. You can also complete it later.',
   },
+  team2: {
+    title: 'Coach & Team',
+    intro: 'The people guiding you from the first check through to assessment.',
+  },
   semak2: {
     title: 'Experience Check in 60 Seconds',
     subtitle:

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { LANGS, useI18n } from '../i18n'
 import { track } from '../lib/analytics'
 import { useAuth } from '../lib/auth'
@@ -75,12 +75,18 @@ export function Header() {
   }
 
   const sections = [
-    { hash: '#laluan', label: t.nav.pathways },
+    { hash: '#sesuai', label: t.nav.pathways },
     { hash: '#manfaat', label: t.nav.benefits },
-    { hash: '#perjalanan', label: t.nav.journey },
+    { hash: '#progres', label: t.nav.journey },
     { hash: '#coach', label: t.nav.coach },
     { hash: '#faq', label: t.nav.faq },
   ]
+
+  const goHome = () => {
+    setOpen(false)
+    if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' })
+    else navigate('/')
+  }
 
   return (
     <header className="siteheader">
@@ -88,9 +94,9 @@ export function Header() {
         <Wordmark />
 
         <nav className="siteheader__nav" aria-label="Utama">
-          <NavLink to="/" className="siteheader__link" end>
+          <button className="siteheader__link" onClick={goHome}>
             {t.nav.home}
-          </NavLink>
+          </button>
           {sections.map((s) => (
             <button key={s.hash} className="siteheader__link" onClick={() => goSection(s.hash)}>
               {s.label}
@@ -137,9 +143,9 @@ export function Header() {
       {open && (
         <div className="mobilemenu" id="mobile-menu">
           <nav aria-label="Menu mudah alih">
-            <NavLink to="/" className="mobilemenu__link" end>
+            <button className="mobilemenu__link" onClick={goHome}>
               {t.nav.home}
-            </NavLink>
+            </button>
             {sections.map((s) => (
               <button key={s.hash} className="mobilemenu__link" onClick={() => goSection(s.hash)}>
                 {s.label}

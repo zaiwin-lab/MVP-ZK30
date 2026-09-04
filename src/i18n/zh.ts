@@ -178,6 +178,10 @@ export const zh: Dict = {
     btnWhatsapp: '立即 WhatsApp 团队',
     continueNote: '完成完整资料(5–8 分钟)有助于团队更准确地审核您的途径。您也可以稍后完成。',
   },
+  team2: {
+    title: '导师与团队',
+    intro: '从初步评估到最终评估，全程陪伴指导您的团队。',
+  },
   semak2: {
     title: '60 秒经验评估',
     subtitle: '了解您的工作、创业或领导经验是否具备文凭路径的潜力——无需辞去工作。',
