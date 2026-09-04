@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const SITE_URL = 'https://spm2diploma.netlify.app'
+const SITE_URL = 'https://spm2diploma.uk'
 const OG_IMAGE = `${SITE_URL}/og.png`
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
