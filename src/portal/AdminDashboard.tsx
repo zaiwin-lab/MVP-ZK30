@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   APPLICATION_STATUSES,
   CHECKLIST_ITEMS,
+  LEADS_SHEET_URL,
   PROGRESS_STAGES,
   type ApplicationStatus,
   type ChecklistItem,
@@ -269,9 +271,21 @@ function Dashboard() {
             </p>
             {isDemoMode && <span className="portal__demobadge">{t.common.demoNotice}</span>}
           </div>
-          <button className="btn btn--ghost-navy btn--sm" onClick={signOut}>
-            {t.participant.logout}
-          </button>
+          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+            {LEADS_SHEET_URL && (
+              <a className="btn btn--gold btn--sm" href={LEADS_SHEET_URL} target="_blank" rel="noopener noreferrer">
+                📊 Google Sheet
+              </a>
+            )}
+            {profile?.role === 'director' && (
+              <Link to="/pengurusan" className="btn btn--ghost-navy btn--sm">
+                Management Access →
+              </Link>
+            )}
+            <button className="btn btn--ghost-navy btn--sm" onClick={signOut}>
+              {t.participant.logout}
+            </button>
+          </div>
         </div>
 
         <div className="stats">

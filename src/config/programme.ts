@@ -68,6 +68,15 @@ export const whatsappLink = (message: string = CONTACT.whatsappMessage) =>
   `https://wa.me/${CONTACT.whatsappIntl}?text=${encodeURIComponent(message)}`
 
 /**
+ * Google Sheet of Semakan leads (live via the Supabase webhook).
+ * Shown as a button on the admin dashboards. Keep the Sheet shared ONLY with
+ * named Google accounts (not "anyone with link"), since this URL ships in the
+ * page. Leave empty to hide the button.
+ */
+export const LEADS_SHEET_URL =
+  'https://docs.google.com/spreadsheets/d/1cYR5-V2zwI1dyTS76l6GBA_VGjo_oXThT2loTJl9Ur0/edit'
+
+/**
  * Coach & Team roster (homepage #coach section). Placeholders for now —
  * replace `name`, `role`, and add a `photo` URL (or /public path) per person.
  * Leave `photo` empty to show an initials placeholder.

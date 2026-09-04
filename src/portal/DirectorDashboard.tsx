@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { LEADS_SHEET_URL } from '../config/programme'
 import { addFinanceEntry, isDemoMode, listApplications, listFinance, listProfiles } from '../lib/data'
 import type { Application, FinanceEntry, Profile } from '../lib/types'
 import { useAuth } from '../lib/auth'
@@ -210,9 +211,14 @@ function Dashboard() {
             <p className="portal__sub">{profile?.full_name}</p>
             {isDemoMode && <span className="portal__demobadge">{t.common.demoNotice}</span>}
           </div>
-          <div style={{ display: 'flex', gap: '0.6rem' }}>
+          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+            {LEADS_SHEET_URL && (
+              <a className="btn btn--gold btn--sm" href={LEADS_SHEET_URL} target="_blank" rel="noopener noreferrer">
+                📊 Google Sheet
+              </a>
+            )}
             <Link to="/team" className="btn btn--ghost-navy btn--sm">
-              Buka Team Access
+              Team Access →
             </Link>
             <button className="btn btn--ghost-navy btn--sm" onClick={signOut}>
               {t.participant.logout}
