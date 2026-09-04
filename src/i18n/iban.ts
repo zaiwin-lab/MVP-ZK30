@@ -211,6 +211,14 @@ export const iban: Dict = {
     title: 'Coach & Team',
     intro: 'Raban ti mimbing nuan ari semakan awal nyentuk ngagai penilaian.',
   },
+  soon: {
+    title: 'Portal Peserta — Deka Datai',
+    body: 'Log masuk peserta agi dalam pengaga. Diatu, nuan ulih ngaga Semakan Kelayakan percuma tauka bekunsi enggau kami ngena WhatsApp.',
+  },
+  adminAuth: {
+    title: 'Akses Team / Pengurusan',
+    support: 'Log masuk ke pentadbir enggau pengurus program.',
+  },
   semak2: {
     title: 'Semakan Pengalaman Dalam 60 Saat',
     subtitle:

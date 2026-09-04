@@ -20,6 +20,7 @@ const ProgramInfoPage = lazy(() =>
   import('./pages/ProgramInfoPage').then((m) => ({ default: m.ProgramInfoPage }))
 )
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })))
+const ComingSoonPage = lazy(() => import('./pages/ComingSoonPage').then((m) => ({ default: m.ComingSoonPage })))
 const LoginPage = lazy(() => import('./portal/LoginPage').then((m) => ({ default: m.LoginPage })))
 const ParticipantDashboard = lazy(() =>
   import('./portal/ParticipantDashboard').then((m) => ({ default: m.ParticipantDashboard }))
@@ -71,6 +72,7 @@ export default function App() {
             <Route path="/privasi" element={<PrivacyPage />} />
             <Route path="/maklumat-program" element={<ProgramInfoPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/peserta-login" element={<ComingSoonPage />} />
             <Route path="/peserta" element={<ParticipantDashboard />} />
             <Route path="/team" element={<AdminDashboard />} />
             <Route path="/pengurusan" element={<DirectorDashboard />} />

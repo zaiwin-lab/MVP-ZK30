@@ -116,7 +116,7 @@ export function Header() {
               </button>
             </>
           ) : (
-            <Link to="/login" className="siteheader__login" onClick={() => track('participant_login_clicked')}>
+            <Link to="/peserta-login" className="siteheader__login" onClick={() => track('participant_login_clicked')}>
               {t.nav.participantLogin}
             </Link>
           )}
@@ -161,7 +161,7 @@ export function Header() {
                 </button>
               </>
             ) : (
-              <Link to="/login" className="mobilemenu__link">
+              <Link to="/peserta-login" className="mobilemenu__link">
                 {t.nav.participantLogin}
               </Link>
             )}

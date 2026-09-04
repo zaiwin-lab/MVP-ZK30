@@ -199,6 +199,14 @@ export const en: Dict = {
     title: 'Coach & Team',
     intro: 'The people guiding you from the first check through to assessment.',
   },
+  soon: {
+    title: 'Participant Portal — Coming Soon',
+    body: 'Participant login is under development. For now, you can do the free Eligibility Check or contact us on WhatsApp.',
+  },
+  adminAuth: {
+    title: 'Team / Management Access',
+    support: 'Sign in for programme administrators and managers.',
+  },
   semak2: {
     title: 'Experience Check in 60 Seconds',
     subtitle:

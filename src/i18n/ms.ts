@@ -201,6 +201,14 @@ export const ms = {
     title: 'Coach & Team',
     intro: 'Barisan yang membimbing anda dari semakan awal sehingga penilaian.',
   },
+  soon: {
+    title: 'Portal Peserta — Akan Datang',
+    body: 'Log masuk peserta sedang dalam pembinaan. Buat masa ini, anda boleh membuat Semakan Kelayakan percuma atau hubungi kami melalui WhatsApp.',
+  },
+  adminAuth: {
+    title: 'Akses Team / Pengurusan',
+    support: 'Log masuk untuk pentadbir dan pengurus program.',
+  },
   semak2: {
     title: 'Semakan Pengalaman Dalam 60 Saat',
     subtitle:

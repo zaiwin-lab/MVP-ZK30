@@ -48,7 +48,7 @@ export function Footer() {
 
         <nav className="sitefooter__col" aria-label={f.supportTitle}>
           <h3>{f.supportTitle}</h3>
-          <Link to="/login">{f.participantLogin}</Link>
+          <Link to="/peserta-login">{f.participantLogin}</Link>
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
             {f.whatsappSupport}
           </a>
