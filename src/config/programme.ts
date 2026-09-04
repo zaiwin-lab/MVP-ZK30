@@ -53,13 +53,12 @@ export const PATHWAYS: Record<'keusahawanan' | 'kepimpinan', PathwayConfig> = {
 
 /**
  * Contact & continuation channels.
- * NOTE: The V2.5 master prompt mentions 011-2846 5813, but the live V1 site
- * and the original build spec both use 011-2846 6813. Keeping 6813 (the
- * number currently in use) — change BOTH values below if 5813 is correct.
+ * WhatsApp goes to Admin / KOBIS Berhad: 012-2075099 (intl 60122075099).
+ * Single source of truth — every WhatsApp link on the site reads from here.
  */
 export const CONTACT = {
-  whatsappDisplay: '011-2846 6813',
-  whatsappIntl: '601128466813',
+  whatsappDisplay: '012-2075099',
+  whatsappIntl: '60122075099',
   whatsappMessage:
     'Salam, saya berminat dengan Program SPM2Diploma dan ingin mengetahui langkah untuk semakan kelayakan.',
   kobisUrl: 'https://www.kobisberhad.com/',
