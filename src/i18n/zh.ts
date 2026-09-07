@@ -716,7 +716,7 @@ export const zh: Dict = {
   },
   seo: {
     home: {
-      title: 'SPM2Diploma | 企业家与组织领导者的文凭途径 — KOBIS Berhad',
+      title: 'SPM2Diploma — 把经验转化为文凭',
       desc: '为企业家与组织领导者而设的引导式途径,把真实经验带向更高资格。免费 60 秒初步查询。',
     },
     pathway1: {

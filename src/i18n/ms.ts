@@ -756,7 +756,7 @@ export const ms = {
   },
   seo: {
     home: {
-      title: 'SPM2Diploma | Laluan Diploma Untuk Usahawan & Pemimpin Organisasi — KOBIS Berhad',
+      title: 'SPM2Diploma — Guna Pengalaman Jadi Diploma',
       desc: 'Laluan dibimbing untuk usahawan dan pemimpin organisasi membawa pengalaman sebenar ke arah kelayakan lebih tinggi. Semakan awal percuma dalam 60 saat.',
     },
     pathway1: {

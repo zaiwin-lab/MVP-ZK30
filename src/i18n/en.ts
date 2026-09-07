@@ -754,7 +754,7 @@ export const en: Dict = {
   },
   seo: {
     home: {
-      title: 'SPM2Diploma | Diploma Pathway for Entrepreneurs & Organisational Leaders — KOBIS Berhad',
+      title: 'SPM2Diploma — Turn Your Experience Into a Diploma',
       desc: 'A guided pathway for entrepreneurs and organisational leaders to bring real experience towards a higher qualification. Free 60-second initial check.',
     },
     pathway1: {

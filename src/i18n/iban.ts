@@ -766,7 +766,7 @@ export const iban: Dict = {
   },
   seo: {
     home: {
-      title: 'SPM2Diploma | Jalai Diploma Ke Sida Bedagang & Tuai Gerempung — KOBIS Berhad',
+      title: 'SPM2Diploma — Guna Pengalaman Nyadi Diploma',
       desc: 'Jalai diberi ajar ke sida bedagang enggau tuai gerempung mai pengalaman amat ngagai kelulusan tinggi agi. Pansik keterubah percuma 60 saat.',
     },
     pathway1: {
